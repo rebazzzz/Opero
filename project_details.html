@@ -7,31 +7,21 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="assets/js/project_details.js"></script>
+<script src="assets/js/app-shell.js"></script>
 <link href="assets/css/common.css" rel="stylesheet"/>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased min-h-screen">
-<!-- Top Navigation (Simplified for context) -->
-<nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4">
-<div class="flex items-center justify-between max-w-7xl mx-auto">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">P</div>
-<span class="font-bold text-xl text-slate-900 dark:text-white">ProManage</span>
-</div>
-<div class="flex items-center gap-4">
-<button class="p-2 text-slate-500 hover:text-primary transition-colors relative">
-<span class="material-icons">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
-</button>
-<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden" data-alt="User profile avatar">
-<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3uHThK3HxNvJZ_fH1MLqevqYPklXPZKqG20HM9919XB_-BLIU7y8EjvMrkZWBTDpBQ3EPb-UElk50Bw3s_xEunOjgHpHoQ5DmieWT-NpohXS1No-mqMoJl39vbvF9KIIb3sgakDuH7yaeQsMY__7BQVjY7ggea5Cq6AdWxjaKk9d1_lXXG0z0kdg4XRtKBDq8r9BK0IHyz2YmKnrsxQ5c_5q_z9G1uZHH-uVAI8F-gySA5RlCFX0wNKPZdfLQsAjXNYa8ZZCLjOoI"/>
-</div>
-</div>
-</div>
-</nav>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased h-screen overflow-hidden flex flex-col md:flex-row" data-shell-active="projects" data-shell-search="Search projects, clients..." data-shell-user="Alex Morgan" data-shell-role="Owner" data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuD3uHThK3HxNvJZ_fH1MLqevqYPklXPZKqG20HM9919XB_-BLIU7y8EjvMrkZWBTDpBQ3EPb-UElk50Bw3s_xEunOjgHpHoQ5DmieWT-NpohXS1No-mqMoJl39vbvF9KIIb3sgakDuH7yaeQsMY__7BQVjY7ggea5Cq6AdWxjaKk9d1_lXXG0z0kdg4XRtKBDq8r9BK0IHyz2YmKnrsxQ5c_5q_z9G1uZHH-uVAI8F-gySA5RlCFX0wNKPZdfLQsAjXNYa8ZZCLjOoI">
+<!-- Shared App Shell -->
+<div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="app-sidebar-slot"></div>
 <!-- Main Content Area -->
-<main class="max-w-7xl mx-auto px-6 py-8">
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<div id="app-header-slot"></div>
+<div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
 <!-- Breadcrumbs -->
 <nav class="flex mb-6 text-sm text-slate-500 dark:text-slate-400">
 <a class="hover:text-primary transition-colors" href="main_dashboard.html">Home</a>
@@ -40,6 +30,13 @@
 <span class="mx-2">/</span>
 <span class="text-slate-900 dark:text-white font-medium">Website Redesign for Acme Corp</span>
 </nav>
+<!-- Back Action -->
+<div class="mb-6">
+<a class="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all" href="project_list.html">
+<span class="material-icons-outlined text-[18px]">arrow_back</span>
+<span>Back to Projects</span>
+</a>
+</div>
 <!-- Project Header -->
 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
 <div>
@@ -316,6 +313,8 @@
 </a>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 </div>
