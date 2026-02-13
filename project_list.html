@@ -21,13 +21,17 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Theme Configuration -->
     <script src="assets/js/project_list.js"></script>
-    <link href="assets/css/project_list.css" rel="stylesheet"/>
-<link href="assets/css/common.css" rel="stylesheet"/>
+    <link href="assets/css/project_list.css" rel="stylesheet" />
+    <link href="assets/css/common.css" rel="stylesheet" />
     <script src="assets/js/app-shell.js"></script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row" data-shell-active="projects" data-shell-search="Search projects, clients..." data-shell-user="Alex Morgan" data-shell-role="Owner" data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS">
-<!-- Shared App Shell -->
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row"
+    data-shell-active="projects" data-shell-search="Search projects, clients..." data-shell-user="Alex Morgan"
+    data-shell-role="Owner"
+    data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS">
+    <!-- Shared App Shell -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
     <div id="app-sidebar-slot"></div>
     <!-- Main Content Area -->
@@ -60,35 +64,81 @@
                         <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <span class="material-icons-outlined text-slate-400">search</span>
                         </span>
-                        <input
+                        <input id="project-search-input"
                             class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg leading-5 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm"
                             placeholder="Search projects by name or client..." type="text" />
                     </div>
                     <!-- Filters -->
-                    <div class="flex items-center gap-3 w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
-                        <div class="relative group">
-                            <button
+                    <div class="flex items-center gap-3 w-full md:w-auto overflow-visible pb-2 md:pb-0">
+                        <div class="relative">
+                            <button id="status-filter-btn"
                                 class="flex items-center gap-2 px-4 py-2.5 bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
                                 <span class="material-icons-outlined text-lg">filter_list</span>
-                                Status: All
+                                <span id="status-filter-text">Status: All</span>
                                 <span class="material-icons-outlined text-lg text-slate-400">expand_more</span>
                             </button>
-                            <!-- Dropdown could go here -->
+                            <!-- Status Dropdown -->
+                            <div id="status-dropdown"
+                                class="absolute z-20 left-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg hidden">
+                                <div class="py-1">
+                                    <button
+                                        class="status-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-status="all">All Statuses</button>
+                                    <button
+                                        class="status-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-status="active">Active</button>
+                                    <button
+                                        class="status-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-status="pending review">Pending Review</button>
+                                    <button
+                                        class="status-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-status="draft">Draft</button>
+                                    <button
+                                        class="status-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-status="in review">In Review</button>
+                                    <button
+                                        class="status-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-status="completed">Completed</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="relative">
-                            <button
+                            <button id="date-filter-btn"
                                 class="flex items-center gap-2 px-4 py-2.5 bg-background-light dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors whitespace-nowrap">
                                 <span class="material-icons-outlined text-lg">calendar_today</span>
-                                This Month
+                                <span id="date-filter-text">All Time</span>
                                 <span class="material-icons-outlined text-lg text-slate-400">expand_more</span>
                             </button>
+                            <!-- Date Dropdown -->
+                            <div id="date-dropdown"
+                                class="absolute z-20 left-0 mt-2 w-48 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg hidden">
+                                <div class="py-1">
+                                    <button
+                                        class="date-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-date="all">All Time</button>
+                                    <button
+                                        class="date-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-date="this-month">This Month</button>
+                                    <button
+                                        class="date-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-date="last-month">Last Month</button>
+                                    <button
+                                        class="date-option w-full text-left px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                                        data-date="this-year">This Year</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Table Card -->
                 <div
                     class="bg-neutral-surface dark:bg-dark-surface rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 overflow-hidden">
-                    <div class="overflow-x-auto">
+                    <div id="no-results-message" class="hidden py-12 text-center">
+                        <span
+                            class="material-icons-outlined text-4xl text-slate-300 dark:text-slate-600">search_off</span>
+                        <p class="mt-4 text-slate-500 dark:text-slate-400">No projects found matching your criteria</p>
+                    </div>
+                    <div class="overflow-x-auto" id="projects-table-container">
                         <table class="min-w-full divide-y divide-slate-100 dark:divide-slate-700">
                             <thead class="bg-slate-50 dark:bg-slate-800/50">
                                 <tr>
@@ -447,8 +497,3 @@
 </body>
 
 </html>
-
-
-
-
-
