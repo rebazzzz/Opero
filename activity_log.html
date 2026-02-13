@@ -53,7 +53,7 @@
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 min-h-screen flex flex-col md:flex-row">
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 h-screen overflow-hidden flex flex-col md:flex-row">
     <!-- Mobile Sidebar Overlay -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
     <!-- Sidebar -->
@@ -113,47 +113,48 @@
             </a>
         </div>
     </aside>
-    <!-- Header -->
-    <header
-        class="h-16 bg-white dark:bg-[#1a2632] border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-20 flex-1 sticky top-0">
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden text-slate-500 hover:text-primary">
-            <span class="material-icons-outlined">menu</span>
-        </button>
-        <!-- Search Bar -->
-        <div class="hidden sm:flex items-center flex-1 max-w-md ml-4">
-            <div class="relative w-full">
-                <span
-                    class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
-                <input
-                    class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 text-slate-700 dark:text-slate-200 placeholder-slate-400"
-                    placeholder="Search projects, clients..." type="text" />
-            </div>
-        </div>
-        <!-- Right Actions -->
-        <div class="flex items-center gap-3 sm:gap-6">
-            <!-- Notifications -->
-            <button
-                class="relative p-2 text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
-                <span class="material-icons-outlined">notifications</span>
-                <span
-                    class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-[#1a2632]"></span>
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+        <!-- Top Navigation Bar -->
+        <header
+            class="h-16 bg-white dark:bg-[#1a2632] border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-20">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-500 hover:text-primary">
+                <span class="material-icons-outlined">menu</span>
             </button>
-            <!-- Profile -->
-            <div class="flex items-center gap-3 pl-3 border-l border-slate-100 dark:border-slate-700">
-                <div class="hidden sm:block text-right">
-                    <p class="text-sm font-bold text-slate-800 dark:text-white">Alex Morgan</p>
-                    <p class="text-xs text-slate-500 dark:text-slate-400">Owner</p>
+            <!-- Search Bar -->
+            <div class="hidden sm:flex items-center flex-1 max-w-md ml-4">
+                <div class="relative w-full">
+                    <span
+                        class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                    <input
+                        class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 text-slate-700 dark:text-slate-200 placeholder-slate-400"
+                        placeholder="Search projects, clients..." type="text" />
                 </div>
-                <img alt="User Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20"
-                    data-alt="Professional headshot of a smiling man in business casual attire"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS" />
             </div>
-        </div>
-    </header>
-    <div class="flex flex-1 overflow-hidden flex-col md:flex-row min-h-0">
-        <!-- Main Content Area -->
-        <main class="flex-1 overflow-y-auto p-4 lg:p-8 w-full">
+            <!-- Right Actions -->
+            <div class="flex items-center gap-3 sm:gap-6">
+                <!-- Notifications -->
+                <button
+                    class="relative p-2 text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span
+                        class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-[#1a2632]"></span>
+                </button>
+                <!-- Profile -->
+                <div class="flex items-center gap-3 pl-3 border-l border-slate-100 dark:border-slate-700">
+                    <div class="hidden sm:block text-right">
+                        <p class="text-sm font-bold text-slate-800 dark:text-white">Alex Morgan</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Owner</p>
+                    </div>
+                    <img alt="User Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20"
+                        data-alt="Professional headshot of a smiling man in business casual attire"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS" />
+                </div>
+            </div>
+        </header>
+        <!-- Scrollable Content Area -->
+        <div class="flex-1 overflow-y-auto p-4 lg:p-8">
             <div class="max-w-4xl mx-auto">
                 <!-- Header & Filters -->
                 <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -395,9 +396,8 @@
                     <p class="text-xs text-slate-400 mt-3">Showing 4 of 128 records</p>
                 </div>
             </div>
-        </main>
-    </div>
-    </div>
+        </div>
+    </main>
 
     <script>
         // Mobile menu toggle
