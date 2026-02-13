@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
 
@@ -13,29 +13,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#197fe6",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#111921",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
+    <script src="assets/js/settings-modules.js"></script>
+<link href="assets/css/common.css" rel="stylesheet"/>
 </head>
 
 <body
     class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 antialiased h-screen overflow-hidden flex flex-col md:flex-row">
-    <!-- Mobile Sidebar Overlay -->
+<!-- Mobile Sidebar Overlay -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
     <!-- Sidebar -->
     <aside
@@ -88,7 +72,7 @@
                 Settings
             </a>
             <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg font-medium transition-colors"
-                href="#">
+                href="login.html">
                 <span class="material-icons-outlined">logout</span>
                 Logout
             </a>
@@ -136,185 +120,176 @@
         <!-- Scrollable Content Area -->
         <div class="flex-1 overflow-y-auto py-8 px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
-            <!-- Page Header -->
-            <div class="mb-8">
-                <h1 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Settings</h1>
-                <p class="mt-2 text-slate-500 dark:text-slate-400 text-lg">Manage your organization preferences and
-                    enable features.</p>
-            </div>
-            <!-- Tab Navigation -->
-            <div
-                class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200 dark:border-slate-800 mb-8">
-                <nav aria-label="Tabs" class="flex space-x-8 w-full overflow-x-auto no-scrollbar">
-                    <a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
-                        href="#">
-                        Organization
-                    </a>
-                    <a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
-                        href="#">
-                        Team Members
-                    </a>
-                    <a class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
-                        href="#">
-                        Feature Modules
-                    </a>
-                    <a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
-                        href="#">
-                        Billing
-                    </a>
-                </nav>
-            </div>
-            <!-- Content Area: Feature Modules -->
-            <div class="space-y-6">
-                <!-- Section Intro -->
-                <div class="flex items-center justify-between mb-6">
-                    <div>
-                        <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Active Modules</h2>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Enable or disable core functionality
-                            for your workspace.</p>
-                    </div>
+                <!-- Page Header -->
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">Settings</h1>
+                    <p class="mt-2 text-slate-500 dark:text-slate-400 text-lg">Manage your organization preferences and
+                        enable features.</p>
                 </div>
-                <!-- Projects Module -->
+                <!-- Tab Navigation -->
                 <div
-                    class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:border-primary/30 transition-colors group">
-                    <div class="flex-shrink-0">
-                        <div
-                            class="w-14 h-14 rounded-lg bg-blue-50 dark:bg-slate-800 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
-                            <span class="material-icons-outlined text-3xl">assignment</span>
+                    class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200 dark:border-slate-800 mb-8">
+                    <nav aria-label="Tabs" class="flex space-x-8 w-full overflow-x-auto no-scrollbar">
+                        <a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
+                            href="main_dashboard.html">
+                            Organization
+                        </a>
+                        <a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
+                            href="client_management.html">
+                            Team Members
+                        </a>
+                        <a class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
+                            href="settings-modules.html">
+                            Feature Modules
+                        </a>
+                        <a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
+                            href="business_analytics.html">
+                            Billing
+                        </a>
+                    </nav>
+                </div>
+                <!-- Content Area: Feature Modules -->
+                <div class="space-y-6">
+                    <!-- Section Intro -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Active Modules</h2>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Enable or disable core
+                                functionality
+                                for your workspace.</p>
                         </div>
                     </div>
-                    <div class="flex-grow">
-                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Projects</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">Manage tasks, set timelines,
-                            and track project progress with your team.</p>
-                    </div>
-                    <div class="flex-shrink-0 pt-4 sm:pt-0">
-                        <label class="relative inline-flex items-center cursor-pointer">
-                            <input checked="" class="sr-only peer" type="checkbox" />
-                            <div
-                                class="w-14 h-8 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary">
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                <!-- CRM Module -->
-                <div
-                    class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:border-primary/30 transition-colors group">
-                    <div class="flex-shrink-0">
-                        <div
-                            class="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-slate-800 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform duration-300">
-                            <span class="material-icons-outlined text-3xl">people_alt</span>
-                        </div>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">CRM</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">Track client relationships,
-                            manage leads, and store contact details securely.</p>
-                    </div>
-                    <div class="flex-shrink-0 pt-4 sm:pt-0">
-                        <label class="relative inline-flex items-center cursor-pointer">
-                            <input checked="" class="sr-only peer" type="checkbox" />
-                            <div
-                                class="w-14 h-8 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary">
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                <!-- Analytics Module -->
-                <div
-                    class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:border-primary/30 transition-colors group">
-                    <div class="flex-shrink-0">
-                        <div
-                            class="w-14 h-14 rounded-lg bg-indigo-50 dark:bg-slate-800 flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform duration-300">
-                            <span class="material-icons-outlined text-3xl">bar_chart</span>
-                        </div>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Analytics</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">View detailed business
-                            performance reports and export data visualisations.</p>
-                    </div>
-                    <div class="flex-shrink-0 pt-4 sm:pt-0">
-                        <label class="relative inline-flex items-center cursor-pointer">
-                            <input class="sr-only peer" type="checkbox" />
-                            <div
-                                class="w-14 h-8 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary">
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                <!-- AI Insights Module (Locked) -->
-                <div
-                    class="relative bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 overflow-hidden">
-                    <!-- Premium Pattern Background -->
+                    <!-- Projects Module -->
                     <div
-                        class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#197fe6_1px,transparent_1px)] [background-size:16px_16px]">
-                    </div>
-                    <div class="flex-shrink-0 relative">
-                        <div
-                            class="w-14 h-14 rounded-lg bg-purple-100 dark:bg-slate-800 flex items-center justify-center text-purple-600 opacity-60">
-                            <span class="material-icons-outlined text-3xl">auto_awesome</span>
-                        </div>
-                    </div>
-                    <div class="flex-grow relative z-10 opacity-70">
-                        <div class="flex items-center gap-3 flex-wrap">
-                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">AI Insights</h3>
-                            <span
-                                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">
-                                Upgrade Required
-                            </span>
-                        </div>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">Unlock predictive trends and
-                            get automated business advice powered by AI.</p>
-                    </div>
-                    <div class="flex-shrink-0 pt-4 sm:pt-0 relative z-10">
-                        <div class="flex flex-col items-end gap-2">
-                            <!-- Disabled Toggle Look -->
+                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:border-primary/30 transition-colors group">
+                        <div class="flex-shrink-0">
                             <div
-                                class="w-14 h-8 bg-slate-200 dark:bg-slate-700 rounded-full relative opacity-50 cursor-not-allowed">
-                                <div class="absolute top-[4px] left-[4px] bg-white h-6 w-6 rounded-full shadow-sm">
-                                </div>
+                                class="w-14 h-14 rounded-lg bg-blue-50 dark:bg-slate-800 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-icons-outlined text-3xl">assignment</span>
                             </div>
-                            <button
-                                class="text-xs font-semibold text-primary hover:text-primary/80 flex items-center gap-1 mt-1">
-                                View Plans <span class="material-icons-outlined text-[10px] pt-0.5">arrow_forward</span>
-                            </button>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Projects</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">Manage tasks, set
+                                timelines,
+                                and track project progress with your team.</p>
+                        </div>
+                        <div class="flex-shrink-0 pt-4 sm:pt-0">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input checked="" class="sr-only peer" type="checkbox" />
+                                <div
+                                    class="w-14 h-8 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary">
+                                </div>
+                            </label>
                         </div>
                     </div>
-                </div>
-                <!-- Save Actions -->
-                <div
-                    class="flex items-center justify-end gap-4 pt-8 border-t border-slate-200 dark:border-slate-800 mt-8">
-                    <button
-                        class="px-6 py-2.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors">
-                        Discard Changes
-                    </button>
-                    <button
-                        class="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white text-sm font-medium rounded-lg shadow-lg shadow-primary/30 transition-all active:scale-95 flex items-center gap-2">
-                        <span class="material-icons-outlined text-lg">save</span>
-                        Save Configuration
-                    </button>
+                    <!-- CRM Module -->
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:border-primary/30 transition-colors group">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-14 h-14 rounded-lg bg-emerald-50 dark:bg-slate-800 flex items-center justify-center text-emerald-600 group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-icons-outlined text-3xl">people_alt</span>
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">CRM</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">Track client
+                                relationships,
+                                manage leads, and store contact details securely.</p>
+                        </div>
+                        <div class="flex-shrink-0 pt-4 sm:pt-0">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input checked="" class="sr-only peer" type="checkbox" />
+                                <div
+                                    class="w-14 h-8 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Analytics Module -->
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:border-primary/30 transition-colors group">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-14 h-14 rounded-lg bg-indigo-50 dark:bg-slate-800 flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-icons-outlined text-3xl">bar_chart</span>
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Analytics</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">View detailed business
+                                performance reports and export data visualisations.</p>
+                        </div>
+                        <div class="flex-shrink-0 pt-4 sm:pt-0">
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input class="sr-only peer" type="checkbox" />
+                                <div
+                                    class="w-14 h-8 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-primary/30 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- AI Insights Module (Locked) -->
+                    <div
+                        class="relative bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 overflow-hidden">
+                        <!-- Premium Pattern Background -->
+                        <div
+                            class="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#197fe6_1px,transparent_1px)] [background-size:16px_16px]">
+                        </div>
+                        <div class="flex-shrink-0 relative">
+                            <div
+                                class="w-14 h-14 rounded-lg bg-purple-100 dark:bg-slate-800 flex items-center justify-center text-purple-600 opacity-60">
+                                <span class="material-icons-outlined text-3xl">auto_awesome</span>
+                            </div>
+                        </div>
+                        <div class="flex-grow relative z-10 opacity-70">
+                            <div class="flex items-center gap-3 flex-wrap">
+                                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">AI Insights</h3>
+                                <span
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">
+                                    Upgrade Required
+                                </span>
+                            </div>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1 max-w-lg">Unlock predictive trends
+                                and
+                                get automated business advice powered by AI.</p>
+                        </div>
+                        <div class="flex-shrink-0 pt-4 sm:pt-0 relative z-10">
+                            <div class="flex flex-col items-end gap-2">
+                                <!-- Disabled Toggle Look -->
+                                <div
+                                    class="w-14 h-8 bg-slate-200 dark:bg-slate-700 rounded-full relative opacity-50 cursor-not-allowed">
+                                    <div class="absolute top-[4px] left-[4px] bg-white h-6 w-6 rounded-full shadow-sm">
+                                    </div>
+                                </div>
+                                <button
+                                    class="text-xs font-semibold text-primary hover:text-primary/80 flex items-center gap-1 mt-1">
+                                    View Plans <span
+                                        class="material-icons-outlined text-[10px] pt-0.5">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Save Actions -->
+                    <div
+                        class="flex items-center justify-end gap-4 pt-8 border-t border-slate-200 dark:border-slate-800 mt-8">
+                        <button
+                            class="px-6 py-2.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors">
+                            Discard Changes
+                        </button>
+                        <button
+                            class="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white text-sm font-medium rounded-lg shadow-lg shadow-primary/30 transition-all active:scale-95 flex items-center gap-2">
+                            <span class="material-icons-outlined text-lg">save</span>
+                            Save Configuration
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
     </main>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('hidden');
-            overlay.classList.toggle('hidden');
-        });
-
-        // Close sidebar when overlay is clicked
-        document.getElementById('sidebar-overlay')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            sidebar.classList.add('hidden');
-            this.classList.add('hidden');
-        });
-    </script>
 </body>
 
 </html>
+
+
+

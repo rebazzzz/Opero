@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
 
@@ -13,58 +13,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#197fe6",
-                        "primary-dark": "#156cbd",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#111921",
-                        "surface-light": "#ffffff",
-                        "surface-dark": "#1a2632",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <style>
-        /* Custom scrollbar for better aesthetic */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-
-        .checkbox:checked {
-            background-color: #197fe6;
-            border-color: #197fe6;
-            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
-        }
-    </style>
+    <script src="assets/js/client_management.js"></script>
+    <link href="assets/css/client_management.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
 </head>
 
 <body
     class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row">
-    <!-- Mobile Sidebar Overlay -->
+<!-- Mobile Sidebar Overlay -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
     <!-- Sidebar -->
     <aside
@@ -117,7 +73,7 @@
                 Settings
             </a>
             <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg font-medium transition-colors"
-                href="#">
+                href="login.html">
                 <span class="material-icons-outlined">logout</span>
                 Logout
             </a>
@@ -166,441 +122,433 @@
         <!-- Scrollable Content Area -->
         <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
             <div class="max-w-7xl mx-auto">
-            <!-- Page Header -->
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-                <div>
-                    <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Clients</h1>
-                    <p class="text-slate-500 dark:text-slate-400 text-sm">Manage your client relationships and active
-                        projects.</p>
+                <!-- Page Header -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                    <div>
+                        <h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Clients</h1>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">Manage your client relationships and
+                            active
+                            projects.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="hidden sm:flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors shadow-sm">
+                            <span class="material-icons-round text-lg">file_download</span>
+                            Export
+                        </button>
+                        <button
+                            class="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium shadow-md shadow-primary/20 transition-all active:scale-95">
+                            <span class="material-icons-round text-xl">add</span>
+                            Add Client
+                        </button>
+                    </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <button
-                        class="hidden sm:flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors shadow-sm">
-                        <span class="material-icons-round text-lg">file_download</span>
-                        Export
-                    </button>
-                    <button
-                        class="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium shadow-md shadow-primary/20 transition-all active:scale-95">
-                        <span class="material-icons-round text-xl">add</span>
-                        Add Client
-                    </button>
+                <!-- Table Card -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col h-[calc(100vh-240px)] min-h-[500px]">
+                    <!-- Filter & Search Bar -->
+                    <div
+                        class="p-4 border-b border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-4 justify-between items-center bg-white dark:bg-surface-dark">
+                        <!-- Search -->
+                        <div class="relative w-full sm:w-96 group">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span
+                                    class="material-icons-round text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+                            </div>
+                            <input
+                                class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg leading-5 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-surface-dark focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all sm:text-sm"
+                                placeholder="Search by name, email, or company..." type="text" />
+                        </div>
+                        <!-- Filters -->
+                        <div class="flex items-center gap-3 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
+                            <div
+                                class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap">
+                                <span
+                                    class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Status:</span>
+                                <select
+                                    class="bg-transparent border-none text-sm text-slate-700 dark:text-slate-200 font-medium p-0 pr-6 focus:ring-0 cursor-pointer">
+                                    <option>All Clients</option>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                </select>
+                            </div>
+                            <div class="h-6 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
+                            <button
+                                class="p-2 text-slate-400 hover:text-primary rounded-lg hover:bg-primary/10 transition-colors">
+                                <span class="material-icons-round">filter_list</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Table Container -->
+                    <div class="overflow-auto flex-1 relative">
+                        <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
+                            <thead class="bg-slate-50 dark:bg-slate-800/50 sticky top-0 z-10">
+                                <tr>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider w-12"
+                                        scope="col">
+                                        <input
+                                            class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
+                                            type="checkbox" />
+                                    </th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">
+                                        Client Name
+                                    </th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:table-cell"
+                                        scope="col">
+                                        Contact Info
+                                    </th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden lg:table-cell"
+                                        scope="col">
+                                        Active Projects
+                                    </th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">
+                                        Status
+                                    </th>
+                                    <th class="relative px-6 py-4 w-10" scope="col">
+                                        <span class="sr-only">Actions</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="bg-surface-light dark:bg-surface-dark divide-y divide-slate-100 dark:divide-slate-700/50">
+                                <!-- Row 1 -->
+                                <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap align-middle">
+                                        <input
+                                            class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img alt="Client Avatar"
+                                                    class="h-10 w-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-800 shadow-sm"
+                                                    data-alt="Professional man in suit portrait"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXI2LqQu3kknjmamq_mcS_HRz0FoVgeCkiz_KyCBdUgY1bU87EA8O2AJBEZyNc8ejANpjjw2nmCGjifWfQEhU_sip0CKLNOy4d3K9niGXYYWF13JskAj2tA4-lnvBTWqfINNfN3xU1e3HXKcGeX2lNJKHs1Au_JulwYokcJgsZyurvUfMfDzExMWBSrmZI-qdwelfWtj017BDJIt-bDBhxHISWuxd_8byU00afrYJEkxRjnjngTxUuvDRzVCIHbgSOPkZTxuLcrmAy" />
+                                            </div>
+                                            <div class="ml-4">
+                                                <div
+                                                    class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                                                    Acme Corp</div>
+                                                <div class="text-xs text-slate-500 dark:text-slate-400">Robert Fox</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
+                                        <div class="flex flex-col gap-1">
+                                            <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
+                                                href="mailto:robert@acmecorp.com">
+                                                <span class="material-icons-round text-xs text-slate-400">email</span>
+                                                robert@acmecorp.com
+                                            </a>
+                                            <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
+                                                href="tel:+15550123456">
+                                                <span class="material-icons-round text-xs text-slate-400">phone</span>
+                                                (555) 012-3456
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800">
+                                                Web Redesign
+                                            </span>
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border border-purple-100 dark:border-purple-800">
+                                                SEO Audit
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-900/50">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                            Active
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button
+                                            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                            <span class="material-icons-round">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap align-middle">
+                                        <input
+                                            class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div
+                                                class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold ring-2 ring-white dark:ring-slate-800 shadow-sm">
+                                                G
+                                            </div>
+                                            <div class="ml-4">
+                                                <div
+                                                    class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                                                    Global Solutions</div>
+                                                <div class="text-xs text-slate-500 dark:text-slate-400">Cody Fisher
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
+                                        <div class="flex flex-col gap-1">
+                                            <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
+                                                href="mailto:cody@globals.io">
+                                                <span class="material-icons-round text-xs text-slate-400">email</span>
+                                                cody@globals.io
+                                            </a>
+                                            <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
+                                                href="tel:+15550123456">
+                                                <span class="material-icons-round text-xs text-slate-400">phone</span>
+                                                (555) 222-8899
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                                                Consultation
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                                            Inactive
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button
+                                            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                            <span class="material-icons-round">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap align-middle">
+                                        <input
+                                            class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img alt="Client Avatar"
+                                                    class="h-10 w-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-800 shadow-sm"
+                                                    data-alt="Young woman with curly hair"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDANcqGgsKVH0tLc4CyU_N-DHg77fAHJvzgPyceifvu0qcGlm24y3LV_N3M4yXOS0267mkqq9cc_2VAhUBcJf2m9I9yI01cI6as08YdFj-nP5OAc4xWLoG-Mpz2QiysLC_sNW5J73RlKlQJdzRqe-8poRJJO4yXtCQkLOOrepRZz4lxUFAgaAAxzl0MMq9FSdVg3IUo_olI2L_F6Q3DvM3G7i_mmQCD0zSY9QiOcma-EmHcQrIRVLErB01mWShhVlLDAiiZvpSnEbwz" />
+                                            </div>
+                                            <div class="ml-4">
+                                                <div
+                                                    class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                                                    Binford Ltd</div>
+                                                <div class="text-xs text-slate-500 dark:text-slate-400">Esther Howard
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
+                                        <div class="flex flex-col gap-1">
+                                            <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
+                                                href="mailto:esther@binford.com">
+                                                <span class="material-icons-round text-xs text-slate-400">email</span>
+                                                esther@binford.com
+                                            </a>
+                                            <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
+                                                href="tel:+15550123456">
+                                                <span class="material-icons-round text-xs text-slate-400">phone</span>
+                                                (555) 754-1298
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800">
+                                                Mobile App
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-900/50">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                            Active
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button
+                                            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                            <span class="material-icons-round">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 4 -->
+                                <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap align-middle">
+                                        <input
+                                            class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div
+                                                class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 font-bold ring-2 ring-white dark:ring-slate-800 shadow-sm">
+                                                H
+                                            </div>
+                                            <div class="ml-4">
+                                                <div
+                                                    class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                                                    Hooli Inc.</div>
+                                                <div class="text-xs text-slate-500 dark:text-slate-400">Jenny Wilson
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
+                                        <div class="flex flex-col gap-1">
+                                            <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
+                                                href="mailto:jenny@hooli.xyz">
+                                                <span class="material-icons-round text-xs text-slate-400">email</span>
+                                                jenny@hooli.xyz
+                                            </a>
+                                            <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
+                                                href="tel:+15550123456">
+                                                <span class="material-icons-round text-xs text-slate-400">phone</span>
+                                                (555) 992-1100
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300 border border-rose-100 dark:border-rose-800">
+                                                Q3 Marketing
+                                            </span>
+                                            <span
+                                                class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-100 dark:border-amber-800">
+                                                Branding
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-900/50">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                            Active
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button
+                                            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                            <span class="material-icons-round">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 5 -->
+                                <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap align-middle">
+                                        <input
+                                            class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
+                                            type="checkbox" />
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img alt="Client Avatar"
+                                                    class="h-10 w-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-800 shadow-sm"
+                                                    data-alt="Young man with beard portrait"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSBIu5ReohTVX2DpP081jxY9Sbn6GcK1isCBcf9Rm2UbaZAM9znqSYAXD2RZClRbGxQNG3Bex9NcIfOgEq3jJpoOYUxMoDoAGBKB-Ed0kiDHJ7IvavPUimWTOpxCFw1nFDkCQAqhNbF_ev8pa9dFtGl-AbfadXuoLbb7pEiIxtNv66t66jCiZOd0MytM9PwVDczjNxPkzmhi-fz1m9ng7LkDqVsrEgm9kbJRVr7IPvodhEnsDQC8jdD5TSRT86kStd2qyxGA76Z9po" />
+                                            </div>
+                                            <div class="ml-4">
+                                                <div
+                                                    class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                                                    Stark Ind.</div>
+                                                <div class="text-xs text-slate-500 dark:text-slate-400">Tony Reichert
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
+                                        <div class="flex flex-col gap-1">
+                                            <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
+                                                href="mailto:tony@stark.io">
+                                                <span class="material-icons-round text-xs text-slate-400">email</span>
+                                                tony@stark.io
+                                            </a>
+                                            <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
+                                                href="tel:+15550123456">
+                                                <span class="material-icons-round text-xs text-slate-400">phone</span>
+                                                (555) 444-2311
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
+                                        <span class="text-sm text-slate-400 italic">No active projects</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                                            Inactive
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button
+                                            class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                                            <span class="material-icons-round">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Footer Pagination -->
+                    <div
+                        class="px-6 py-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark flex items-center justify-between">
+                        <div class="text-sm text-slate-500 dark:text-slate-400 hidden sm:block">
+                            Showing <span class="font-semibold text-slate-900 dark:text-white">1</span> to <span
+                                class="font-semibold text-slate-900 dark:text-white">5</span> of <span
+                                class="font-semibold text-slate-900 dark:text-white">24</span> clients
+                        </div>
+                        <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+                            <button
+                                class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                disabled="">
+                                Previous
+                            </button>
+                            <div class="flex items-center gap-1">
+                                <button
+                                    class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-sm font-medium shadow-sm">1</button>
+                                <button
+                                    class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors">2</button>
+                                <button
+                                    class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors hidden sm:flex">3</button>
+                                <span class="px-1 text-slate-400">...</span>
+                                <button
+                                    class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors">5</button>
+                            </div>
+                            <button
+                                class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                Next
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Table Card -->
-            <div
-                class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col h-[calc(100vh-240px)] min-h-[500px]">
-                <!-- Filter & Search Bar -->
-                <div
-                    class="p-4 border-b border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-4 justify-between items-center bg-white dark:bg-surface-dark">
-                    <!-- Search -->
-                    <div class="relative w-full sm:w-96 group">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <span
-                                class="material-icons-round text-slate-400 group-focus-within:text-primary transition-colors">search</span>
-                        </div>
-                        <input
-                            class="block w-full pl-10 pr-3 py-2.5 border border-slate-200 dark:border-slate-600 rounded-lg leading-5 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-surface-dark focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all sm:text-sm"
-                            placeholder="Search by name, email, or company..." type="text" />
-                    </div>
-                    <!-- Filters -->
-                    <div class="flex items-center gap-3 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-                        <div
-                            class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors whitespace-nowrap">
-                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wide">Status:</span>
-                            <select
-                                class="bg-transparent border-none text-sm text-slate-700 dark:text-slate-200 font-medium p-0 pr-6 focus:ring-0 cursor-pointer">
-                                <option>All Clients</option>
-                                <option>Active</option>
-                                <option>Inactive</option>
-                            </select>
-                        </div>
-                        <div class="h-6 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block"></div>
-                        <button
-                            class="p-2 text-slate-400 hover:text-primary rounded-lg hover:bg-primary/10 transition-colors">
-                            <span class="material-icons-round">filter_list</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- Table Container -->
-                <div class="overflow-auto flex-1 relative">
-                    <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
-                        <thead class="bg-slate-50 dark:bg-slate-800/50 sticky top-0 z-10">
-                            <tr>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider w-12"
-                                    scope="col">
-                                    <input
-                                        class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
-                                        type="checkbox" />
-                                </th>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
-                                    scope="col">
-                                    Client Name
-                                </th>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden md:table-cell"
-                                    scope="col">
-                                    Contact Info
-                                </th>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider hidden lg:table-cell"
-                                    scope="col">
-                                    Active Projects
-                                </th>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
-                                    scope="col">
-                                    Status
-                                </th>
-                                <th class="relative px-6 py-4 w-10" scope="col">
-                                    <span class="sr-only">Actions</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody
-                            class="bg-surface-light dark:bg-surface-dark divide-y divide-slate-100 dark:divide-slate-700/50">
-                            <!-- Row 1 -->
-                            <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap align-middle">
-                                    <input
-                                        class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
-                                        type="checkbox" />
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img alt="Client Avatar"
-                                                class="h-10 w-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-800 shadow-sm"
-                                                data-alt="Professional man in suit portrait"
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXI2LqQu3kknjmamq_mcS_HRz0FoVgeCkiz_KyCBdUgY1bU87EA8O2AJBEZyNc8ejANpjjw2nmCGjifWfQEhU_sip0CKLNOy4d3K9niGXYYWF13JskAj2tA4-lnvBTWqfINNfN3xU1e3HXKcGeX2lNJKHs1Au_JulwYokcJgsZyurvUfMfDzExMWBSrmZI-qdwelfWtj017BDJIt-bDBhxHISWuxd_8byU00afrYJEkxRjnjngTxUuvDRzVCIHbgSOPkZTxuLcrmAy" />
-                                        </div>
-                                        <div class="ml-4">
-                                            <div
-                                                class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                                                Acme Corp</div>
-                                            <div class="text-xs text-slate-500 dark:text-slate-400">Robert Fox</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                    <div class="flex flex-col gap-1">
-                                        <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
-                                            href="mailto:robert@acmecorp.com">
-                                            <span class="material-icons-round text-xs text-slate-400">email</span>
-                                            robert@acmecorp.com
-                                        </a>
-                                        <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
-                                            href="tel:+15550123456">
-                                            <span class="material-icons-round text-xs text-slate-400">phone</span>
-                                            (555) 012-3456
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800">
-                                            Web Redesign
-                                        </span>
-                                        <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border border-purple-100 dark:border-purple-800">
-                                            SEO Audit
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-900/50">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <button
-                                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                        <span class="material-icons-round">more_vert</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <!-- Row 2 -->
-                            <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap align-middle">
-                                    <input
-                                        class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
-                                        type="checkbox" />
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div
-                                            class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold ring-2 ring-white dark:ring-slate-800 shadow-sm">
-                                            G
-                                        </div>
-                                        <div class="ml-4">
-                                            <div
-                                                class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                                                Global Solutions</div>
-                                            <div class="text-xs text-slate-500 dark:text-slate-400">Cody Fisher</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                    <div class="flex flex-col gap-1">
-                                        <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
-                                            href="mailto:cody@globals.io">
-                                            <span class="material-icons-round text-xs text-slate-400">email</span>
-                                            cody@globals.io
-                                        </a>
-                                        <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
-                                            href="tel:+15550123456">
-                                            <span class="material-icons-round text-xs text-slate-400">phone</span>
-                                            (555) 222-8899
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
-                                            Consultation
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
-                                        Inactive
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <button
-                                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                        <span class="material-icons-round">more_vert</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <!-- Row 3 -->
-                            <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap align-middle">
-                                    <input
-                                        class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
-                                        type="checkbox" />
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img alt="Client Avatar"
-                                                class="h-10 w-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-800 shadow-sm"
-                                                data-alt="Young woman with curly hair"
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDANcqGgsKVH0tLc4CyU_N-DHg77fAHJvzgPyceifvu0qcGlm24y3LV_N3M4yXOS0267mkqq9cc_2VAhUBcJf2m9I9yI01cI6as08YdFj-nP5OAc4xWLoG-Mpz2QiysLC_sNW5J73RlKlQJdzRqe-8poRJJO4yXtCQkLOOrepRZz4lxUFAgaAAxzl0MMq9FSdVg3IUo_olI2L_F6Q3DvM3G7i_mmQCD0zSY9QiOcma-EmHcQrIRVLErB01mWShhVlLDAiiZvpSnEbwz" />
-                                        </div>
-                                        <div class="ml-4">
-                                            <div
-                                                class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                                                Binford Ltd</div>
-                                            <div class="text-xs text-slate-500 dark:text-slate-400">Esther Howard</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                    <div class="flex flex-col gap-1">
-                                        <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
-                                            href="mailto:esther@binford.com">
-                                            <span class="material-icons-round text-xs text-slate-400">email</span>
-                                            esther@binford.com
-                                        </a>
-                                        <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
-                                            href="tel:+15550123456">
-                                            <span class="material-icons-round text-xs text-slate-400">phone</span>
-                                            (555) 754-1298
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800">
-                                            Mobile App
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-900/50">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <button
-                                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                        <span class="material-icons-round">more_vert</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <!-- Row 4 -->
-                            <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap align-middle">
-                                    <input
-                                        class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
-                                        type="checkbox" />
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div
-                                            class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 font-bold ring-2 ring-white dark:ring-slate-800 shadow-sm">
-                                            H
-                                        </div>
-                                        <div class="ml-4">
-                                            <div
-                                                class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                                                Hooli Inc.</div>
-                                            <div class="text-xs text-slate-500 dark:text-slate-400">Jenny Wilson</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                    <div class="flex flex-col gap-1">
-                                        <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
-                                            href="mailto:jenny@hooli.xyz">
-                                            <span class="material-icons-round text-xs text-slate-400">email</span>
-                                            jenny@hooli.xyz
-                                        </a>
-                                        <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
-                                            href="tel:+15550123456">
-                                            <span class="material-icons-round text-xs text-slate-400">phone</span>
-                                            (555) 992-1100
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-rose-50 text-rose-700 dark:bg-rose-900/30 dark:text-rose-300 border border-rose-100 dark:border-rose-800">
-                                            Q3 Marketing
-                                        </span>
-                                        <span
-                                            class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-100 dark:border-amber-800">
-                                            Branding
-                                        </span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 border border-green-100 dark:border-green-900/50">
-                                        <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                        Active
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <button
-                                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                        <span class="material-icons-round">more_vert</span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <!-- Row 5 -->
-                            <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
-                                <td class="px-6 py-4 whitespace-nowrap align-middle">
-                                    <input
-                                        class="checkbox h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary/40 cursor-pointer transition-all"
-                                        type="checkbox" />
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img alt="Client Avatar"
-                                                class="h-10 w-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-800 shadow-sm"
-                                                data-alt="Young man with beard portrait"
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSBIu5ReohTVX2DpP081jxY9Sbn6GcK1isCBcf9Rm2UbaZAM9znqSYAXD2RZClRbGxQNG3Bex9NcIfOgEq3jJpoOYUxMoDoAGBKB-Ed0kiDHJ7IvavPUimWTOpxCFw1nFDkCQAqhNbF_ev8pa9dFtGl-AbfadXuoLbb7pEiIxtNv66t66jCiZOd0MytM9PwVDczjNxPkzmhi-fz1m9ng7LkDqVsrEgm9kbJRVr7IPvodhEnsDQC8jdD5TSRT86kStd2qyxGA76Z9po" />
-                                        </div>
-                                        <div class="ml-4">
-                                            <div
-                                                class="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
-                                                Stark Ind.</div>
-                                            <div class="text-xs text-slate-500 dark:text-slate-400">Tony Reichert</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
-                                    <div class="flex flex-col gap-1">
-                                        <a class="text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-1.5 w-fit"
-                                            href="mailto:tony@stark.io">
-                                            <span class="material-icons-round text-xs text-slate-400">email</span>
-                                            tony@stark.io
-                                        </a>
-                                        <a class="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors flex items-center gap-1.5 w-fit"
-                                            href="tel:+15550123456">
-                                            <span class="material-icons-round text-xs text-slate-400">phone</span>
-                                            (555) 444-2311
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
-                                    <span class="text-sm text-slate-400 italic">No active projects</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span
-                                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
-                                        Inactive
-                                    </span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <button
-                                        class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                                        <span class="material-icons-round">more_vert</span>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Footer Pagination -->
-                <div
-                    class="px-6 py-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-surface-dark flex items-center justify-between">
-                    <div class="text-sm text-slate-500 dark:text-slate-400 hidden sm:block">
-                        Showing <span class="font-semibold text-slate-900 dark:text-white">1</span> to <span
-                            class="font-semibold text-slate-900 dark:text-white">5</span> of <span
-                            class="font-semibold text-slate-900 dark:text-white">24</span> clients
-                    </div>
-                    <div class="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
-                        <button
-                            class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                            disabled="">
-                            Previous
-                        </button>
-                        <div class="flex items-center gap-1">
-                            <button
-                                class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-white text-sm font-medium shadow-sm">1</button>
-                            <button
-                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors">2</button>
-                            <button
-                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors hidden sm:flex">3</button>
-                            <span class="px-1 text-slate-400">...</span>
-                            <button
-                                class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors">5</button>
-                        </div>
-                        <button
-                            class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 rounded-lg text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-                            Next
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('hidden');
-            overlay.classList.toggle('hidden');
-        });
-
-        // Close sidebar when overlay is clicked
-        document.getElementById('sidebar-overlay')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            sidebar.classList.add('hidden');
-            this.classList.add('hidden');
-        });
-    </script>
 </body>
 
 </html>
+
+
+

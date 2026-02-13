@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
 
@@ -13,48 +13,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#197fe6",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#111921",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <style>
-        /* Custom scrollbar for cleaner look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #cbd5e1;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #94a3b8;
-        }
-    </style>
+    <script src="assets/js/activity_log.js"></script>
+    <link href="assets/css/activity_log.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
 </head>
 
 <body
     class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 h-screen overflow-hidden flex flex-col md:flex-row">
-    <!-- Mobile Sidebar Overlay -->
+<!-- Mobile Sidebar Overlay -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
     <!-- Sidebar -->
     <aside
@@ -107,7 +73,7 @@
                 Settings
             </a>
             <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg font-medium transition-colors"
-                href="#">
+                href="login.html">
                 <span class="material-icons-outlined">logout</span>
                 Logout
             </a>
@@ -234,7 +200,7 @@
                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGuztyRZBfOAq4k5lJr-jT8vVeFt71pqfvh1uNSfupFbpqIBSZn4bwikvmWGM0mx5vTpOfJwU8kdaodnkVuu3Ka_gy_xnDGQnZPcO--ByL656jJdaIDOZWAjqn_ncckhMf8TUe0z_ETASBCPC_gos3c6csISrmBYGnLLggviD5A2cWdf1bIT0xfDarEf4vZSGsyLoaI8UYj6GKZCWhp0r2vJrgjicq9f6DZ0x41my8n-9bplT1Ycj4wmZZsepfe1tYSzsWixIE2tEW" />
                                             <span class="text-sm font-semibold text-slate-900 dark:text-white">John
                                                 Doe</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• 10m ago</span>
+                                            <span class="text-xs text-slate-400 sm:hidden">â€¢ 10m ago</span>
                                         </div>
                                     </div>
                                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -242,7 +208,7 @@
                                             class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400 px-1.5 py-0.5 rounded text-xs font-medium">In
                                             Progress</span> for project
                                         <a class="text-primary hover:text-primary/80 font-medium hover:underline inline-flex items-center gap-0.5 ml-1"
-                                            href="#">
+                                            href="project_details.html">
                                             Website Redesign
                                             <span class="material-icons text-[14px]">arrow_outward</span>
                                         </a>
@@ -273,13 +239,13 @@
                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkCtpIseqxkQUkaooYswF5wXAuyN0EX048zta_gaSaAhBF3a8eTdXOoQyMRIKXmNFsbZHtkgdb9MSWmLAJArWuRaErjeXkNuK_0f4kzvXhRDkQy1uof-qOcRIZy2XMknY8yR9Fto4tjmNRYuIBBFTI36FX7UiVgUja6KACW5WN1winamrY6jglfDJhglHg9-NK7iVcuqrL4TVfDf6dPQfVSPbADokkanBO4jzOaGAsH-8yq-xRplSaBTssFTZC8O1iN2o6Xc3PzkMD" />
                                             <span class="text-sm font-semibold text-slate-900 dark:text-white">Sarah
                                                 Smith</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• 2h ago</span>
+                                            <span class="text-xs text-slate-400 sm:hidden">â€¢ 2h ago</span>
                                         </div>
                                     </div>
                                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                                         Added a new note regarding contract renewal for client
                                         <a class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors ml-1 align-middle"
-                                            href="#">
+                                            href="client_management.html">
                                             <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                                             Acme Corp
                                         </a>
@@ -327,7 +293,7 @@
                                             </div>
                                             <span
                                                 class="text-sm font-semibold text-slate-900 dark:text-white">System</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• Yesterday</span>
+                                            <span class="text-xs text-slate-400 sm:hidden">â€¢ Yesterday</span>
                                         </div>
                                     </div>
                                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -367,7 +333,7 @@
                                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEngsC-MzQ9n1OyhYYfOY9wBWaNF5ymcxOxWTby1YCTfDwaheTez5BCW5j-43NzL4b2B5_xwuGNFWnxm8RcIBqEWYSyfxLXQDDr5WHtCrpyo2LEnTdOcyIbRJ5d4CUBqYclkKo1C3pR85b70O_qaj_GYXHp0pVEaFIeruMbCxV9J1ZZYyuZE6cBJSEDUZ87t2YOysNug3B-swBm2ffYcqU2aZwZLXzX7bQg1-Q_1SIFBWjuqYrIMx23BLkcvTZ2ztxhqMgSQhANtPZ" />
                                             <span class="text-sm font-semibold text-slate-900 dark:text-white">Mike
                                                 Johnson</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• Yesterday</span>
+                                            <span class="text-xs text-slate-400 sm:hidden">â€¢ Yesterday</span>
                                         </div>
                                     </div>
                                     <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
@@ -398,23 +364,9 @@
             </div>
         </div>
     </main>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('hidden');
-            overlay.classList.toggle('hidden');
-        });
-
-        // Close sidebar when overlay is clicked
-        document.getElementById('sidebar-overlay')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            sidebar.classList.add('hidden');
-            this.classList.add('hidden');
-        });
-    </script>
 </body>
 
 </html>
+
+
+

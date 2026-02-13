@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
 
@@ -15,49 +15,14 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#197fe6",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#111921",
-                    },
-                    fontFamily: {
-                        "display": ["Manrope", "sans-serif"]
-                    },
-                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
-                },
-            },
-        }
-    </script>
-    <style>
-        /* Custom scrollbar for clean look */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #e2e8f0;
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #cbd5e1;
-        }
-    </style>
+    <script src="assets/js/main_dashboard.js"></script>
+    <link href="assets/css/main_dashboard.css" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
 </head>
 
 <body
     class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased h-screen overflow-hidden flex flex-col md:flex-row">
-    <!-- Mobile Sidebar Overlay (Hidden by default) -->
+<!-- Mobile Sidebar Overlay (Hidden by default) -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
     <!-- Sidebar -->
     <aside
@@ -110,7 +75,7 @@
                 Settings
             </a>
             <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg font-medium transition-colors"
-                href="#">
+                href="login.html">
                 <span class="material-icons-outlined">logout</span>
                 Logout
             </a>
@@ -259,7 +224,7 @@
                     <div
                         class="p-6 border-b border-slate-100 dark:border-slate-800/50 flex items-center justify-between">
                         <h2 class="text-lg font-bold text-slate-900 dark:text-white">Recent Projects</h2>
-                        <a class="text-sm font-medium text-primary hover:text-primary/80" href="#">View All</a>
+                                    <a class="text-sm font-medium text-primary hover:text-primary/80" href="project_list.html">View All</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
@@ -508,7 +473,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Footer Area / Quick Help -->
+<!-- Footer Area / Quick Help -->
             <div
                 class="mt-8 mb-4 bg-gradient-to-r from-primary/5 to-transparent p-6 rounded-xl border border-primary/10 flex items-center justify-between">
                 <div>
@@ -520,23 +485,9 @@
             </div>
         </div>
     </main>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('hidden');
-            overlay.classList.toggle('hidden');
-        });
-
-        // Close sidebar when overlay is clicked
-        document.getElementById('sidebar-overlay')?.addEventListener('click', function () {
-            const sidebar = document.querySelector('aside');
-            sidebar.classList.add('hidden');
-            this.classList.add('hidden');
-        });
-    </script>
 </body>
 
 </html>
+
+
+
