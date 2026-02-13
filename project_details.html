@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Details - B2B SaaS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased min-h-screen">
+<!-- Top Navigation (Simplified for context) -->
+<nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4">
+<div class="flex items-center justify-between max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">P</div>
+<span class="font-bold text-xl text-slate-900 dark:text-white">ProManage</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-primary transition-colors relative">
+<span class="material-icons">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden" data-alt="User profile avatar">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3uHThK3HxNvJZ_fH1MLqevqYPklXPZKqG20HM9919XB_-BLIU7y8EjvMrkZWBTDpBQ3EPb-UElk50Bw3s_xEunOjgHpHoQ5DmieWT-NpohXS1No-mqMoJl39vbvF9KIIb3sgakDuH7yaeQsMY__7BQVjY7ggea5Cq6AdWxjaKk9d1_lXXG0z0kdg4XRtKBDq8r9BK0IHyz2YmKnrsxQ5c_5q_z9G1uZHH-uVAI8F-gySA5RlCFX0wNKPZdfLQsAjXNYa8ZZCLjOoI"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="max-w-7xl mx-auto px-6 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex mb-6 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="mx-2">/</span>
+<a class="hover:text-primary transition-colors" href="#">Projects</a>
+<span class="mx-2">/</span>
+<span class="text-slate-900 dark:text-white font-medium">Website Redesign for Acme Corp</span>
+</nav>
+<!-- Project Header -->
+<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
+<div>
+<div class="flex items-center gap-4 mb-2">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Website Redesign for Acme Corp</h1>
+<span class="px-3 py-1 text-sm font-medium text-green-700 bg-green-100 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800">
+                        In Progress
+                    </span>
+</div>
+<div class="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">calendar_today</span>
+<span>Start: Oct 12, 2023</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-icons text-base">event</span>
+<span>Due: Nov 20, 2023</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-700 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2">
+<span class="material-icons text-base">file_download</span>
+                    Export
+                </button>
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-blue-600 transition-colors shadow-sm shadow-blue-200 dark:shadow-none flex items-center gap-2">
+<span class="material-icons text-base">edit</span>
+                    Edit Project
+                </button>
+</div>
+</div>
+<!-- Tab Navigation -->
+<div class="border-b border-slate-200 dark:border-slate-700 mb-8">
+<nav aria-label="Tabs" class="flex gap-8">
+<a class="border-b-2 border-primary text-primary font-medium py-4 px-1 inline-flex items-center gap-2 text-sm" href="#">
+<span class="material-icons text-lg">dashboard</span>
+                    Overview
+                </a>
+<a class="border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 hover:border-slate-300 transition-colors py-4 px-1 inline-flex items-center gap-2 text-sm font-medium" href="#">
+<span class="material-icons text-lg">history</span>
+                    Activity
+                </a>
+<a class="border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 hover:border-slate-300 transition-colors py-4 px-1 inline-flex items-center gap-2 text-sm font-medium" href="#">
+<span class="material-icons text-lg">attach_money</span>
+                    Finance
+                </a>
+<a class="border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 hover:border-slate-300 transition-colors py-4 px-1 inline-flex items-center gap-2 text-sm font-medium" href="#">
+<span class="material-icons text-lg">people</span>
+                    Team
+                </a>
+</nav>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Main Progress & Activity (2/3 width) -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Progress Tracker Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Project Progress</h2>
+<span class="text-2xl font-bold text-primary">65%</span>
+</div>
+<div class="relative pt-1">
+<div class="overflow-hidden h-3 mb-4 text-xs flex rounded bg-primary/10">
+<div class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary transition-all duration-500" style="width:65%"></div>
+</div>
+<div class="flex justify-between text-xs font-medium text-slate-500 dark:text-slate-400 mt-2">
+<span class="text-slate-900 dark:text-white">Planning</span>
+<span class="text-slate-900 dark:text-white">Design</span>
+<span class="text-primary font-bold">Development</span>
+<span>Review</span>
+<span>Launch</span>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 flex items-start gap-3">
+<div class="p-2 bg-green-100 text-green-600 rounded-lg dark:bg-green-900/30 dark:text-green-400">
+<span class="material-icons text-lg">check_circle</span>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white">Design Phase</h4>
+<p class="text-xs text-slate-500 mt-1">Completed on Oct 25</p>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-slate-800 border border-primary/20 ring-1 ring-primary/10 flex items-start gap-3 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="p-2 bg-primary/10 text-primary rounded-lg">
+<span class="material-icons text-lg">code</span>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white">Development</h4>
+<p class="text-xs text-slate-500 mt-1">Current Phase • On Track</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Tasks (Simplified) -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Upcoming Tasks</h2>
+<button class="text-sm text-primary font-medium hover:underline">View All Tasks</button>
+</div>
+<div class="space-y-3">
+<label class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors border border-slate-100 dark:border-slate-700/50 cursor-pointer group">
+<input class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary/50 dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+<div class="flex-1">
+<p class="font-medium text-slate-900 dark:text-white group-hover:text-primary transition-colors">Finalize Homepage Mockups</p>
+<p class="text-xs text-red-500 mt-0.5 font-medium">Due Tomorrow</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-600 overflow-hidden ml-2" data-alt="Assignee avatar">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBza1RCi3rTIxGY_Z1KLr9V4Y4EVJtmReBdOGqQCIWt8UxHAbcIqLRbVY0nHecD-TaJVYhhjJ4w3KsZVa4GrTmNE3OO3G0_30nbu90LSF-wMvxmfbgCVlk2BPd6ezYFii9MCNyC0hUfWShvNWsuBxE14IoxAMhfeu1xR3kqGpyvr2QTgDKus7Ie6-maJXNuowQjDyStrvFfWyAuOEpIvD-kiMEVylfVP11i_w_0DlCM3yXKiSNxMXutDbnR8DU3L1bPILFKy2izS6oR"/>
+</div>
+</label>
+<label class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors border border-slate-100 dark:border-slate-700/50 cursor-pointer group">
+<input class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary/50 dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+<div class="flex-1">
+<p class="font-medium text-slate-900 dark:text-white group-hover:text-primary transition-colors">Weekly Client Sync</p>
+<p class="text-xs text-slate-500 mt-0.5">Friday, 10:00 AM</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-600 overflow-hidden ml-2" data-alt="Assignee avatar">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfv2TihcR5-u9_l4Q6WQJQDiPc-vRpTnl6eXjglTZnUvzEbH2NjY9uSaERTJwqP206FPnL2nrC75Wn-Mf6MsFEEO1cQM2GDeYb0JxyIiddxa-T_JBm6TT2JgI4M3QxkKUgoGB6jCgdWRQbND-xc932kFKyLhGouamKCdH7njzPKRLEUmh2lPjUNtdJT_QPmkA48pJjgJHVyfbncVqGFZgq2DN-DslS5kLrhx6fC5kZZyy3N9tkqEdXjG3LaQuwpHFu1lIb7LCIGro0"/>
+</div>
+</label>
+<label class="flex items-center gap-4 p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors border border-slate-100 dark:border-slate-700/50 cursor-pointer group">
+<input class="w-5 h-5 rounded border-slate-300 text-primary focus:ring-primary/50 dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+<div class="flex-1">
+<p class="font-medium text-slate-900 dark:text-white group-hover:text-primary transition-colors">Setup Staging Environment</p>
+<p class="text-xs text-slate-500 mt-0.5">Nov 15</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-500 ml-2">
+                                +
+                            </div>
+</label>
+</div>
+</div>
+<!-- Recent Activity Timeline -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Recent Activity</h2>
+<div class="relative pl-4 border-l border-slate-200 dark:border-slate-700 space-y-8">
+<!-- Item 1 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-primary border-2 border-white dark:border-slate-800 ring-2 ring-primary/20"></div>
+<div class="text-sm">
+<p class="font-medium text-slate-900 dark:text-white"><span class="font-bold">Sarah Miller</span> uploaded 3 new files</p>
+<p class="text-xs text-slate-500 mt-1">2 hours ago</p>
+<div class="flex gap-2 mt-3">
+<div class="flex items-center gap-2 px-3 py-2 bg-slate-50 dark:bg-slate-700/50 rounded border border-slate-100 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300">
+<span class="material-icons text-base text-red-500">picture_as_pdf</span> homepage_v2.pdf
+                                    </div>
+<div class="flex items-center gap-2 px-3 py-2 bg-slate-50 dark:bg-slate-700/50 rounded border border-slate-100 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300">
+<span class="material-icons text-base text-blue-500">description</span> copy_deck.docx
+                                    </div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-800"></div>
+<div class="text-sm">
+<p class="font-medium text-slate-900 dark:text-white"><span class="font-bold">System</span> marked milestone "Design Phase" as Complete</p>
+<p class="text-xs text-slate-500 mt-1">Yesterday at 4:30 PM</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-slate-800"></div>
+<div class="text-sm">
+<p class="font-medium text-slate-900 dark:text-white"><span class="font-bold">James Chen</span> added a comment</p>
+<p class="text-xs text-slate-500 mt-1">Oct 24</p>
+<p class="mt-2 text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/30 p-3 rounded-lg text-sm italic border border-slate-100 dark:border-slate-700">"Please ensure the mobile navigation collapses correctly on smaller viewports."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar (1/3 width) -->
+<div class="space-y-8">
+<!-- Financial Summary Card (Highlighted) -->
+<div class="bg-gradient-to-br from-white to-blue-50/50 dark:from-slate-800 dark:to-slate-800 rounded-xl border border-primary/20 shadow-lg shadow-blue-100/50 dark:shadow-none p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-8 -mt-8 pointer-events-none"></div>
+<div class="flex items-center gap-2 mb-6 text-primary">
+<span class="material-icons">account_balance_wallet</span>
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Financials</h2>
+</div>
+<div class="space-y-5">
+<div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Total Budget</p>
+<p class="text-3xl font-bold font-display text-slate-900 dark:text-white tabular-nums tracking-tight">$5,000.00</p>
+</div>
+<div class="h-px bg-primary/10 w-full"></div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wide">Invoiced</p>
+</div>
+<p class="text-lg font-semibold text-slate-900 dark:text-white tabular-nums">$2,500.00</p>
+</div>
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<div class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wide">Remaining</p>
+</div>
+<p class="text-lg font-semibold text-slate-900 dark:text-white tabular-nums opacity-60">$2,500.00</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2.5 px-4 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-sm font-medium text-slate-700 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">add</span>
+                        Create Invoice
+                    </button>
+</div>
+<!-- Client Info Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Client Details</h2>
+<button class="text-primary hover:text-blue-600">
+<span class="material-icons text-lg">edit</span>
+</button>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-300 font-bold text-xl">
+                            A
+                        </div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white">Acme Corp</h3>
+<p class="text-sm text-slate-500">Retail &amp; E-commerce</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-icons text-slate-400 text-lg mt-0.5">person</span>
+<div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Alice Freeman</p>
+<p class="text-xs text-slate-500">Project Lead</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-icons text-slate-400 text-lg mt-0.5">email</span>
+<a class="text-sm text-primary hover:underline" href="mailto:alice@acme.com">alice@acmecorp.com</a>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-icons text-slate-400 text-lg mt-0.5">phone</span>
+<p class="text-sm text-slate-600 dark:text-slate-300">+1 (555) 123-4567</p>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-icons text-slate-400 text-lg mt-0.5">location_on</span>
+<p class="text-sm text-slate-600 dark:text-slate-300">123 Market St, San Francisco, CA</p>
+</div>
+</div>
+</div>
+<!-- Quick Files (Bonus) -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Quick Links</h2>
+<ul class="space-y-2">
+<li>
+<a class="flex items-center gap-3 p-2 rounded hover:bg-slate-50 dark:hover:bg-slate-700/50 group transition-colors" href="#">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors">folder_open</span>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white font-medium">Shared Drive Folder</span>
+<span class="material-icons text-slate-300 text-sm ml-auto">open_in_new</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 p-2 rounded hover:bg-slate-50 dark:hover:bg-slate-700/50 group transition-colors" href="#">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors">link</span>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white font-medium">Staging Server</span>
+<span class="material-icons text-slate-300 text-sm ml-auto">open_in_new</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 p-2 rounded hover:bg-slate-50 dark:hover:bg-slate-700/50 group transition-colors" href="#">
+<span class="material-icons text-slate-400 group-hover:text-primary transition-colors">description</span>
+<span class="text-sm text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white font-medium">Contract.pdf</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Main Dashboard Overview</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased h-screen overflow-hidden flex flex-col md:flex-row">
+    <!-- Mobile Sidebar Overlay (Hidden by default) -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+    <!-- Sidebar -->
+    <aside
+        class="w-64 bg-white dark:bg-[#1a2632] border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex h-full z-30 transition-all duration-300">
+        <!-- Logo Area -->
+        <div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800/50">
+            <div class="flex items-center gap-2 text-primary font-bold text-xl">
+                <span class="material-icons-outlined text-3xl">grid_view</span>
+                <span>Service<span class="text-slate-900 dark:text-white">Pro</span></span>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto py-6 px-3 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg font-semibold transition-colors"
+                href="main_dashboard.html">
+                <span class="material-icons-outlined">dashboard</span>
+                Dashboard
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                href="project_list.html">
+                <span class="material-icons-outlined">folder_open</span>
+                Projects
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                href="client_management.html">
+                <span class="material-icons-outlined">people_outline</span>
+                Clients
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                href="#">
+                <span class="material-icons-outlined">receipt_long</span>
+                Invoices
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                href="business_analytics.html">
+                <span class="material-icons-outlined">analytics</span>
+                Reports
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                href="activity_log.html">
+                <span class="material-icons-outlined">history</span>
+                Activity Log
+            </a>
+        </nav>
+        <!-- Bottom Actions -->
+        <div class="p-4 border-t border-slate-100 dark:border-slate-800/50 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                href="settings-modules.html">
+                <span class="material-icons-outlined">settings</span>
+                Settings
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg font-medium transition-colors"
+                href="#">
+                <span class="material-icons-outlined">logout</span>
+                Logout
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+        <!-- Top Navigation Bar -->
+        <header
+            class="h-16 bg-white dark:bg-[#1a2632] border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-20">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-500 hover:text-primary">
+                <span class="material-icons-outlined">menu</span>
+            </button>
+            <!-- Search Bar -->
+            <div class="hidden sm:flex items-center flex-1 max-w-md ml-4">
+                <div class="relative w-full">
+                    <span
+                        class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                    <input
+                        class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 text-slate-700 dark:text-slate-200 placeholder-slate-400"
+                        placeholder="Search projects, clients..." type="text" />
+                </div>
+            </div>
+            <!-- Right Actions -->
+            <div class="flex items-center gap-3 sm:gap-6">
+                <!-- Notifications -->
+                <button
+                    class="relative p-2 text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span
+                        class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-[#1a2632]"></span>
+                </button>
+                <!-- Profile -->
+                <div class="flex items-center gap-3 pl-3 border-l border-slate-100 dark:border-slate-700">
+                    <div class="hidden sm:block text-right">
+                        <p class="text-sm font-bold text-slate-800 dark:text-white">Alex Morgan</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Owner</p>
+                    </div>
+                    <img alt="User Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20"
+                        data-alt="Professional headshot of a smiling man in business casual attire"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS" />
+                </div>
+            </div>
+        </header>
+        <!-- Scrollable Dashboard Content -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <!-- Welcome Header -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Welcome back, Alex</h1>
+                    <p class="text-slate-500 dark:text-slate-400 mt-1">Here is what's happening in your business today.
+                    </p>
+                </div>
+                <button
+                    class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg font-semibold shadow-sm shadow-primary/30 transition-all active:scale-95">
+                    <span class="material-icons-outlined text-sm">add</span>
+                    New Project
+                </button>
+            </div>
+            <!-- KPI Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Card 1: Active Projects -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Active Projects</p>
+                            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mt-2">12</h3>
+                        </div>
+                        <div class="p-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg">
+                            <span class="material-icons-outlined">work</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm">
+                        <span class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center">
+                            <span class="material-icons-outlined text-sm mr-0.5">trending_up</span>
+                            +2
+                        </span>
+                        <span class="text-slate-400 ml-2">vs last week</span>
+                    </div>
+                </div>
+                <!-- Card 2: Total Clients -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Clients</p>
+                            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mt-2">48</h3>
+                        </div>
+                        <div
+                            class="p-2 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg">
+                            <span class="material-icons-outlined">groups</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm">
+                        <span class="text-slate-400">Total active portfolio</span>
+                    </div>
+                </div>
+                <!-- Card 3: Revenue -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Revenue (MoM)</p>
+                            <h3 class="text-3xl font-bold text-primary mt-2">$12,450</h3>
+                        </div>
+                        <div
+                            class="p-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-lg">
+                            <span class="material-icons-outlined">attach_money</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm">
+                        <span class="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center">
+                            <span class="material-icons-outlined text-sm mr-0.5">trending_up</span>
+                            +12%
+                        </span>
+                        <span class="text-slate-400 ml-2">vs last month</span>
+                    </div>
+                </div>
+                <!-- Card 4: Risk Alerts -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] p-6 rounded-xl border border-rose-100 dark:border-rose-900/30 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="absolute right-0 top-0 w-16 h-16 bg-rose-500/10 rounded-bl-full -mr-2 -mt-2"></div>
+                    <div class="flex items-start justify-between relative z-10">
+                        <div>
+                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">Risk Alerts</p>
+                            <h3 class="text-3xl font-bold text-rose-600 dark:text-rose-400 mt-2">1</h3>
+                        </div>
+                        <div class="p-2 bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 rounded-lg">
+                            <span class="material-icons-outlined">warning</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center text-sm relative z-10">
+                        <span class="text-rose-600 dark:text-rose-400 font-semibold">Action Required</span>
+                        <span class="text-slate-400 ml-2">Overdue invoice</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Two Column Section: Table & Feed -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Main Column: Recent Projects Table -->
+                <div
+                    class="lg:col-span-2 bg-white dark:bg-[#1a2632] rounded-xl border border-slate-200/60 dark:border-slate-800 shadow-sm flex flex-col">
+                    <div
+                        class="p-6 border-b border-slate-100 dark:border-slate-800/50 flex items-center justify-between">
+                        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Recent Projects</h2>
+                        <a class="text-sm font-medium text-primary hover:text-primary/80" href="#">View All</a>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr
+                                    class="text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-800/30 uppercase tracking-wider">
+                                    <th class="px-6 py-4 rounded-tl-lg">Project Name</th>
+                                    <th class="px-6 py-4">Client</th>
+                                    <th class="px-6 py-4">Due Date</th>
+                                    <th class="px-6 py-4 rounded-tr-lg">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-800/50">
+                                <!-- Row 1 -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="font-semibold text-slate-900 dark:text-white">Website Redesign</div>
+                                        <div class="text-xs text-slate-400">Web Development</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 flex items-center justify-center text-xs font-bold">
+                                                T</div>
+                                            <span class="text-sm text-slate-600 dark:text-slate-300">TechFlow
+                                                Inc.</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-slate-500">Oct 24, 2023</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300">
+                                            Active
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="font-semibold text-slate-900 dark:text-white">Q3 Marketing Audit
+                                        </div>
+                                        <div class="text-xs text-slate-400">Consulting</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 flex items-center justify-center text-xs font-bold">
+                                                A</div>
+                                            <span class="text-sm text-slate-600 dark:text-slate-300">Apex Retail</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-slate-500">Oct 28, 2023</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
+                                            In Progress
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="font-semibold text-slate-900 dark:text-white">Brand Guidelines</div>
+                                        <div class="text-xs text-slate-400">Design</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-xs font-bold">
+                                                S</div>
+                                            <span class="text-sm text-slate-600 dark:text-slate-300">Solstice Co.</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-slate-500">Nov 02, 2023</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
+                                            Review
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!-- Row 4 -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="font-semibold text-slate-900 dark:text-white">Mobile App MVP</div>
+                                        <div class="text-xs text-slate-400">Development</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-pink-100 dark:bg-pink-900 text-pink-600 dark:text-pink-300 flex items-center justify-center text-xs font-bold">
+                                                N</div>
+                                            <span class="text-sm text-slate-600 dark:text-slate-300">Nexus Labs</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-rose-500 font-medium">Oct 20, 2023</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-100 dark:bg-rose-900/30 text-rose-800 dark:text-rose-300">
+                                            Overdue
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!-- Row 5 -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-colors">
+                                    <td class="px-6 py-4">
+                                        <div class="font-semibold text-slate-900 dark:text-white">SEO Optimization</div>
+                                        <div class="text-xs text-slate-400">Marketing</div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="flex items-center gap-2">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-teal-100 dark:bg-teal-900 text-teal-600 dark:text-teal-300 flex items-center justify-center text-xs font-bold">
+                                                G</div>
+                                            <span class="text-sm text-slate-600 dark:text-slate-300">GreenEarth</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-slate-500">Nov 15, 2023</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                                            Pending
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Right Column: Activity Feed -->
+                <div
+                    class="bg-white dark:bg-[#1a2632] rounded-xl border border-slate-200/60 dark:border-slate-800 shadow-sm flex flex-col h-full">
+                    <div class="p-6 border-b border-slate-100 dark:border-slate-800/50">
+                        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Activity Feed</h2>
+                    </div>
+                    <div class="p-6 flex-1">
+                        <div class="flow-root">
+                            <ul class="-mb-8" role="list">
+                                <li>
+                                    <div class="relative pb-8">
+                                        <span aria-hidden="true"
+                                            class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-slate-200 dark:bg-slate-700"></span>
+                                        <div class="relative flex space-x-3">
+                                            <div>
+                                                <span
+                                                    class="h-8 w-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center ring-8 ring-white dark:ring-[#1a2632]">
+                                                    <span
+                                                        class="material-icons-outlined text-blue-600 dark:text-blue-400 text-sm">edit</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                                                <div>
+                                                    <p class="text-sm text-slate-600 dark:text-slate-300">John updated
+                                                        <span
+                                                            class="font-semibold text-slate-900 dark:text-white">'Alpha'
+                                                            proposal</span>
+                                                    </p>
+                                                </div>
+                                                <div class="whitespace-nowrap text-right text-xs text-slate-400">2m ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="relative pb-8">
+                                        <span aria-hidden="true"
+                                            class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-slate-200 dark:bg-slate-700"></span>
+                                        <div class="relative flex space-x-3">
+                                            <div>
+                                                <span
+                                                    class="h-8 w-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center ring-8 ring-white dark:ring-[#1a2632]">
+                                                    <span
+                                                        class="material-icons-outlined text-emerald-600 dark:text-emerald-400 text-sm">attach_money</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                                                <div>
+                                                    <p class="text-sm text-slate-600 dark:text-slate-300">Invoice paid
+                                                        by <span
+                                                            class="font-semibold text-slate-900 dark:text-white">Client
+                                                            X</span></p>
+                                                </div>
+                                                <div class="whitespace-nowrap text-right text-xs text-slate-400">1h ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="relative pb-8">
+                                        <span aria-hidden="true"
+                                            class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-slate-200 dark:bg-slate-700"></span>
+                                        <div class="relative flex space-x-3">
+                                            <div>
+                                                <span
+                                                    class="h-8 w-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center ring-8 ring-white dark:ring-[#1a2632]">
+                                                    <span
+                                                        class="material-icons-outlined text-purple-600 dark:text-purple-400 text-sm">person_add</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                                                <div>
+                                                    <p class="text-sm text-slate-600 dark:text-slate-300">New client
+                                                        <span
+                                                            class="font-semibold text-slate-900 dark:text-white">Design
+                                                            Co.</span> added
+                                                    </p>
+                                                </div>
+                                                <div class="whitespace-nowrap text-right text-xs text-slate-400">3h ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="relative pb-8">
+                                        <div class="relative flex space-x-3">
+                                            <div>
+                                                <span
+                                                    class="h-8 w-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center ring-8 ring-white dark:ring-[#1a2632]">
+                                                    <span
+                                                        class="material-icons-outlined text-amber-600 dark:text-amber-400 text-sm">warning</span>
+                                                </span>
+                                            </div>
+                                            <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                                                <div>
+                                                    <p class="text-sm text-slate-600 dark:text-slate-300">Contract
+                                                        expiring for <span
+                                                            class="font-semibold text-slate-900 dark:text-white">Project
+                                                            Beta</span></p>
+                                                </div>
+                                                <div class="whitespace-nowrap text-right text-xs text-slate-400">1d ago
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-slate-100 dark:border-slate-800/50">
+                        <button
+                            class="w-full py-2 text-sm text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary font-medium transition-colors">View
+                            All Activity</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Area / Quick Help -->
+            <div
+                class="mt-8 mb-4 bg-gradient-to-r from-primary/5 to-transparent p-6 rounded-xl border border-primary/10 flex items-center justify-between">
+                <div>
+                    <h4 class="font-bold text-slate-800 dark:text-white">Need help getting started?</h4>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Check out our guide for setting up your
+                        first project workflow.</p>
+                </div>
+                <button class="text-primary font-semibold text-sm hover:underline">Read Guide</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', function () {
+            const sidebar = document.querySelector('aside');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('hidden');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Close sidebar when overlay is clicked
+        document.getElementById('sidebar-overlay')?.addEventListener('click', function () {
+            const sidebar = document.querySelector('aside');
+            sidebar.classList.add('hidden');
+            this.classList.add('hidden');
+        });
+    </script>
+</body>
+
+</html>

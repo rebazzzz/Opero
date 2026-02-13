@@ -1,0 +1,179 @@
+<!-- Centralized Navigation Component (Sidebar + Header) -->
+<!-- This component includes fonts, icons, and Tailwind CSS configuration -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased">
+
+    <!-- Navigation Container -->
+    <div id="nav-container" class="h-screen flex flex-col md:flex-row overflow-hidden">
+
+        <!-- Mobile Sidebar Overlay (Hidden by default) -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+
+        <!-- Sidebar -->
+        <aside
+            class="w-64 bg-white dark:bg-[#1a2632] border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex h-full z-30 transition-all duration-300">
+            <!-- Logo Area -->
+            <div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800/50">
+                <div class="flex items-center gap-2 text-primary font-bold text-xl">
+                    <span class="material-icons-outlined text-3xl">grid_view</span>
+                    <span>Service<span class="text-slate-900 dark:text-white">Pro</span></span>
+                </div>
+            </div>
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-6 px-3 space-y-1">
+                <a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg font-semibold transition-colors"
+                    href="main_dashboard.html">
+                    <span class="material-icons-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                    href="project_list.html">
+                    <span class="material-icons-outlined">folder_open</span>
+                    Projects
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                    href="client_management.html">
+                    <span class="material-icons-outlined">people_outline</span>
+                    Clients
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                    href="#">
+                    <span class="material-icons-outlined">receipt_long</span>
+                    Invoices
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                    href="business_analytics.html">
+                    <span class="material-icons-outlined">analytics</span>
+                    Reports
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                    href="activity_log.html">
+                    <span class="material-icons-outlined">history</span>
+                    Activity Log
+                </a>
+            </nav>
+            <!-- Bottom Actions -->
+            <div class="p-4 border-t border-slate-100 dark:border-slate-800/50 space-y-1">
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors"
+                    href="#">
+                    <span class="material-icons-outlined">settings</span>
+                    Settings
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg font-medium transition-colors"
+                    href="#">
+                    <span class="material-icons-outlined">logout</span>
+                    Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Header -->
+        <header
+            class="h-16 bg-white dark:bg-[#1a2632] border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-20 flex-1">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-500 hover:text-primary">
+                <span class="material-icons-outlined">menu</span>
+            </button>
+            <!-- Search Bar -->
+            <div class="hidden sm:flex items-center flex-1 max-w-md ml-4">
+                <div class="relative w-full">
+                    <span
+                        class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                    <input
+                        class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 text-slate-700 dark:text-slate-200 placeholder-slate-400"
+                        placeholder="Search projects, clients..." type="text" />
+                </div>
+            </div>
+            <!-- Right Actions -->
+            <div class="flex items-center gap-3 sm:gap-6">
+                <!-- Notifications -->
+                <button
+                    class="relative p-2 text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors">
+                    <span class="material-icons-outlined">notifications</span>
+                    <span
+                        class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-[#1a2632]"></span>
+                </button>
+                <!-- Profile -->
+                <div class="flex items-center gap-3 pl-3 border-l border-slate-100 dark:border-slate-700">
+                    <div class="hidden sm:block text-right">
+                        <p class="text-sm font-bold text-slate-800 dark:text-white">Alex Morgan</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Owner</p>
+                    </div>
+                    <img alt="User Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20"
+                        data-alt="Professional headshot of a smiling man in business casual attire"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS" />
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', function () {
+            const sidebar = document.querySelector('aside');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('hidden');
+            overlay.classList.toggle('hidden');
+        });
+
+        // Close sidebar when overlay is clicked
+        document.getElementById('sidebar-overlay')?.addEventListener('click', function () {
+            const sidebar = document.querySelector('aside');
+            sidebar.classList.add('hidden');
+            this.classList.add('hidden');
+        });
+    </script>
+
+</body>
