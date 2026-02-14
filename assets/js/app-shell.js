@@ -1,7 +1,8 @@
 const APP_SHELL_NAV = [
     { key: 'dashboard', href: 'main_dashboard.html', icon: 'dashboard', label: 'Dashboard' },
-    { key: 'projects', href: 'project_list.html', icon: 'folder_open', label: 'Projects' },
     { key: 'clients', href: 'client_management.html', icon: 'people_outline', label: 'Clients' },
+    { key: 'projects', href: 'project_list.html', icon: 'folder_open', label: 'Projects' },
+    { key: 'team', href: 'global_team_list_view.html', icon: 'groups', label: 'Team' },
     { key: 'invoices', href: 'global_invoices_list_overview.html', icon: 'receipt_long', label: 'Invoices' },
     { key: 'reports', href: 'business_analytics.html', icon: 'analytics', label: 'Reports' },
     { key: 'activity', href: 'activity_log.html', icon: 'history', label: 'Activity Log' },
@@ -49,6 +50,10 @@ function inferActiveKey(pathname) {
         'project_list.html': 'projects',
         'project_details.html': 'projects',
         'client_management.html': 'clients',
+        'global_team_list_view.html': 'team',
+        'team_memer_managment_profile.html': 'team',
+        'team_member_managment_profile_v1.html': 'team',
+        'team_member_managment_profile_v2.html': 'team',
         'global_invoices_list_overview.html': 'invoices',
         'invoice_detailed_view.html': 'invoices',
         'business_analytics.html': 'reports',
@@ -94,7 +99,7 @@ function renderSidebar(activeKey, basePath) {
         <div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800/50">
             <div class="flex items-center gap-2 text-primary font-bold text-xl">
                 <span class="material-symbols-outlined text-3xl">grid_view</span>
-                <span>Service<span class="text-slate-900 dark:text-white">Pro</span></span>
+                <span class="text-slate-900 dark:text-white">BizDash</span>
             </div>
         </div>
         <nav class="flex-1 overflow-y-auto py-6 px-3 space-y-1">${navHtml}

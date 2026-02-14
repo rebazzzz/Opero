@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Member Profile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="../assets/css/common.css" rel="stylesheet" />
+    <link href="../assets/css/team.css" rel="stylesheet" />
+    <script src="../assets/js/app-shell.js"></script>
+    <script src="../assets/js/project_details.js"></script>
+    <script src="../assets/js/team-topbar.js"></script>
+    <script src="../assets/js/team-profile.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        "neutral-dark": "#1a2530"
+                    },
+                    fontFamily: {
+                        display: ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row"
+    data-shell-active="team" data-shell-search="Search team members, permissions..." data-shell-user="Alex Morgan"
+    data-shell-role="Owner" data-team-view="profile" data-team-member-name="Jane Smith" data-team-default-tab="roles">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+    <div id="app-sidebar-slot"></div>
+
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+        <div id="app-header-slot"></div>
+
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <div class="max-w-7xl mx-auto space-y-6">
+                <div id="team-topbar-slot" class="space-y-4"></div>
+
+                <header class="bg-white dark:bg-neutral-dark p-6 rounded-xl border border-primary/10 shadow-sm">
+                    <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-6">
+                        <div class="flex items-center gap-5">
+                            <div class="relative">
+                                <img alt="Profile picture"
+                                    class="w-24 h-24 rounded-full object-cover border-4 border-primary/10"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3ZMRA7dgSVl2nyYM3uwidt08wkf89Ye5Mi7eW-iakDwFcP8ttFDJMeJhGQivYjYslWjU_OYGWUkd_hSRKRDyS_EgEe1yABdyivqfq4liXsJ6LFyfMvNPT-f1Exdau0XQ8SpqLef6ie0pKAjOV50vUPPDC7y342nLAXRUN0bpzVxaJcRHOYf0XRiNJ8yW-XuxEMho8zE3R9WdMz-P0AXequtlxkPRt5VdbYE9Uf_FZbXX5szRxWRILo6wnKa4HhHzuTgzyguOABK5o" />
+                                <span
+                                    class="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-green-500 border-2 border-white"></span>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 flex-wrap">
+                                    <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">Jane Smith</h1>
+                                    <span
+                                        class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full">Project
+                                        Manager</span>
+                                </div>
+                                <p class="text-slate-500 dark:text-slate-400 mt-1">jane.smith@corporation.com � Joined
+                                    Sept 2023</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-3">
+                            <button
+                                class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Discard</button>
+                            <button
+                                class="px-6 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 shadow-md transition-all">Save
+                                Changes</button>
+                            <div class="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-slate-600 dark:text-slate-300">Active</span>
+                                <label class="team-switch">
+                                    <input type="checkbox" checked />
+                                    <span class="team-switch-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="flex space-x-8 border-b border-slate-200 dark:border-slate-700 overflow-x-auto">
+                    <button data-team-tab-target="roles"
+                        class="pb-4 text-sm font-bold px-2 flex items-center gap-2"><span
+                            class="material-icons text-lg">admin_panel_settings</span>Roles & Permissions</button>
+                    <button data-team-tab-target="assignments"
+                        class="pb-4 text-sm font-bold text-slate-500 dark:text-slate-400 px-2 flex items-center gap-2"><span
+                            class="material-icons text-lg">assignment</span>Project Assignments</button>
+                    <button data-team-tab-target="activity"
+                        class="pb-4 text-sm font-bold text-slate-500 dark:text-slate-400 px-2 flex items-center gap-2"><span
+                            class="material-icons text-lg">history</span>Activity History</button>
+                </section>
+
+                <section data-team-tab-panel="roles" class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                    <div class="xl:col-span-2 space-y-8">
+                        <div class="bg-white dark:bg-neutral-dark p-8 rounded-xl border border-primary/10 shadow-sm">
+                            <h2 class="text-xl font-bold mb-6">Personal Information</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <label
+                                    class="flex flex-col gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300">Full
+                                    Name
+                                    <input
+                                        class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg p-3"
+                                        type="text" value="Jane Smith" />
+                                </label>
+                                <label
+                                    class="flex flex-col gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300">Email
+                                    Address
+                                    <input
+                                        class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg p-3"
+                                        type="email" value="jane.smith@corporation.com" />
+                                </label>
+                                <label
+                                    class="flex flex-col gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300">Phone
+                                    Number
+                                    <input
+                                        class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg p-3"
+                                        type="tel" value="+1 (555) 902-3456" />
+                                </label>
+                                <label
+                                    class="flex flex-col gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300">Location
+                                    <input
+                                        class="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg p-3"
+                                        type="text" value="Chicago, IL" />
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-neutral-dark p-8 rounded-xl border border-primary/10 shadow-sm">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                                <h2 class="text-xl font-bold">Roles & Permissions</h2>
+                                <div class="relative w-full md:w-64">
+                                    <select
+                                        class="w-full appearance-none bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg py-2.5 px-4 font-semibold">
+                                        <option>System Administrator</option>
+                                        <option selected>Editor / Project Manager</option>
+                                        <option>Read-Only Viewer</option>
+                                    </select>
+                                    <span
+                                        class="material-icons absolute right-3 top-2.5 text-slate-400 pointer-events-none">expand_more</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="divide-y divide-slate-100 dark:divide-slate-800 border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden">
+                                <div class="flex items-center justify-between p-5">
+                                    <div class="flex items-center gap-4">
+                                        <span
+                                            class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center"><span
+                                                class="material-symbols-outlined">visibility</span></span>
+                                        <div>
+                                            <div class="font-bold">View Projects</div>
+                                            <p class="text-sm text-slate-500">Access to all active and archived
+                                                dashboards.</p>
+                                        </div>
+                                    </div>
+                                    <label class="team-switch"><input type="checkbox" checked /><span
+                                            class="team-switch-slider"></span></label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-5">
+                                    <div class="flex items-center gap-4">
+                                        <span
+                                            class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center"><span
+                                                class="material-symbols-outlined">edit_note</span></span>
+                                        <div>
+                                            <div class="font-bold">Edit Projects</div>
+                                            <p class="text-sm text-slate-500">Modify project settings and project
+                                                status.</p>
+                                        </div>
+                                    </div>
+                                    <label class="team-switch"><input type="checkbox" checked /><span
+                                            class="team-switch-slider"></span></label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-5">
+                                    <div class="flex items-center gap-4">
+                                        <span
+                                            class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center"><span
+                                                class="material-symbols-outlined">group_add</span></span>
+                                        <div>
+                                            <div class="font-bold">Manage Team</div>
+                                            <p class="text-sm text-slate-500">Assign members to tasks and projects.</p>
+                                        </div>
+                                    </div>
+                                    <label class="team-switch"><input type="checkbox" checked /><span
+                                            class="team-switch-slider"></span></label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-5">
+                                    <div class="flex items-center gap-4">
+                                        <span
+                                            class="w-10 h-10 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center"><span
+                                                class="material-symbols-outlined">payments</span></span>
+                                        <div>
+                                            <div class="flex items-center gap-2 font-bold">View Financials
+                                                <span class="team-tooltip-anchor text-slate-400">
+                                                    <span class="material-icons text-sm">info_outline</span>
+                                                    <span class="team-tooltip">See project budgets and real-time cost
+                                                        tracking.</span>
+                                                </span>
+                                            </div>
+                                            <p class="text-sm text-slate-500">See project budgets and real-time cost
+                                                tracking.</p>
+                                        </div>
+                                    </div>
+                                    <label class="team-switch"><input type="checkbox" /><span
+                                            class="team-switch-slider"></span></label>
+                                </div>
+
+                                <div class="flex items-center justify-between p-5">
+                                    <div class="flex items-center gap-4">
+                                        <span
+                                            class="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center"><span
+                                                class="material-symbols-outlined">receipt_long</span></span>
+                                        <div>
+                                            <div class="flex items-center gap-2 font-bold">Create Invoices
+                                                <span class="team-tooltip-anchor text-slate-400">
+                                                    <span class="material-icons text-sm">info_outline</span>
+                                                    <span class="team-tooltip">Generate client invoices and export
+                                                        billing data.</span>
+                                                </span>
+                                            </div>
+                                            <p class="text-sm text-slate-500">Generate client invoices and export
+                                                billing data.</p>
+                                        </div>
+                                    </div>
+                                    <label class="team-switch"><input type="checkbox" /><span
+                                            class="team-switch-slider"></span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="space-y-6">
+                        <div class="bg-primary text-white p-6 rounded-xl shadow-lg shadow-primary/20">
+                            <h3 class="font-bold text-lg mb-4">Quick Statistics</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between"><span>Total Projects</span><span
+                                        class="text-xl font-extrabold">12</span></div>
+                                <div class="flex justify-between"><span>Tasks Completed</span><span
+                                        class="text-xl font-extrabold">148</span></div>
+                                <div class="flex justify-between"><span>Avg. Response Time</span><span
+                                        class="text-xl font-extrabold">2.4h</span></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-neutral-dark p-6 rounded-xl border border-primary/10 shadow-sm">
+                            <h3 class="font-bold mb-2">Need Help?</h3>
+                            <p class="text-sm text-slate-500 mb-4">Reach out to support if you need help with complex
+                                permissions.</p>
+                            <a class="text-primary font-bold text-sm hover:underline" href="#">Open help center</a>
+                        </div>
+                    </aside>
+                </section>
+
+                <section data-team-tab-panel="assignments"
+                    class="hidden bg-white dark:bg-neutral-dark rounded-xl border border-primary/10 shadow-sm overflow-hidden">
+                    <div
+                        class="p-6 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold">Current Project Assignments</h2>
+                            <p class="text-slate-500 text-sm">Assign or remove Jane from active projects.</p>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                            <div class="relative w-full sm:w-64">
+                                <input type="text" placeholder="Search projects..."
+                                    class="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm" />
+                                <span class="material-icons absolute left-3 top-2 text-slate-400 text-lg">search</span>
+                            </div>
+                            <button type="button" data-team-modal-open="assign-project"
+                                class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                <span class="material-icons text-base">add</span>
+                                Assign Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead
+                                class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700">
+                                <tr>
+                                    <th class="p-4 text-sm font-bold text-slate-600">Project Name</th>
+                                    <th class="p-4 text-sm font-bold text-slate-600">Status</th>
+                                    <th class="p-4 text-sm font-bold text-slate-600">Assigned Since</th>
+                                    <th class="p-4 text-sm font-bold text-slate-600 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 dark:divide-slate-700">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30">
+                                    <td class="p-4 font-semibold">Blue Point Expansion</td>
+                                    <td class="p-4"><span
+                                            class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">In
+                                            Progress</span></td>
+                                    <td class="p-4 text-sm text-slate-500">Oct 12, 2023</td>
+                                    <td class="p-4 text-right"><button type="button" data-project-modal-open="manage-tasks" class="text-primary font-bold text-sm">Manage
+                                            Tasks</button></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30">
+                                    <td class="p-4 font-semibold">Main Road Renovation</td>
+                                    <td class="p-4"><span
+                                            class="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded">Planning</span>
+                                    </td>
+                                    <td class="p-4 text-sm text-slate-500">Nov 04, 2023</td>
+                                    <td class="p-4 text-right"><button type="button" data-project-modal-open="manage-tasks" class="text-primary font-bold text-sm">Manage
+                                            Tasks</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section data-team-tab-panel="activity" class="hidden pb-8">
+                    <h2 class="text-xl font-bold mb-6">Recent Activity</h2>
+                    <div class="team-timeline space-y-6">
+                        <div class="relative pl-12">
+                            <div
+                                class="absolute left-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center border-4 border-white dark:border-background-dark">
+                                <span class="material-icons text-lg">edit</span>
+                            </div>
+                            <div
+                                class="bg-white dark:bg-neutral-dark p-4 rounded-xl border border-primary/10 shadow-sm inline-block min-w-[280px]">
+                                <p class="font-bold">Profile details updated</p>
+                                <p class="text-sm text-slate-500">Changed location to Chicago, IL</p>
+                                <span class="text-xs text-slate-400 mt-2 block">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="relative pl-12">
+                            <div
+                                class="absolute left-0 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center border-4 border-white dark:border-background-dark">
+                                <span class="material-icons text-lg">check_circle</span>
+                            </div>
+                            <div
+                                class="bg-white dark:bg-neutral-dark p-4 rounded-xl border border-primary/10 shadow-sm inline-block min-w-[280px]">
+                                <p class="font-bold">Completed Task</p>
+                                <p class="text-sm text-slate-500">Finalized blueprint review for Blue Point</p>
+                                <span class="text-xs text-slate-400 mt-2 block">Yesterday, 4:15 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

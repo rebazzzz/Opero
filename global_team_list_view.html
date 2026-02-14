@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Members</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="assets/css/common.css" rel="stylesheet" />
+    <link href="assets/css/team.css" rel="stylesheet" />
+    <script src="assets/js/app-shell.js"></script>
+    <script src="assets/js/team-topbar.js"></script>
+    <script src="assets/js/project_details.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921"
+                    },
+                    fontFamily: {
+                        display: ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row"
+    data-shell-active="team" data-team-view="list" data-shell-search="Search team members, roles..." data-shell-user="Alex Morgan"
+    data-shell-role="Owner">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+    <div id="app-sidebar-slot"></div>
+
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+        <div id="app-header-slot"></div>
+
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <div class="max-w-7xl mx-auto">
+                <div id="team-topbar-slot"></div>
+
+                <section
+                    class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4 mb-6 shadow-sm">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="relative flex-grow">
+                            <span
+                                class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                            <input type="text" placeholder="Search by name or email..."
+                                class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:ring-2 focus:ring-primary focus:border-transparent" />
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <select
+                                class="min-w-[150px] rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 py-2.5 text-sm">
+                                <option>All Roles</option>
+                                <option>Admin</option>
+                                <option>Manager</option>
+                                <option>Field Staff</option>
+                            </select>
+                            <select
+                                class="min-w-[170px] rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 py-2.5 text-sm">
+                                <option>Sort by: Newest</option>
+                                <option>Sort by: Name (A-Z)</option>
+                                <option>Sort by: Last Active</option>
+                            </select>
+                            <button
+                                class="px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary hover:border-primary/40 transition-colors">
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <section
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
+                            <thead class="bg-slate-50 dark:bg-slate-800/50">
+                                <tr>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        Member Name</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        Email Address</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        Role</th>
+                                    <th
+                                        class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        Active Projects</th>
+                                    <th
+                                        class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        Last Activity</th>
+                                    <th
+                                        class="px-6 py-4 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                                        Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center gap-3">
+                                            <img class="h-10 w-10 rounded-full object-cover" alt="Sarah Connor"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR44xYYAT0mRHDjsKpkkrnsGuGjzu4ab8sGTOb86_turqIT-j-jx8O4Ed4Iw-LiMp2beqkHu_XCTwyQr04VpV52HWRxDOv_esLLzKgxIIEdJEzCLobgyfuNtNGpsS-kDl51nyfBTWD6aGUDFPVo4rCjrL4tKm0pVxLqWm3pAjbFi4rbYrtQh_3FnYk7ZWM4YCcqETkZ-V2e1-EwlfsUPXn2-y3s-GPVDTRzUFmX1HXC7jpTZxbI95sDJ6NGJJujLpvBgaykOMn1XGA" />
+                                            <div>
+                                                <p class="text-sm font-semibold">Sarah Connor</p>
+                                                <p class="text-xs text-slate-500">Joined Oct 2023</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+                                        sarah.c@serviceflow.com</td>
+                                    <td class="px-6 py-4"><span
+                                            class="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">Admin</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-center text-sm font-semibold">12</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">2 minutes ago</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <a href="team_members/team_memer_managment_profile.html"
+                                            class="inline-flex items-center px-4 py-2 border border-slate-200 dark:border-slate-700 text-sm font-semibold rounded-lg text-primary hover:bg-primary hover:text-white transition-all">Manage</a>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center gap-3">
+                                            <img class="h-10 w-10 rounded-full object-cover" alt="Marcus Wright"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_jXmUtxd9pLcR7g81cHEwboB6pjcCRdAKyc7610Z8pWETJtOK2kPh4f1o7MzYfDltkWqC8TSlEK2M6M0PTq8GWDs_ljpOAh40Zs7W4aA382uAXVquRoiulQa3WuX4X982Lno-oh2iD7Mer2CwKzLFUAH_4E-vxGChXiWIPvUGWrW6u4__AjwDIGVODp74a3_kKRAd39j7pEBii4V0lPRrgduN3EGrxpAqGdrpqdHAJbDgyWD5XBhtgYnUQ9oBE-w_sahaAR5XwKlB" />
+                                            <div>
+                                                <p class="text-sm font-semibold">Marcus Wright</p>
+                                                <p class="text-xs text-slate-500">Joined Jan 2024</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+                                        marcus.w@serviceflow.com</td>
+                                    <td class="px-6 py-4"><span
+                                            class="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700">Manager</span>
+                                    </td>
+                                    <td class="px-6 py-4 text-center text-sm font-semibold">8</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">45 minutes ago</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <a href="team_members/team_memer_managment_profile.html"
+                                            class="inline-flex items-center px-4 py-2 border border-slate-200 dark:border-slate-700 text-sm font-semibold rounded-lg text-primary hover:bg-primary hover:text-white transition-all">Manage</a>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center gap-3">
+                                            <img class="h-10 w-10 rounded-full object-cover" alt="Kyle Reese"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6vZ4iNxWfaaO0EZNn50-jIrOvnner3RywQdA0NglrtdXB1V_vYd-t8Re6Fy-JoVuVf-Q2sSfkXKpXkAJcV9RjcQeomi5UsG6hmRn6rvnn42_kKubXe4oqVSfJ_h7AZfeD8ujUz6VsC6-aa_L5H3aXTi40mL-0uav_G7VkCilS-pHDTrRBczzLgAUeY98t83tBKSfAD1mvVsCAj_YEvAgYugOP6kbEGEjBm1sxEcrPBh7qb1FuYyIUP6rOAfEiAYGoKwBjHfC_iuT" />
+                                            <div>
+                                                <p class="text-sm font-semibold">Kyle Reese</p>
+                                                <p class="text-xs text-slate-500">Joined Feb 2024</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+                                        kyle.r@serviceflow.com</td>
+                                    <td class="px-6 py-4"><span
+                                            class="inline-flex px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-700">Field
+                                            Staff</span></td>
+                                    <td class="px-6 py-4 text-center text-sm font-semibold">5</td>
+                                    <td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">3 hours ago</td>
+                                    <td class="px-6 py-4 text-right">
+                                        <a href="team_members/team_memer_managment_profile.html"
+                                            class="inline-flex items-center px-4 py-2 border border-slate-200 dark:border-slate-700 text-sm font-semibold rounded-lg text-primary hover:bg-primary hover:text-white transition-all">Manage</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div
+                        class="bg-slate-50 dark:bg-slate-800/50 px-6 py-4 flex items-center justify-between border-t border-slate-200 dark:border-slate-800">
+                        <p class="text-sm text-slate-600 dark:text-slate-300">Showing <span
+                                class="font-semibold">1</span> to <span class="font-semibold">10</span> of <span
+                                class="font-semibold">24</span> members</p>
+                        <div class="flex items-center gap-2">
+                            <button
+                                class="w-8 h-8 rounded border border-slate-200 dark:border-slate-700 text-slate-500">&lt;</button>
+                            <button class="w-8 h-8 rounded bg-primary text-white font-semibold">1</button>
+                            <button
+                                class="w-8 h-8 rounded border border-slate-200 dark:border-slate-700 text-slate-500">2</button>
+                            <button
+                                class="w-8 h-8 rounded border border-slate-200 dark:border-slate-700 text-slate-500">3</button>
+                            <button
+                                class="w-8 h-8 rounded border border-slate-200 dark:border-slate-700 text-slate-500">&gt;</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

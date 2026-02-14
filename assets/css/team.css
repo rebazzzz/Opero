@@ -1,0 +1,91 @@
+.team-tab-active {
+  border-bottom: 2px solid #197fe6;
+  color: #197fe6;
+}
+
+.team-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.team-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.team-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #cbd5e1;
+  transition: 0.2s;
+  border-radius: 999px;
+}
+
+.team-switch-slider::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  transition: 0.2s;
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+}
+
+.team-switch input:checked + .team-switch-slider {
+  background-color: #197fe6;
+}
+
+.team-switch input:checked + .team-switch-slider::before {
+  transform: translateX(24px);
+}
+
+.team-tooltip-anchor {
+  position: relative;
+}
+
+.team-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: 130%;
+  width: 210px;
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.15s;
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  z-index: 30;
+}
+
+.team-tooltip-anchor:hover .team-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.team-timeline {
+  position: relative;
+}
+
+.team-timeline::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #dbe5f1;
+}
