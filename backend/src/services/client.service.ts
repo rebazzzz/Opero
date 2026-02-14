@@ -54,6 +54,15 @@ export class ClientService {
     const [items, total] = await Promise.all([
       prisma.client.findMany({
         where,
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          phone: true,
+          status: true,
+          createdAt: true,
+          updatedAt: true
+        },
         orderBy: { createdAt: "desc" },
         skip,
         take: limit
@@ -88,17 +97,39 @@ export class ClientService {
   }
 
   async update(organizationId: string, clientId: string, input: UpdateClientInput) {
-    await this.getById(organizationId, clientId);
-
     try {
-      return await prisma.client.update({
-        where: { id: clientId },
-        data: {
+      return await prisma.$transaction(async (tx) => {
+        const data: Prisma.ClientUpdateManyMutationInput = {
           ...(input.name !== undefined ? { name: input.name } : {}),
           ...(input.email !== undefined ? { email: input.email } : {}),
           ...(input.phone !== undefined ? { phone: input.phone } : {}),
           ...(input.status !== undefined ? { status: input.status } : {})
+        };
+
+        const result = await tx.client.updateMany({
+          where: {
+            id: clientId,
+            organizationId
+          },
+          data
+        });
+
+        if (result.count === 0) {
+          throw new AppError(404, "Client not found", "CLIENT_NOT_FOUND");
         }
+
+        const client = await tx.client.findFirst({
+          where: {
+            id: clientId,
+            organizationId
+          }
+        });
+
+        if (!client) {
+          throw new AppError(404, "Client not found", "CLIENT_NOT_FOUND");
+        }
+
+        return client;
       });
     } catch (error) {
       if (

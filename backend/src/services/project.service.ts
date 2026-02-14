@@ -16,36 +16,37 @@ const toPrismaBudget = (value: number | null): Prisma.Decimal | null => {
 };
 
 export class ProjectService {
-  private async assertClientInOrganization(organizationId: string, clientId: string): Promise<void> {
-    const client = await prisma.client.findFirst({
-      where: { id: clientId, organizationId },
-      select: { id: true }
-    });
-
-    if (!client) {
-      throw new AppError(400, "Client does not belong to this organization", "INVALID_CLIENT_SCOPE");
-    }
-  }
-
   async create(organizationId: string, input: CreateProjectInput) {
-    await this.assertClientInOrganization(organizationId, input.clientId);
+    return prisma.$transaction(async (tx) => {
+      const client = await tx.client.findFirst({
+        where: {
+          id: input.clientId,
+          organizationId
+        },
+        select: { id: true }
+      });
 
-    const data: Prisma.ProjectUncheckedCreateInput = {
-      organizationId,
-      clientId: input.clientId,
-      name: input.name,
-      status: input.status
-    };
+      if (!client) {
+        throw new AppError(400, "Client does not belong to this organization", "INVALID_CLIENT_SCOPE");
+      }
 
-    if (input.description !== undefined) {
-      data.description = input.description;
-    }
-    if (input.budget !== undefined) {
-      data.budget = toPrismaBudget(input.budget);
-    }
+      const data: Prisma.ProjectUncheckedCreateInput = {
+        organizationId,
+        clientId: input.clientId,
+        name: input.name,
+        status: input.status
+      };
 
-    return prisma.project.create({
-      data
+      if (input.description !== undefined) {
+        data.description = input.description;
+      }
+      if (input.budget !== undefined) {
+        data.budget = toPrismaBudget(input.budget);
+      }
+
+      return tx.project.create({
+        data
+      });
     });
   }
 
@@ -72,6 +73,16 @@ export class ProjectService {
     const [items, total] = await Promise.all([
       prisma.project.findMany({
         where,
+        select: {
+          id: true,
+          clientId: true,
+          name: true,
+          description: true,
+          status: true,
+          budget: true,
+          createdAt: true,
+          updatedAt: true
+        },
         orderBy: { createdAt: "desc" },
         skip,
         take: limit
@@ -106,32 +117,62 @@ export class ProjectService {
   }
 
   async update(organizationId: string, projectId: string, input: UpdateProjectInput) {
-    await this.getById(organizationId, projectId);
+    return prisma.$transaction(async (tx) => {
+      if (input.clientId !== undefined) {
+        const client = await tx.client.findFirst({
+          where: {
+            id: input.clientId,
+            organizationId
+          },
+          select: { id: true }
+        });
 
-    if (input.clientId) {
-      await this.assertClientInOrganization(organizationId, input.clientId);
-    }
+        if (!client) {
+          throw new AppError(400, "Client does not belong to this organization", "INVALID_CLIENT_SCOPE");
+        }
+      }
 
-    const data: Prisma.ProjectUncheckedUpdateInput = {};
-    if (input.clientId !== undefined) {
-      data.clientId = input.clientId;
-    }
-    if (input.name !== undefined) {
-      data.name = input.name;
-    }
-    if (input.description !== undefined) {
-      data.description = input.description;
-    }
-    if (input.status !== undefined) {
-      data.status = input.status;
-    }
-    if (input.budget !== undefined) {
-      data.budget = toPrismaBudget(input.budget);
-    }
+      const data: Prisma.ProjectUncheckedUpdateManyInput = {};
+      if (input.clientId !== undefined) {
+        data.clientId = input.clientId;
+      }
+      if (input.name !== undefined) {
+        data.name = input.name;
+      }
+      if (input.description !== undefined) {
+        data.description = input.description;
+      }
+      if (input.status !== undefined) {
+        data.status = input.status;
+      }
+      if (input.budget !== undefined) {
+        data.budget = toPrismaBudget(input.budget);
+      }
 
-    return prisma.project.update({
-      where: { id: projectId },
-      data
+      const result = await tx.project.updateMany({
+        where: {
+          id: projectId,
+          organizationId
+        },
+        data
+      });
+
+      if (result.count === 0) {
+        throw new AppError(404, "Project not found", "PROJECT_NOT_FOUND");
+      }
+
+      const project = await tx.project.findFirst({
+        where: {
+          id: projectId,
+          organizationId
+        }
+      });
+
+      if (!project) {
+        throw new AppError(404, "Project not found", "PROJECT_NOT_FOUND");
+      }
+
+      return project;
     });
   }
 }
