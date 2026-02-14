@@ -4,6 +4,7 @@ import { verifyAccessToken } from "../utils/jwt.js";
 import { logger } from "../config/logger.js";
 
 export const organizationRoom = (organizationId: string): string => `org:${organizationId}`;
+export const userRoom = (userId: string): string => `user:${userId}`;
 
 let io: Server | null = null;
 
@@ -41,8 +42,10 @@ export const initializeMessagingSocket = (httpServer: HttpServer): Server => {
 
   io.on("connection", (socket) => {
     const organizationId = socket.data.auth.organizationId as string;
+    const userId = socket.data.auth.userId as string;
     socket.join(organizationRoom(organizationId));
-    logger.info({ socketId: socket.id, organizationId }, "Messaging socket connected");
+    socket.join(userRoom(userId));
+    logger.info({ socketId: socket.id, organizationId, userId }, "Messaging socket connected");
   });
 
   return io;
@@ -54,6 +57,33 @@ export const emitMessageNew = (organizationId: string, payload: unknown): void =
   }
 
   io.to(organizationRoom(organizationId)).emit("message:new", payload);
+};
+
+export const emitNotificationNewToUser = (userId: string, payload: unknown): void => {
+  if (!io) {
+    return;
+  }
+
+  io.to(userRoom(userId)).emit("notification:new", payload);
+};
+
+export const emitNotificationNewToOrganization = (
+  organizationId: string,
+  payload: unknown
+): void => {
+  if (!io) {
+    return;
+  }
+
+  io.to(organizationRoom(organizationId)).emit("notification:new", payload);
+};
+
+export const emitNotificationReadToUser = (userId: string, payload: unknown): void => {
+  if (!io) {
+    return;
+  }
+
+  io.to(userRoom(userId)).emit("notification:read", payload);
 };
 
 export const closeMessagingSocket = async (): Promise<void> => {

@@ -37,8 +37,7 @@ enum InvoiceStatus {
 enum NotificationType {
   INFO
   WARNING
-  SUCCESS
-  ERROR
+  ALERT
 }
 
 enum ClientStatus {
@@ -52,6 +51,7 @@ enum FeatureModuleName {
   INVOICES
   MESSAGING
   ANALYTICS
+  NOTIFICATIONS
 }
 
 model Organization {
@@ -64,6 +64,7 @@ model Organization {
   clients        Client[]
   projects       Project[]
   invoices       Invoice[]
+  notifications  Notification[]
   messageThreads MessageThread[]
   featureModules FeatureModule[]
 
@@ -175,13 +176,16 @@ model Message {
 model Notification {
   id        String           @id @default(cuid())
   userId    String
+  organizationId String
   type      NotificationType @default(INFO)
+  title     String
   message   String
   read      Boolean          @default(false)
   createdAt DateTime         @default(now())
   user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
-  @@index([userId, read, createdAt])
+  @@index([organizationId, userId, read, createdAt])
 }
 
 model FeatureModule {
@@ -203,4 +207,22 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId, expiresAt])
+}
+
+model IdempotencyKey {
+  id             String   @id @default(cuid())
+  organizationId String
+  userId         String
+  method         String
+  route          String
+  key            String
+  requestHash    String
+  responseStatus Int?
+  responseBody   Json?
+  createdAt      DateTime @default(now())
+  expiresAt      DateTime
+
+  @@unique([organizationId, userId, method, route, key])
+  @@index([expiresAt])
+  @@index([organizationId, userId, createdAt])
 }

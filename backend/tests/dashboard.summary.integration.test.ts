@@ -186,21 +186,27 @@ describe("GET /dashboard/summary", () => {
         {
           id: "ntf_dash_a_1",
           userId: userAId,
+          organizationId: testOrgAId,
           type: "INFO",
+          title: "Unread A1",
           message: "Unread A1",
           read: false
         },
         {
           id: "ntf_dash_a_2",
           userId: userAId,
+          organizationId: testOrgAId,
           type: "INFO",
+          title: "Read A2",
           message: "Read A2",
           read: true
         },
         {
           id: "ntf_dash_b_1",
           userId: userBId,
+          organizationId: testOrgBId,
           type: "INFO",
+          title: "Unread B1",
           message: "Unread B1",
           read: false
         }

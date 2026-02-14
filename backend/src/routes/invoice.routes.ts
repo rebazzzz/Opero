@@ -3,6 +3,7 @@ import { Router } from "express";
 import { InvoiceController } from "../controllers/invoice.controller.js";
 import { authenticate } from "../middlewares/authenticate.js";
 import { authorizeRoles } from "../middlewares/authorize-roles.js";
+import { requireIdempotency } from "../middlewares/idempotency.js";
 import { organizationScope } from "../middlewares/organization-scope.js";
 import { validateRequest } from "../middlewares/validate-request.js";
 import { asyncHandler } from "../utils/async-handler.js";
@@ -20,30 +21,35 @@ router.use(authenticate, organizationScope, authorizeRoles(UserRole.ADMIN, UserR
 
 router.post(
   "/drafts",
+  requireIdempotency,
   validateRequest({ body: createDraftInvoiceSchema }),
   asyncHandler(invoiceController.createDraft.bind(invoiceController))
 );
 
 router.patch(
   "/:invoiceId/draft",
+  requireIdempotency,
   validateRequest({ params: invoiceParamsSchema, body: updateDraftInvoiceSchema }),
   asyncHandler(invoiceController.updateDraft.bind(invoiceController))
 );
 
 router.post(
   "/:invoiceId/send",
+  requireIdempotency,
   validateRequest({ params: invoiceParamsSchema }),
   asyncHandler(invoiceController.sendInvoice.bind(invoiceController))
 );
 
 router.post(
   "/:invoiceId/pay",
+  requireIdempotency,
   validateRequest({ params: invoiceParamsSchema }),
   asyncHandler(invoiceController.markAsPaid.bind(invoiceController))
 );
 
 router.post(
   "/:invoiceId/cancel",
+  requireIdempotency,
   validateRequest({ params: invoiceParamsSchema }),
   asyncHandler(invoiceController.cancelInvoice.bind(invoiceController))
 );

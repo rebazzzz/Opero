@@ -123,3 +123,180 @@ socket.on("message:new", (payload) => {
   console.log("new org message", payload);
 });
 ```
+
+## Notifications API
+
+### GET /notifications
+
+Request:
+
+```http
+GET /notifications?unreadOnly=true HTTP/1.1
+Host: localhost:4000
+Authorization: Bearer <access_token>
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "not_1",
+      "userId": "usr_1",
+      "organizationId": "org_abc",
+      "type": "INFO",
+      "title": "Welcome",
+      "message": "Your account was created",
+      "read": false,
+      "createdAt": "2026-02-14T18:00:00.000Z"
+    }
+  ]
+}
+```
+
+### POST /notifications
+
+Request (admin/system-trigger path):
+
+```http
+POST /notifications HTTP/1.1
+Host: localhost:4000
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "userId": "usr_1",
+  "type": "ALERT",
+  "title": "Invoice overdue",
+  "message": "Invoice INV-1002 is now overdue"
+}
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "not_2",
+      "userId": "usr_1",
+      "organizationId": "org_abc",
+      "type": "ALERT",
+      "title": "Invoice overdue",
+      "message": "Invoice INV-1002 is now overdue",
+      "read": false,
+      "createdAt": "2026-02-14T18:05:00.000Z"
+    }
+  ]
+}
+```
+
+### Socket.IO `notification:new`
+
+```ts
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:4000", {
+  auth: { token: "<access_token>" },
+  transports: ["websocket"]
+});
+
+socket.on("notification:new", (payload) => {
+  console.log("new notification event", payload);
+});
+```
+
+### PATCH /notifications/:id/read
+
+Request:
+
+```http
+PATCH /notifications/not_123/read HTTP/1.1
+Host: localhost:4000
+Authorization: Bearer <access_token>
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "not_123",
+    "userId": "usr_1",
+    "organizationId": "org_abc",
+    "type": "INFO",
+    "title": "Welcome",
+    "message": "Your account was created",
+    "read": true,
+    "createdAt": "2026-02-14T18:00:00.000Z"
+  }
+}
+```
+
+### PATCH /notifications/read-all
+
+Request:
+
+```http
+PATCH /notifications/read-all HTTP/1.1
+Host: localhost:4000
+Authorization: Bearer <access_token>
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": {
+    "updatedCount": 5
+  }
+}
+```
+
+### Socket.IO `notification:read`
+
+```ts
+socket.on("notification:read", (payload) => {
+  console.log("Notification marked as read", payload);
+});
+```
+
+## Security Hardening
+
+- `helmet` enabled globally.
+- CORS allowlist enabled via `CORS_ORIGINS` (comma-separated).
+- Global rate limiting enabled for all routes.
+- Stricter auth route rate limiting on `/auth`.
+- Request body size limited to `1mb`.
+
+### Env config
+
+```env
+TRUST_PROXY="false"
+CORS_ORIGINS=""
+RATE_LIMIT_WINDOW_MS="900000"
+RATE_LIMIT_MAX_REQUESTS="300"
+AUTH_RATE_LIMIT_MAX_REQUESTS="50"
+IDEMPOTENCY_TTL_SECONDS="86400"
+```
+
+## Invoice Idempotency
+
+Money-changing invoice endpoints now require `Idempotency-Key`:
+
+- `POST /invoices/drafts`
+- `PATCH /invoices/:invoiceId/draft`
+- `POST /invoices/:invoiceId/send`
+- `POST /invoices/:invoiceId/pay`
+- `POST /invoices/:invoiceId/cancel`
+
+If the same key is sent again with the same payload, the API replays the original response and sets:
+
+```http
+Idempotency-Replayed: true
+```

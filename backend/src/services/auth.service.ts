@@ -26,14 +26,16 @@ const defaultFeatureModulesByPlan: Record<Plan, FeatureModuleName[]> = {
     FeatureModuleName.PROJECTS,
     FeatureModuleName.CRM,
     FeatureModuleName.INVOICES,
-    FeatureModuleName.MESSAGING
+    FeatureModuleName.MESSAGING,
+    FeatureModuleName.NOTIFICATIONS
   ],
   ENTERPRISE: [
     FeatureModuleName.PROJECTS,
     FeatureModuleName.CRM,
     FeatureModuleName.INVOICES,
     FeatureModuleName.MESSAGING,
-    FeatureModuleName.ANALYTICS
+    FeatureModuleName.ANALYTICS,
+    FeatureModuleName.NOTIFICATIONS
   ]
 };
 

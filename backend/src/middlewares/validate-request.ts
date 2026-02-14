@@ -19,7 +19,13 @@ export const validateRequest = (schemas: RequestSchemas) => {
       }
 
       if (schemas.query) {
-        req.query = (await schemas.query.parseAsync(req.query)) as Request["query"];
+        const parsedQuery = (await schemas.query.parseAsync(req.query)) as Record<string, unknown>;
+        const queryRef = req.query as Record<string, unknown>;
+
+        for (const key of Object.keys(queryRef)) {
+          delete queryRef[key];
+        }
+        Object.assign(queryRef, parsedQuery);
       }
 
       next();

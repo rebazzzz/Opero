@@ -13,6 +13,15 @@ const envSchema = z.object({
   JWT_REFRESH_EXPIRES_IN: z.string().default("7d"),
   BCRYPT_SALT_ROUNDS: z.coerce.number().int().min(8).max(15).default(12),
   REDIS_URL: z.string().optional(),
+  TRUST_PROXY: z
+    .enum(["true", "false"])
+    .default("false")
+    .transform((value) => value === "true"),
+  CORS_ORIGINS: z.string().default(""),
+  RATE_LIMIT_WINDOW_MS: z.coerce.number().int().min(1_000).default(900_000),
+  RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().min(1).default(300),
+  AUTH_RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().min(1).default(50),
+  IDEMPOTENCY_TTL_SECONDS: z.coerce.number().int().min(60).default(86_400),
   OVERDUE_JOB_ENABLED: z
     .enum(["true", "false"])
     .default("true")
