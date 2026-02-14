@@ -1,8 +1,10 @@
+import { createServer } from "node:http";
 import { app } from "./app.js";
 import { env } from "./config/env.js";
 import { logger } from "./config/logger.js";
 import { prisma } from "./config/prisma.js";
 import { InvoiceOverdueService } from "./services/invoice-overdue.service.js";
+import { closeMessagingSocket, initializeMessagingSocket } from "./sockets/messaging.socket.js";
 
 const overdueService = new InvoiceOverdueService();
 let overdueJobTimer: NodeJS.Timeout | null = null;
@@ -14,7 +16,10 @@ const runOverdueJob = (): void => {
   });
 };
 
-const server = app.listen(env.PORT, () => {
+const httpServer = createServer(app);
+initializeMessagingSocket(httpServer);
+
+const server = httpServer.listen(env.PORT, () => {
   logger.info({ port: env.PORT, env: env.NODE_ENV }, "Server started");
 
   if (env.OVERDUE_JOB_ENABLED) {
@@ -47,6 +52,7 @@ const shutdown = async (signal: string): Promise<void> => {
   }
 
   server.close(async () => {
+    await closeMessagingSocket();
     await prisma.$disconnect();
     logger.info("HTTP server closed");
     process.exit(0);
