@@ -440,6 +440,11 @@ function initProjectCreateModal() {
 
   openBtn.addEventListener("click", openModal);
 
+  var search = new URLSearchParams(window.location.search || "");
+  if (search.get("openCreateProject") === "1") {
+    openModal();
+  }
+
   for (var i = 0; i < closeBtns.length; i++) {
     closeBtns[i].addEventListener("click", closeModal);
   }
