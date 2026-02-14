@@ -12,6 +12,36 @@ const APP_SHELL_BOTTOM = [
     { key: 'logout', href: 'login.html', icon: 'logout', label: 'Logout' },
 ];
 
+function getPathDepth(pathname) {
+    const normalized = (pathname || '').replace(/\\/g, '/');
+    const parts = normalized.split('/').filter(Boolean);
+    if (!parts.length) {
+        return 0;
+    }
+
+    const lastPart = parts[parts.length - 1];
+    const endsWithFile = /\.[a-z0-9]+$/i.test(lastPart);
+    return endsWithFile ? parts.length - 1 : parts.length;
+}
+
+function getShellBasePath() {
+    const explicitBase = document.body?.dataset?.shellBase;
+    if (typeof explicitBase === 'string' && explicitBase.length > 0) {
+        return explicitBase;
+    }
+
+    const depth = getPathDepth(window.location.pathname);
+    return depth > 0 ? '../'.repeat(depth) : '';
+}
+
+function resolveShellHref(href, basePath) {
+    if (!href || href.startsWith('#') || /^[a-z]+:/i.test(href) || href.startsWith('/')) {
+        return href;
+    }
+
+    return `${basePath}${href}`;
+}
+
 function inferActiveKey(pathname) {
     const file = pathname.split('/').pop() || '';
     const map = {
@@ -43,15 +73,17 @@ function bottomClass(active, key) {
     return 'flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800/50 rounded-lg font-medium transition-colors';
 }
 
-function renderSidebar(activeKey) {
+function renderSidebar(activeKey, basePath) {
     const navHtml = APP_SHELL_NAV.map((item) => {
         const isActive = item.key === activeKey;
-        return `\n            <a class="${navClass(isActive)}" href="${item.href}">\n                <span class="material-icons-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
+        const resolvedHref = resolveShellHref(item.href, basePath);
+        return `\n            <a class="${navClass(isActive)}" href="${resolvedHref}">\n                <span class="material-icons-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
     }).join('');
 
     const bottomHtml = APP_SHELL_BOTTOM.map((item) => {
         const isActive = item.key === activeKey;
-        return `\n            <a class="${bottomClass(isActive, item.key)}" href="${item.href}">\n                <span class="material-icons-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
+        const resolvedHref = resolveShellHref(item.href, basePath);
+        return `\n            <a class="${bottomClass(isActive, item.key)}" href="${resolvedHref}">\n                <span class="material-icons-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
     }).join('');
 
     return `
@@ -70,7 +102,7 @@ function renderSidebar(activeKey) {
     </aside>`;
 }
 
-function renderHeader(config) {
+function renderHeader(config, basePath) {
     const searchHtml = config.showSearch ? `
         <div class="hidden sm:flex items-center flex-1 max-w-md ml-4">
             <div class="relative w-full">
@@ -90,7 +122,7 @@ function renderHeader(config) {
         </button>
         ${searchHtml}
         <div class="ml-auto flex items-center gap-3 sm:gap-6">
-            <a href="activity_log.html"
+            <a href="${resolveShellHref('activity_log.html', basePath)}"
                 class="relative p-2 text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors"
                 title="Open activity log" aria-label="Open activity log">
                 <span class="material-icons-outlined">notifications</span>
@@ -139,6 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const body = document.body;
     const activeKey = body.dataset.shellActive || inferActiveKey(window.location.pathname);
+    const basePath = getShellBasePath();
     const pagesWithTopSearch = new Set(['dashboard', 'reports', 'activity']);
     const config = {
         showSearch: pagesWithTopSearch.has(activeKey),
@@ -148,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         avatar: body.dataset.shellAvatar || 'https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS',
     };
 
-    sidebarSlot.innerHTML = renderSidebar(activeKey);
-    headerSlot.innerHTML = renderHeader(config);
+    sidebarSlot.innerHTML = renderSidebar(activeKey, basePath);
+    headerSlot.innerHTML = renderHeader(config, basePath);
     bindMobileMenu();
 });
