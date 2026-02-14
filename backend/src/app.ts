@@ -1,5 +1,6 @@
 import express from "express";
 import { env } from "./config/env.js";
+import { adminRoutes } from "./routes/admin.routes.js";
 import { errorHandler } from "./middlewares/error-handler.js";
 import { notFoundHandler } from "./middlewares/not-found.js";
 import { requestLogger } from "./middlewares/request-logger.js";
@@ -29,6 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/health", healthRoutes);
 app.use("/auth", authRateLimiter, authRoutes);
+app.use("/admin", adminRoutes);
 app.use("/clients", clientRoutes);
 app.use("/projects", projectRoutes);
 app.use("/invoices", invoiceRoutes);

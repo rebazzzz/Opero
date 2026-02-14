@@ -10,6 +10,13 @@ let app: import("express").Express;
 let prisma: import("@prisma/client").PrismaClient;
 
 const cleanup = async (): Promise<void> => {
+  if (!prisma) {
+    return;
+  }
+
+  await prisma.auditLog.deleteMany({
+    where: { organizationId: orgId }
+  });
   await prisma.idempotencyKey.deleteMany({
     where: { organizationId: orgId }
   });
@@ -141,5 +148,17 @@ describe("Invoice idempotency", () => {
 
     expect(second.headers["idempotency-replayed"]).toBe("true");
     expect(second.body.data.id).toBe(first.body.data.id);
+
+    const auditEntries = await prisma.auditLog.findMany({
+      where: {
+        organizationId: orgId,
+        entityType: "INVOICE",
+        entityId: first.body.data.id,
+        action: "INVOICE_DRAFT_CREATED"
+      }
+    });
+
+    expect(auditEntries).toHaveLength(1);
+    expect(auditEntries[0].actorUserId).toBe(userId);
   });
 });

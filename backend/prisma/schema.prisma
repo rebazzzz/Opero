@@ -54,6 +54,22 @@ enum FeatureModuleName {
   NOTIFICATIONS
 }
 
+enum AuditEntityType {
+  INVOICE
+  USER
+  FEATURE_MODULE
+}
+
+enum AuditAction {
+  INVOICE_DRAFT_CREATED
+  INVOICE_DRAFT_UPDATED
+  INVOICE_SENT
+  INVOICE_PAID
+  INVOICE_CANCELLED
+  USER_ROLE_CHANGED
+  FEATURE_MODULE_TOGGLED
+}
+
 model Organization {
   id             String          @id @default(cuid())
   name           String
@@ -225,4 +241,19 @@ model IdempotencyKey {
   @@unique([organizationId, userId, method, route, key])
   @@index([expiresAt])
   @@index([organizationId, userId, createdAt])
+}
+
+model AuditLog {
+  id             String          @id @default(cuid())
+  organizationId String
+  actorUserId    String?
+  entityType     AuditEntityType
+  entityId       String
+  action         AuditAction
+  metadata       Json?
+  createdAt      DateTime        @default(now())
+
+  @@index([organizationId, createdAt])
+  @@index([organizationId, entityType, entityId, createdAt])
+  @@index([organizationId, action, createdAt])
 }

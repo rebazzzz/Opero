@@ -1,5 +1,6 @@
-import { InvoiceStatus, Prisma } from "@prisma/client";
+import { AuditAction, AuditEntityType, InvoiceStatus, Prisma } from "@prisma/client";
 import { prisma } from "../config/prisma.js";
+import { AuditLogService } from "./audit-log.service.js";
 import { AppError } from "../utils/app-error.js";
 import type {
   CreateDraftInvoiceInput,
@@ -15,8 +16,10 @@ const assertMoneyTotal = (subtotal: Prisma.Decimal, tax: Prisma.Decimal, total: 
   }
 };
 
+const auditLogService = new AuditLogService();
+
 export class InvoiceService {
-  async createDraft(organizationId: string, input: CreateDraftInvoiceInput) {
+  async createDraft(organizationId: string, input: CreateDraftInvoiceInput, actorUserId?: string) {
     return prisma.$transaction(async (tx) => {
       const client = await tx.client.findFirst({
         where: { id: input.clientId, organizationId },
@@ -53,7 +56,7 @@ export class InvoiceService {
       assertMoneyTotal(subtotal, tax, total);
 
       try {
-        return await tx.invoice.create({
+        const invoice = await tx.invoice.create({
           data: {
             organizationId,
             clientId: input.clientId,
@@ -69,6 +72,20 @@ export class InvoiceService {
             paidAt: null
           }
         });
+
+        await auditLogService.record(tx, {
+          organizationId,
+          actorUserId,
+          entityType: AuditEntityType.INVOICE,
+          entityId: invoice.id,
+          action: AuditAction.INVOICE_DRAFT_CREATED,
+          metadata: {
+            status: invoice.status,
+            invoiceNumber: invoice.invoiceNumber
+          }
+        });
+
+        return invoice;
       } catch (error) {
         if (
           error instanceof Prisma.PrismaClientKnownRequestError &&
@@ -86,7 +103,12 @@ export class InvoiceService {
     });
   }
 
-  async updateDraft(organizationId: string, invoiceId: string, input: UpdateDraftInvoiceInput) {
+  async updateDraft(
+    organizationId: string,
+    invoiceId: string,
+    input: UpdateDraftInvoiceInput,
+    actorUserId?: string
+  ) {
     return prisma.$transaction(async (tx) => {
       const existing = await tx.invoice.findFirst({
         where: { id: invoiceId, organizationId },
@@ -193,6 +215,17 @@ export class InvoiceService {
           throw new AppError(404, "Invoice not found", "INVOICE_NOT_FOUND");
         }
 
+        await auditLogService.record(tx, {
+          organizationId,
+          actorUserId,
+          entityType: AuditEntityType.INVOICE,
+          entityId: invoice.id,
+          action: AuditAction.INVOICE_DRAFT_UPDATED,
+          metadata: {
+            status: invoice.status
+          }
+        });
+
         return invoice;
       } catch (error) {
         if (
@@ -211,7 +244,7 @@ export class InvoiceService {
     });
   }
 
-  async sendInvoice(organizationId: string, invoiceId: string) {
+  async sendInvoice(organizationId: string, invoiceId: string, actorUserId?: string) {
     return prisma.$transaction(async (tx) => {
       const result = await tx.invoice.updateMany({
         where: {
@@ -246,11 +279,23 @@ export class InvoiceService {
         throw new AppError(404, "Invoice not found", "INVOICE_NOT_FOUND");
       }
 
+      await auditLogService.record(tx, {
+        organizationId,
+        actorUserId,
+        entityType: AuditEntityType.INVOICE,
+        entityId: invoice.id,
+        action: AuditAction.INVOICE_SENT,
+        metadata: {
+          status: invoice.status,
+          issuedAt: invoice.issuedAt?.toISOString() ?? null
+        }
+      });
+
       return invoice;
     });
   }
 
-  async markAsPaid(organizationId: string, invoiceId: string) {
+  async markAsPaid(organizationId: string, invoiceId: string, actorUserId?: string) {
     return prisma.$transaction(async (tx) => {
       const result = await tx.invoice.updateMany({
         where: {
@@ -289,11 +334,23 @@ export class InvoiceService {
         throw new AppError(404, "Invoice not found", "INVOICE_NOT_FOUND");
       }
 
+      await auditLogService.record(tx, {
+        organizationId,
+        actorUserId,
+        entityType: AuditEntityType.INVOICE,
+        entityId: invoice.id,
+        action: AuditAction.INVOICE_PAID,
+        metadata: {
+          status: invoice.status,
+          paidAt: invoice.paidAt?.toISOString() ?? null
+        }
+      });
+
       return invoice;
     });
   }
 
-  async cancelInvoice(organizationId: string, invoiceId: string) {
+  async cancelInvoice(organizationId: string, invoiceId: string, actorUserId?: string) {
     return prisma.$transaction(async (tx) => {
       const result = await tx.invoice.updateMany({
         where: {
@@ -330,6 +387,17 @@ export class InvoiceService {
       if (!invoice) {
         throw new AppError(404, "Invoice not found", "INVOICE_NOT_FOUND");
       }
+
+      await auditLogService.record(tx, {
+        organizationId,
+        actorUserId,
+        entityType: AuditEntityType.INVOICE,
+        entityId: invoice.id,
+        action: AuditAction.INVOICE_CANCELLED,
+        metadata: {
+          status: invoice.status
+        }
+      });
 
       return invoice;
     });

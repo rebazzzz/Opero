@@ -300,3 +300,57 @@ If the same key is sent again with the same payload, the API replays the origina
 ```http
 Idempotency-Replayed: true
 ```
+
+## Audit Logging
+
+Critical invoice actions are written to `AuditLog` in the same transaction as the business write:
+
+- `INVOICE_DRAFT_CREATED`
+- `INVOICE_DRAFT_UPDATED`
+- `INVOICE_SENT`
+- `INVOICE_PAID`
+- `INVOICE_CANCELLED`
+
+Each entry stores tenant + actor context:
+
+- `organizationId`
+- `actorUserId`
+- `entityType`
+- `entityId`
+- `action`
+- `metadata`
+
+## Admin API (Audit-backed)
+
+Requires admin auth (`ADMIN` role) with tenant scope.
+
+### PATCH /admin/users/:userId/role
+
+```http
+PATCH /admin/users/usr_123/role HTTP/1.1
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "role": "MEMBER"
+}
+```
+
+### PATCH /admin/features/:moduleName
+
+```http
+PATCH /admin/features/ANALYTICS HTTP/1.1
+Authorization: Bearer <access_token>
+Content-Type: application/json
+
+{
+  "enabled": false
+}
+```
+
+### GET /admin/audit-logs
+
+```http
+GET /admin/audit-logs?action=INVOICE_PAID&page=1&limit=20 HTTP/1.1
+Authorization: Bearer <access_token>
+```

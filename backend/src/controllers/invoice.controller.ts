@@ -6,31 +6,31 @@ const invoiceService = new InvoiceService();
 
 export class InvoiceController {
   async createDraft(req: Request, res: Response): Promise<void> {
-    const data = await invoiceService.createDraft(req.organizationId!, req.body);
+    const data = await invoiceService.createDraft(req.organizationId!, req.body, req.auth?.userId);
     res.status(201).json({ success: true, data });
   }
 
   async updateDraft(req: Request, res: Response): Promise<void> {
     const params = req.params as unknown as InvoiceParamsInput;
-    const data = await invoiceService.updateDraft(req.organizationId!, params.invoiceId, req.body);
+    const data = await invoiceService.updateDraft(req.organizationId!, params.invoiceId, req.body, req.auth?.userId);
     res.status(200).json({ success: true, data });
   }
 
   async sendInvoice(req: Request, res: Response): Promise<void> {
     const params = req.params as unknown as InvoiceParamsInput;
-    const data = await invoiceService.sendInvoice(req.organizationId!, params.invoiceId);
+    const data = await invoiceService.sendInvoice(req.organizationId!, params.invoiceId, req.auth?.userId);
     res.status(200).json({ success: true, data });
   }
 
   async markAsPaid(req: Request, res: Response): Promise<void> {
     const params = req.params as unknown as InvoiceParamsInput;
-    const data = await invoiceService.markAsPaid(req.organizationId!, params.invoiceId);
+    const data = await invoiceService.markAsPaid(req.organizationId!, params.invoiceId, req.auth?.userId);
     res.status(200).json({ success: true, data });
   }
 
   async cancelInvoice(req: Request, res: Response): Promise<void> {
     const params = req.params as unknown as InvoiceParamsInput;
-    const data = await invoiceService.cancelInvoice(req.organizationId!, params.invoiceId);
+    const data = await invoiceService.cancelInvoice(req.organizationId!, params.invoiceId, req.auth?.userId);
     res.status(200).json({ success: true, data });
   }
 
