@@ -32,96 +32,19 @@
 <!-- Material Icons -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        /* Custom scrollbar for cleaner look */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
-        }
-    </style>
+<link href="../assets/css/client_details.css" rel="stylesheet"/>
+<link href="../assets/css/common.css" rel="stylesheet"/>
+<script src="../assets/js/app-shell.js"></script>
+<script src="../assets/js/client-details-topbar.js"></script>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
-<!-- Navbar placeholder for context -->
-<nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-16 flex items-center px-6 md:px-10 justify-between sticky top-0 z-30">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold">B</div>
-<span class="font-bold text-lg tracking-tight">BizDash</span>
-</div>
-<div class="flex items-center gap-4">
-<button class="p-2 text-slate-400 hover:text-primary transition-colors">
-<span class="material-icons-round">notifications</span>
-</button>
-<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
-<img alt="User Avatar" class="w-full h-full object-cover" data-alt="User profile avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX6f-i5WfGmvRHozlmLTf_OYYEFLty1J5KprpHmwCDW8lD1PwoXsa26nIy8MidHI1wrN6p1mXNJGnZ-nre9gV8DKjHVePN3lOvwq2Mxtp3CPoM-HY45ZKPZhOaRrR1M49mcwzgFhoD0Nbuh-B-12pSZkiI4nsVolNCxveav02KFOg0kgLfUKWGpQliredtgDt4i3KVNhB8m8_Gdv7oDqkXydgngs-sLzUjbRSZgEelhcPvdk801pyQzvsa6RZ3vP1g4QJqYnpY77KA"/>
-</div>
-</div>
-</nav>
-<main class="flex-grow p-6 md:p-10 max-w-7xl mx-auto w-full">
-<!-- Breadcrumbs -->
-<div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
-<a class="hover:text-primary transition-colors" href="#">Clients</a>
-<span class="material-icons-round text-base">chevron_right</span>
-<span class="font-medium text-slate-800 dark:text-slate-200">Nordic Construction AB</span>
-</div>
-<!-- Header Section -->
-<header class="mb-8">
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-<div class="flex items-center gap-4">
-<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm">
-<img alt="Company Logo" class="w-10 h-10 object-contain" data-alt="Company logo icon" onerror="this.src='https://ui-avatars.com/api/?name=NC&amp;background=197fe6&amp;color=fff&amp;size=64'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmvX-Mbd6Y44PpWal6FFCZn74X9EDfUbG9x7YTQVSetZoEHd7z9RqCIaOLrKidW-1nld-p_zzSfKx3ACttmpfHJnzNudhVH22Qrq-_4VB8BuBW75PkrtIgVlqFxdOprxmtLmkQTQgODSYbRVKMwfTT37ESbxHRThmt3O3176zW51aMO3_NyAZN-mUFaiARjak6tIaQfSzGcAdFyTTpRB0wtJ4okjgTOAJXU66cfX9CN0w5tO82AmJI-xxt2JUnS-ro8LZNyEuonny5"/>
-</div>
-<div>
-<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Nordic Construction AB</h1>
-<p class="text-slate-500 text-sm mt-1 flex items-center gap-1">
-<span class="material-icons-round text-base text-primary">verified</span> Customer since Jan 2023
-                        </p>
-</div>
-</div>
-<div class="flex gap-3">
-<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 font-medium transition-colors shadow-sm dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-700">
-<span class="material-icons-round text-sm">more_horiz</span>
-</button>
-<button class="flex items-center gap-2 px-5 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-medium transition-colors">
-<span class="material-icons-round text-sm">edit</span>
-                        Edit Details
-                    </button>
-<button class="flex items-center gap-2 px-5 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium shadow-md shadow-primary/20 transition-all">
-<span class="material-icons-round text-sm">add</span>
-                        New Project
-                    </button>
-</div>
-</div>
-<!-- Tab Navigation -->
-<div class="border-b border-slate-200 dark:border-slate-700">
-<nav aria-label="Tabs" class="flex gap-8">
-<a aria-current="page" class="border-b-2 border-primary py-4 px-1 text-sm font-semibold text-primary" href="#">
-                        Overview
-                    </a>
-<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
-                        Invoices
-                    </a>
-<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
-                        Projects History
-                    </a>
-<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
-                        Documents
-                    </a>
-<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
-                        Notes
-                    </a>
-</nav>
-</div>
-</header>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row" data-shell-active="clients" data-client-tab="overview" data-shell-search="Search clients, projects..." data-shell-user="Alex Morgan" data-shell-role="Owner" data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uA--2p2ZLgGqn1CJ8YuC9DLhALyGXBvxRQknm9saIp1yj7jczFfVdJ3MfshAcagL_WWDcKKbu08HGsd53ZtZ08qi-hyKeFurs_7cNCq-2lFlt15g15skESGoXagUWO-LVT0WN6ZLd9xy-mkdQYkIjPEm8zL8eq6wNrzMBwk4KpAP5rk6MW_X2zgCYVUELCF6OBLBxiwW7QRIOGBFqjHZsMAbR6pEmf2u9lpzk8VLrJfua8CDBOCIQVDnaTVcpDR5a5Xh9H7XTkLA">
+<div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="app-sidebar-slot"></div>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<div id="app-header-slot"></div>
+<div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+<div class="max-w-7xl mx-auto w-full">
+<div id="client-details-topbar"></div>
 <!-- Stats Overview -->
 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 <!-- Total Revenue -->
@@ -291,7 +214,7 @@
 <td class="p-4">
 <p class="text-slate-900 dark:text-white font-bold font-mono">$120,000</p>
 <div class="w-16 h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full mt-1 overflow-hidden">
-<div class="bg-green-500 h-full rounded-full" style="width: 75%"></div>
+<div class="bg-green-500 cd-progress-fill cd-w-75"></div>
 </div>
 </td>
 <td class="p-4">
@@ -325,7 +248,7 @@
 <td class="p-4">
 <p class="text-slate-900 dark:text-white font-bold font-mono">$85,500</p>
 <div class="w-16 h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full mt-1 overflow-hidden">
-<div class="bg-amber-500 h-full rounded-full" style="width: 40%"></div>
+<div class="bg-amber-500 cd-progress-fill cd-w-40"></div>
 </div>
 </td>
 <td class="p-4">
@@ -359,7 +282,7 @@
 <td class="p-4">
 <p class="text-slate-900 dark:text-white font-bold font-mono">$15,000</p>
 <div class="w-16 h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full mt-1 overflow-hidden">
-<div class="bg-indigo-500 h-full rounded-full" style="width: 10%"></div>
+<div class="bg-indigo-500 cd-progress-fill cd-w-10"></div>
 </div>
 </td>
 <td class="p-4">
@@ -384,5 +307,9 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 </main>
 </body></html>
+
+

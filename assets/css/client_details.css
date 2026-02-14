@@ -1,0 +1,67 @@
+.cd-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.cd-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cd-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.cd-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.cd-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.cd-no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.cd-pin-icon {
+  font-size: 14px;
+}
+
+.cd-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.cd-w-5 {
+  width: 5%;
+}
+
+.cd-w-10 {
+  width: 10%;
+}
+
+.cd-w-15 {
+  width: 15%;
+}
+
+.cd-w-40 {
+  width: 40%;
+}
+
+.cd-w-65 {
+  width: 65%;
+}
+
+.cd-w-75 {
+  width: 75%;
+}
+
+.cd-w-82 {
+  width: 82%;
+}
+
+.cd-w-100 {
+  width: 100%;
+}

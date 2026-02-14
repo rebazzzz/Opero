@@ -8,6 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/css/client_details.css" rel="stylesheet"/>
+<link href="../assets/css/common.css" rel="stylesheet"/>
+<script src="../assets/js/app-shell.js"></script>
+<script src="../assets/js/client-details-topbar.js"></script>
 <script>
         tailwind.config = {
             darkMode: "class",
@@ -34,118 +38,14 @@
         }
     </script>
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col md:flex-row">
-<!-- Sidebar -->
-<aside class="w-full md:w-64 bg-surface-light dark:bg-surface-dark border-r border-slate-200 dark:border-slate-800 flex-shrink-0 hidden md:flex flex-col">
-<div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-lg">S</div>
-<span class="font-bold text-lg tracking-tight">ServiceFlow</span>
-</div>
-</div>
-<nav class="flex-1 px-4 py-6 space-y-1">
-<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors" href="#">
-<span class="material-icons text-[20px]">dashboard</span>
-<span class="text-sm font-medium">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
-<span class="material-icons text-[20px]">people</span>
-<span class="text-sm font-medium">Clients</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors" href="#">
-<span class="material-icons text-[20px]">description</span>
-<span class="text-sm font-medium">Invoices</span>
-</a>
-<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors" href="#">
-<span class="material-icons text-[20px]">assignment</span>
-<span class="text-sm font-medium">Projects</span>
-</a>
-<div class="pt-6 pb-2">
-<p class="px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Settings</p>
-</div>
-<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors" href="#">
-<span class="material-icons text-[20px]">settings</span>
-<span class="text-sm font-medium">Configuration</span>
-</a>
-</nav>
-<div class="p-4 border-t border-slate-100 dark:border-slate-800">
-<div class="flex items-center gap-3">
-<img alt="User profile" class="w-9 h-9 rounded-full ring-2 ring-white dark:ring-slate-700" data-alt="Portrait of a male user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uA--2p2ZLgGqn1CJ8YuC9DLhALyGXBvxRQknm9saIp1yj7jczFfVdJ3MfshAcagL_WWDcKKbu08HGsd53ZtZ08qi-hyKeFurs_7cNCq-2lFlt15g15skESGoXagUWO-LVT0WN6ZLd9xy-mkdQYkIjPEm8zL8eq6wNrzMBwk4KpAP5rk6MW_X2zgCYVUELCF6OBLBxiwW7QRIOGBFqjHZsMAbR6pEmf2u9lpzk8VLrJfua8CDBOCIQVDnaTVcpDR5a5Xh9H7XTkLA"/>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-medium truncate">Alex Morgan</p>
-<p class="text-xs text-slate-500 truncate">alex@serviceflow.com</p>
-</div>
-</div>
-</div>
-</aside>
-<!-- Main Content -->
-<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
-<!-- Top Bar -->
-<header class="h-16 bg-surface-light dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 lg:px-8">
-<div class="flex items-center">
-<button class="md:hidden mr-4 text-slate-500 hover:text-slate-700">
-<span class="material-icons">menu</span>
-</button>
-<nav aria-label="Breadcrumb" class="flex">
-<ol class="flex items-center space-x-2">
-<li><a class="text-slate-400 hover:text-slate-500" href="#"><span class="material-icons text-sm">home</span></a></li>
-<li><span class="text-slate-300">/</span></li>
-<li><a class="text-sm font-medium text-slate-500 hover:text-slate-700" href="#">Clients</a></li>
-<li><span class="text-slate-300">/</span></li>
-<li><span class="text-sm font-medium text-primary">Acme Corp</span></li>
-</ol>
-</nav>
-</div>
-<div class="flex items-center gap-3">
-<button class="p-2 text-slate-400 hover:text-primary transition-colors relative">
-<span class="material-icons">notifications</span>
-<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
-</button>
-</div>
-</header>
-<!-- Page Content Scroll Area -->
-<div class="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">
-<!-- Client Header Section -->
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-<div class="flex items-center gap-4">
-<div class="w-16 h-16 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700 p-2 flex items-center justify-center">
-<img alt="Company Logo" class="w-full h-full object-contain rounded-lg" data-alt="Abstract colorful square logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGH0YP5DrexDhhUFRMH7490xi0IaOMorumL2QgOuti-ClgjsgmQri_zWuWOgjKCrOdUwCuWIiCJFs8tTULf-s1OuT2NOVTQzw4k8sKUCaqo_7FfnLN2HFZqP8zg7ClAYlTcfX_7_btKX4Tt1fBbdtXD7xxiwvmp-8dlbwiu8u9s8cj3ybkRUKEDb6_5dYEt9R_DLZm0S55P1sQDSvn5IYAwG7xCiFKJzr1SuII5yCJu4lf7uQfY3Py342Aeb7l7PHrcQWiPmZMI2zs"/>
-</div>
-<div>
-<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Acme Corporation</h1>
-<div class="flex items-center gap-2 text-sm text-slate-500">
-<span class="flex items-center gap-1"><span class="material-icons text-sm">location_on</span> San Francisco, CA</span>
-<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
-<span class="text-green-600 font-medium bg-green-50 px-2 py-0.5 rounded text-xs border border-green-100">Active Client</span>
-</div>
-</div>
-</div>
-<div class="flex gap-3">
-<button class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 bg-white dark:bg-slate-800 transition-colors shadow-sm">
-                        Edit Details
-                    </button>
-<button class="px-4 py-2 bg-primary hover:bg-blue-600 text-white rounded-lg text-sm font-medium shadow-sm shadow-blue-200 dark:shadow-none transition-colors flex items-center gap-2">
-<span class="material-icons text-sm">add</span> New Project
-                    </button>
-</div>
-</div>
-<!-- Tabs -->
-<div class="border-b border-slate-200 dark:border-slate-800 mb-8">
-<nav aria-label="Tabs" class="-mb-px flex space-x-8 overflow-x-auto">
-<a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" href="#">
-                        Overview
-                    </a>
-<a aria-current="page" class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" href="#">
-                        Invoices
-                    </a>
-<a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" href="#">
-                        Projects <span class="ml-2 bg-slate-100 dark:bg-slate-800 text-slate-600 py-0.5 px-2 rounded-full text-xs">4</span>
-</a>
-<a class="border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" href="#">
-                        Notes &amp; Files
-                    </a>
-</nav>
-</div>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row" data-shell-active="clients" data-client-tab="invoices" data-shell-search="Search clients, projects..." data-shell-user="Alex Morgan" data-shell-role="Owner" data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uA--2p2ZLgGqn1CJ8YuC9DLhALyGXBvxRQknm9saIp1yj7jczFfVdJ3MfshAcagL_WWDcKKbu08HGsd53ZtZ08qi-hyKeFurs_7cNCq-2lFlt15g15skESGoXagUWO-LVT0WN6ZLd9xy-mkdQYkIjPEm8zL8eq6wNrzMBwk4KpAP5rk6MW_X2zgCYVUELCF6OBLBxiwW7QRIOGBFqjHZsMAbR6pEmf2u9lpzk8VLrJfua8CDBOCIQVDnaTVcpDR5a5Xh9H7XTkLA">
+<div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="app-sidebar-slot"></div>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<div id="app-header-slot"></div>
+<div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+<div class="max-w-7xl mx-auto">
+<div id="client-details-topbar"></div>
 <!-- Financial Summary Cards -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
 <!-- Total Invoiced -->
@@ -174,7 +74,7 @@
 </div>
 </div>
 <div class="mt-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
-<div class="bg-orange-400 h-2 rounded-full" style="width: 15%"></div>
+<div class="bg-orange-400 cd-progress-fill cd-w-15"></div>
 </div>
 <p class="text-xs text-slate-400 mt-2">1 invoice pending payment</p>
 </div>
@@ -427,5 +327,7 @@
 </div>
 </div>
 </div>
+</div>
 </main>
 </body></html>
+

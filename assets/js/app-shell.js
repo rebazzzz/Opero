@@ -77,13 +77,13 @@ function renderSidebar(activeKey, basePath) {
     const navHtml = APP_SHELL_NAV.map((item) => {
         const isActive = item.key === activeKey;
         const resolvedHref = resolveShellHref(item.href, basePath);
-        return `\n            <a class="${navClass(isActive)}" href="${resolvedHref}">\n                <span class="material-icons-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
+        return `\n            <a class="${navClass(isActive)}" href="${resolvedHref}">\n                <span class="material-symbols-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
     }).join('');
 
     const bottomHtml = APP_SHELL_BOTTOM.map((item) => {
         const isActive = item.key === activeKey;
         const resolvedHref = resolveShellHref(item.href, basePath);
-        return `\n            <a class="${bottomClass(isActive, item.key)}" href="${resolvedHref}">\n                <span class="material-icons-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
+        return `\n            <a class="${bottomClass(isActive, item.key)}" href="${resolvedHref}">\n                <span class="material-symbols-outlined">${item.icon}</span>\n                ${item.label}\n            </a>`;
     }).join('');
 
     return `
@@ -91,7 +91,7 @@ function renderSidebar(activeKey, basePath) {
         class="w-64 bg-white dark:bg-[#1a2632] border-r border-slate-200 dark:border-slate-800 flex flex-col hidden md:flex h-full z-30 transition-all duration-300">
         <div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800/50">
             <div class="flex items-center gap-2 text-primary font-bold text-xl">
-                <span class="material-icons-outlined text-3xl">grid_view</span>
+                <span class="material-symbols-outlined text-3xl">grid_view</span>
                 <span>Service<span class="text-slate-900 dark:text-white">Pro</span></span>
             </div>
         </div>
@@ -107,7 +107,7 @@ function renderHeader(config, basePath) {
         <div class="hidden sm:flex items-center flex-1 max-w-md ml-4">
             <div class="relative w-full">
                 <span
-                    class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
                 <input
                     class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-2 focus:ring-primary/50 text-slate-700 dark:text-slate-200 placeholder-slate-400"
                     placeholder="${config.searchPlaceholder}" type="text" />
@@ -118,14 +118,14 @@ function renderHeader(config, basePath) {
     <header
         class="h-16 bg-white dark:bg-[#1a2632] border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-20">
         <button id="mobile-menu-btn" class="md:hidden text-slate-500 hover:text-primary" type="button">
-            <span class="material-icons-outlined">menu</span>
+            <span class="material-symbols-outlined">menu</span>
         </button>
         ${searchHtml}
         <div class="ml-auto flex items-center gap-3 sm:gap-6">
             <a href="${resolveShellHref('activity_log.html', basePath)}"
                 class="relative p-2 text-slate-400 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full transition-colors"
                 title="Open activity log" aria-label="Open activity log">
-                <span class="material-icons-outlined">notifications</span>
+                <span class="material-symbols-outlined">notifications</span>
                 <span
                     class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-[#1a2632]"></span>
             </a>
