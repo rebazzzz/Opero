@@ -1,23 +1,62 @@
-stitches
-node_modules
-dist
+# --- Core ---
+node_modules/
+dist/
+build/
+stitches/
+
+# --- Environment / Secrets (Critical) ---
 .env
+.env.*
+!.env.example
+!backend/.env.example
+backend/.env
+backend/.env.*
+# Ignore actual build secrets
+.vercel
+.netlify
+
+# --- Prisma (Crucial for your stack) ---
+# Keep migrations in git; only ignore local DB files
+*.db
+*.db-journal
+
+# --- Backend explicit ---
+backend/node_modules/
+backend/dist/
+
+# --- TypeScript ---
+*.tsbuildinfo
+
+# --- Logs & Debug ---
 *.log
-*.env
-*.env.local
-*.env.development
-*.env.test
-*.env.production
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Testing ---
+coverage/
+.nyc_output/
+
+# --- OS / IDEs ---
 .DS_Store
-.vscode
-.idea
+.vscode/
+.idea/
 *.iml
-coverage
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Docker (Future-proofing) ---
+.dockerignore
+# Optional: Ignore local docker-compose overrides
+# docker-compose.override.yml
+
+# --- Archives / Temp ---
 *.tgz
 *.zip
 *.tar.gz
 *.bak
 *.tmp
-*.swp
-*.swo
-*.swn
