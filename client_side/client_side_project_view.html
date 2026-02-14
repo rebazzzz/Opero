@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Client Project View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="../assets/css/common.css" rel="stylesheet"/>
+<link href="../assets/css/client_shell.css" rel="stylesheet"/>
+<script src="../assets/js/client-shell.js"></script>
+<script id="tailwind-config">
+  tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#197fe6", "background-light": "#f6f7f8", "background-dark": "#111921" }, fontFamily: { display: ["Manrope", "sans-serif"] } } } };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row"
+  data-client-shell-active="projects"
+  data-client-shell-search="false"
+  data-client-shell-user="Erik Johansson"
+  data-client-shell-role="Nordic Construction">
+<div id="client-sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="client-sidebar-slot"></div>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+  <div id="client-header-slot"></div>
+  <div class="flex-1 overflow-y-auto client-shell-main">
+    <div class="client-content space-y-8">
+      <header class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-primary font-semibold text-sm mb-2"><span class="px-2 py-0.5 bg-primary/10 rounded">PRJ-2024-882</span><span>Updated 2 hours ago</span></div>
+          <h1 class="text-4xl font-extrabold">Skyline Penthouse Renovation</h1>
+          <p class="text-slate-500 mt-1">Status: <span class="text-primary font-bold">Active Construction</span> - Phase 3 of 5</p>
+        </div>
+        <div class="flex items-center gap-3"><button class="px-5 py-3 border-2 border-slate-200 font-bold rounded-xl">Download Report</button><button class="px-6 py-3 bg-primary text-white font-bold rounded-xl">Request Change</button></div>
+      </header>
+
+      <section class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-primary/5 shadow-sm">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-6">Overall Project Progress</h2>
+        <div><div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3"><div class="w-3/5 bg-primary h-3 rounded-full"></div></div><p class="mt-3 text-sm text-slate-500">Execution phase is currently in progress.</p></div>
+        <div class="grid grid-cols-5 gap-4 mt-6 text-center">
+          <div><div class="w-8 h-8 rounded-full bg-primary text-white mx-auto flex items-center justify-center"><span class="material-icons text-sm">check</span></div><p class="text-xs mt-2 font-semibold">Discovery</p></div>
+          <div><div class="w-8 h-8 rounded-full bg-primary text-white mx-auto flex items-center justify-center"><span class="material-icons text-sm">check</span></div><p class="text-xs mt-2 font-semibold">Planning</p></div>
+          <div><div class="w-8 h-8 rounded-full bg-primary text-white mx-auto flex items-center justify-center"><span class="material-icons text-sm">construction</span></div><p class="text-xs mt-2 font-semibold">Execution</p></div>
+          <div><div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center"><span class="material-icons text-sm">verified</span></div><p class="text-xs mt-2 text-slate-400 font-semibold">Quality</p></div>
+          <div><div class="w-8 h-8 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center"><span class="material-icons text-sm">event</span></div><p class="text-xs mt-2 text-slate-400 font-semibold">Handover</p></div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-primary/5 shadow-sm">
+          <div class="flex items-center justify-between mb-6"><h3 class="text-xl font-bold">Recent Updates</h3><a class="text-primary text-sm font-bold hover:underline" href="#">View All Photos</a></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="aspect-video rounded-xl bg-slate-100 overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJqHp5weYJS2IjVR2KAUJflhWHtkMJWINlR1igp2FNcED3Og9EQr5nDWZ4eTST5W4uUYbd6VrutwgmDBnyfXPuZO6yqInn69aokE7l4DudUieO9GMBYPn5WbT4v_EgreZKozEtgW0Yfs2_oAUu-YxlUehvcB0a5EuTlKwIkoVd_b4Mv9JMsvbKhE-uDmqSbnjP_hEgP3t4xGa_sOL_YmPKtFRnaqy-61TcqMho5QrzrcapgXkxrBNVj-balV80ohhqVwKdJ2VqESN" alt="Update photo"/></div>
+            <div class="aspect-video rounded-xl bg-slate-100 overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPymSmsTm6tw9Z5yo4l9gr8lLiYnZdd4oWUVws8mPPEnlq0WfMMHGgzCXZeyN_kyOIt77wfg7FsBg32nKvNXitgDqZXlVsxuEwEBGu6TVWUUdpZA-VYFis-YxwTP3mPGW8CuWJs1Yxc4ut7oqyqACHxiECNnBVQYkOTOmEYXNS-kKXG2K1UJGC52dnyHeXZYyFOnIKG1wQLvwUMO-6CAvkkjHLU1ILqBerdRS8fBy9_TFMMFBYzZEEHp9o9tfm7VAHOCfKpY6JSPJ5" alt="Update photo"/></div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-primary/5 shadow-sm">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-6">Your Project Team</h3>
+            <div class="flex items-center gap-3 mb-4">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOTUZ1M3Yx8LVzldSJKP_5z02RXs3l4B4fKj7t_i4p3vY7NJIUNbZ0QsME3XemvwPj2FIH78aLHTmZCHyq84Cn8vMtHH-kT16s7YOlI_P7Tjf6FDjhPaoBq7grVZA8vXhzNJ7QJHWjEfyY-c0tbcMXPoBkp2VpCPjbm3b5ZwDHKSmM1j4oAuv-n-SwvTXX3lvW7wefyUoBeWOEgpW32JUOtqI4-kWzi9z5zryw54O95zs8UTEOwJM77Y0Ry1fvNkz0Ylmnw_bzNlYi" alt="Project lead"/>
+              <div><p class="font-extrabold">Marcus Sterling</p><p class="text-xs text-primary font-bold">Project Lead</p></div>
+            </div>
+            <button class="w-full py-3 bg-slate-50 dark:bg-slate-800 font-bold rounded-xl flex items-center justify-center gap-2"><span class="material-icons">chat_bubble</span>Send Message</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+</body>
+</html>

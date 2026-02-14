@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Client Portal Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="assets/css/common.css" rel="stylesheet"/>
+<link href="assets/css/client_shell.css" rel="stylesheet"/>
+<script src="assets/js/client-shell.js"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: { primary: "#197fe6", "background-light": "#f6f7f8", "background-dark": "#111921" },
+        fontFamily: { display: ["Manrope", "sans-serif"] },
+        borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" }
+      }
+    }
+  };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 h-screen overflow-hidden flex flex-col md:flex-row"
+  data-client-shell-active="dashboard"
+  data-client-shell-search="true"
+  data-client-shell-search-placeholder="Search projects, invoices, documents..."
+  data-client-shell-user="Erik Johansson"
+  data-client-shell-role="Nordic Construction">
+<div id="client-sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="client-sidebar-slot"></div>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+  <div id="client-header-slot"></div>
+  <div class="flex-1 overflow-y-auto client-shell-main">
+    <div class="client-content">
+      <div class="mb-10">
+        <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Hello Nordic Construction, welcome to your portal</h1>
+        <p class="text-slate-500">Here is what's happening with your projects today.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm"><div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"><span class="material-icons text-primary">business_center</span></div><h3 class="text-slate-500 text-sm font-medium mb-1">Active Projects</h3><p class="text-3xl font-bold">4</p></div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm"><div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4"><span class="material-icons text-amber-600">payments</span></div><h3 class="text-slate-500 text-sm font-medium mb-1">Pending Invoices</h3><p class="text-3xl font-bold">2</p></div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm"><div class="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4"><span class="material-icons text-slate-600">description</span></div><h3 class="text-slate-500 text-sm font-medium mb-1">Shared Documents</h3><p class="text-3xl font-bold">12</p></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <section class="lg:col-span-2 bg-white dark:bg-slate-900 p-8 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Current Project Status</h2>
+              <p class="text-sm text-slate-500">Main Project: Office Renovation Phase 1</p>
+            </div>
+            <button class="text-primary font-semibold text-sm hover:underline">View All Details</button>
+          </div>
+          <div class="space-y-8">
+            <div>
+              <div class="flex items-center justify-between mb-4"><span class="text-sm font-semibold">Total Progress</span><span class="text-sm font-bold text-primary">75% Complete</span></div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3"><div class="bg-primary h-3 rounded-full" style="width: 75%"></div></div>
+            </div>
+            <div class="p-4 bg-primary/5 rounded-lg border border-primary/10 flex gap-4"><span class="material-icons text-primary">info</span><div><p class="text-sm font-semibold">Next Milestone Approaching</p><p class="text-sm text-slate-500">HVAC installation is scheduled for next Tuesday, June 20th.</p></div></div>
+          </div>
+        </section>
+        <section class="space-y-6">
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h2 class="text-lg font-bold mb-6">Quick Actions</h2>
+            <div class="space-y-3">
+              <button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center gap-2"><span class="material-icons">credit_card</span>Pay Latest Invoice</button>
+              <button class="w-full border border-primary text-primary font-bold py-3 px-4 rounded-lg hover:bg-primary/5 flex items-center justify-center gap-2"><span class="material-icons">chat_bubble</span>Message Project Lead</button>
+            </div>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h3 class="font-bold mb-4">Project Lead</h3>
+            <div class="flex items-center gap-3 mb-4">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA5RosIUzGJGDijghH7xC4QmgbKrm7zEfe-4GIx00cyngSiIrdsQ_PXq2AeYewa0MgpbHJ336rRu0wwKAfmVtlLPc6sLBa9tE3-odOy4wTtc7HQPo_vDu5D4qkL3ouvOzOM_MgiH88UUjP3UXuPOS511B8KtEBPrxxxrefsQlSXz97wdBxCkBQzjjR7ZD9cRQMJTlz3PS1RCoEP0gdyE9M_A9XEQZDwrN6v3LwIecpyWdqZ6A05i53r8cemHzewNH-fL4laBTCA6Q3" alt="Project lead"/>
+              <div><p class="font-bold">Sarah Williams</p><p class="text-xs text-slate-500">Senior Architect</p></div>
+            </div>
+            <p class="text-sm text-slate-500 flex items-center gap-2"><span class="material-icons text-sm">email</span>sarah.w@structportal.com</p>
+            <p class="text-sm text-slate-500 flex items-center gap-2 mt-1"><span class="material-icons text-sm">phone</span>+46 70 123 45 67</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between"><h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">Local Weather</h3><span class="material-icons text-slate-400">sunny</span></div>
+            <div class="flex items-center justify-between mt-2"><span class="text-2xl font-bold">22C</span><span class="text-sm text-slate-500">Stockholm, SE</span></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="mt-10 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center"><h2 class="font-bold">Recently Shared Documents</h2><button class="text-sm text-slate-500 hover:text-primary">See all</button></div>
+        <div class="divide-y divide-slate-100 dark:divide-slate-800">
+          <div class="px-6 py-4 flex items-center justify-between"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center"><span class="material-icons text-red-500">picture_as_pdf</span></div><div><p class="text-sm font-semibold">Site_Safety_Protocol_v2.pdf</p><p class="text-xs text-slate-400">Shared by Sarah Williams - 2 hours ago</p></div></div><button class="text-slate-400 hover:text-primary"><span class="material-icons">file_download</span></button></div>
+          <div class="px-6 py-4 flex items-center justify-between"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded bg-blue-50 flex items-center justify-center"><span class="material-icons text-blue-500">image</span></div><div><p class="text-sm font-semibold">Interior_Render_Entry_Hall.jpg</p><p class="text-xs text-slate-400">Shared by Sarah Williams - Yesterday</p></div></div><button class="text-slate-400 hover:text-primary"><span class="material-icons">file_download</span></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

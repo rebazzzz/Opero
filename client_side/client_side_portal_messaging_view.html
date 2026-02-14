@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Client Portal Messaging View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="../assets/css/common.css" rel="stylesheet"/>
+<link href="../assets/css/client_shell.css" rel="stylesheet"/>
+<script src="../assets/js/client-shell.js"></script>
+<script id="tailwind-config">
+  tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#197fe6", "background-light": "#f6f7f8", "background-dark": "#111921" }, fontFamily: { display: ["Manrope", "sans-serif"] } } } };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row"
+  data-client-shell-active="messages"
+  data-client-shell-search="false"
+  data-client-shell-user="Erik Johansson"
+  data-client-shell-role="Nordic Construction">
+<div id="client-sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="client-sidebar-slot"></div>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+  <div id="client-header-slot"></div>
+  <div class="flex-1 overflow-hidden client-shell-main">
+    <div class="client-content h-full">
+      <div class="flex h-full w-full bg-white dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+        <aside class="w-80 md:w-96 border-r border-slate-200 dark:border-slate-800 flex flex-col">
+          <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center justify-between mb-6"><h1 class="text-xl font-bold tracking-tight">Messages</h1><button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-primary"><span class="material-icons">edit_note</span></button></div>
+            <div class="relative"><span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span><input class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm" placeholder="Search conversations..." type="text"/></div>
+          </div>
+          <div class="flex-1 overflow-y-auto client-custom-scrollbar">
+            <div class="p-4 bg-primary/5 border-r-4 border-primary flex gap-3"><img class="w-11 h-11 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIDX5nc-lED8KG-pSY8xUtk4sIYTEG9rHwKwON9BJQioQYKPZtqNRg0qlT70YYboK1pm5YdECZdnJEk83nMtU8yCEXRdMqHj8c7C7QDIo2CXnlpm5xxolXlDyGCqtYBwF1yBxy3UqbGnoIuT4naq9siouwMlrH9SoNfSyYxiiXahiJv_UKnrlKyN_5IqINqSXo2C1vccItqR-q2g3kT3SxH-SuYGhLWpY1jqYWaa8YkCUkNZBaMQ5SpoAQqGHBz8nxuYXklf2Bncop" alt="Sarah"/><div><h3 class="font-semibold text-sm">Sarah Jenkins</h3><p class="text-xs text-slate-600">I've uploaded the initial drafts for your review.</p></div></div>
+            <div class="p-4 flex gap-3"><img class="w-11 h-11 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhvuYkPQAbW1Tb-CgRHgOKr-z821yP-WKn9Zr-C0ffG4xY8aB-1PfanND7ChHJScelRUABnABZVQq-lxc53T_EYYHPKtACRn50WtPknzrEkUrLx-byH6thUV2uLmWPZV1z2nw924UlemzFV-CH16-jKXKg62EhfMFqi-7uJIw2PpQHr2VQgKifYgjJTNsxr-g-I_U1YCYGF4ysPClTtFsxB4Vt83L-hLnxodj-wNg5RzWCM23BDTixYggNbvkyYpHf4PJ_JFt1tGDT" alt="Marcus"/><div><h3 class="font-semibold text-sm">Marcus Chen</h3><p class="text-xs text-slate-500">The billing cycle has been updated.</p></div></div>
+          </div>
+        </aside>
+        <section class="flex-1 flex flex-col bg-background-light dark:bg-background-dark">
+          <header class="h-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8"><div class="flex items-center gap-3"><img class="w-11 h-11 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOwpV2AB7TZheZwT3eSwaP0hgwT3m0ABtxmFRkj5hSaKmPIfa-efgOKZ9fSSexSx2CWV2zlX49619UfSzWAFZUFhuv2xFk1qXTrEj26i5zdAVm30F5bRI7FB0ETY0JyBXITnXyFSHgtYIXDWSDtRvZx3Mg9d1WxdPFaTk4i1-IL296e93EuA4n-0M2M-Q4c3NWCfkAZ1AJepsNSpBwwf1oTawsOYgPlGfGsNYiOHIZgA-Sy6AB_qpkjlVEzvm4hk6PhBpm--Z9-86c" alt="Sarah"/><h2 class="text-base font-bold">Sarah Jenkins</h2></div><div class="flex gap-2"><button class="p-2 text-slate-500"><span class="material-icons">videocam</span></button><button class="p-2 text-slate-500"><span class="material-icons">info</span></button></div></header>
+          <div class="flex-1 overflow-y-auto p-8 client-custom-scrollbar space-y-6"><div class="max-w-[75%] flex gap-3"><img class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC40lsC3SIFRgLvnOOum2QGzFVQz28un9aW18WwX5rhKkwSjrra1PbVc-zlszPRT7BopmxZCyY65naPVkmJr1MVBb28pz1VmZFL7ABNG0AS3B_90CGO_sKUg0-H_Eg-BCBdAFo0Yg2jYzzxXvd_b9ZK5RovpYr0Zt3jtqwp01ZK-S44W4jVhG52JJDSYg-TFiKU4uaTPc1zhZOmupo2eJbP5rHkkA0g0dgaa2Yi-34MPysqHKdSxssh3TuXlYMGhJYX4VOudeDoHJHJ" alt="Sarah"/><div class="bg-white dark:bg-slate-800 px-5 py-3 rounded-xl">Hi there! I've finished the initial wireframes for Project Alpha.</div></div><div class="bg-primary text-white px-5 py-3 rounded-xl max-w-[75%] ml-auto">Thanks Sarah! Looking at them right now.</div></div>
+          <div class="p-6 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"><div class="bg-slate-100 dark:bg-slate-800/50 rounded-2xl p-2"><textarea class="w-full bg-transparent border-none focus:ring-0 text-sm min-h-[44px]" placeholder="Type your message here..." rows="1"></textarea><div class="flex items-center justify-between px-2 pt-2 border-t border-slate-200 dark:border-slate-700"><div class="flex gap-2"><button class="p-2 text-slate-500"><span class="material-icons">attach_file</span></button><button class="p-2 text-slate-500"><span class="material-icons">mood</span></button><button class="p-2 text-slate-500"><span class="material-icons">image</span></button><button class="p-2 text-slate-500"><span class="material-icons">format_bold</span></button></div><button class="bg-primary text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2">Send <span class="material-icons text-sm">send</span></button></div></div></div>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
