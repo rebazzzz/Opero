@@ -2,7 +2,7 @@ const CLIENT_SHELL_NAV = [
   { key: 'dashboard', href: 'client_side_portal_dashboard.html', icon: 'dashboard', label: 'Dashboard' },
   { key: 'projects', href: 'client_side/client_side_project_view.html', icon: 'assignment', label: 'Projects' },
   { key: 'invoices', href: 'client_side/client_side_billing_view.html', icon: 'receipt_long', label: 'Invoices' },
-  { key: 'documents', href: '#', icon: 'folder', label: 'Documents' },
+  { key: 'documents', href: 'client_side/client_side_documents_overview.html', icon: 'folder', label: 'Documents' },
   { key: 'messages', href: 'client_side/client_side_portal_messaging_view.html', icon: 'forum', label: 'Messages' },
 ];
 
@@ -38,6 +38,8 @@ function inferClientActiveKey(pathname) {
     'client_side_portal_dashboard.html': 'dashboard',
     'client_side_project_view.html': 'projects',
     'client_side_billing_view.html': 'invoices',
+    'client_side_documents_overview.html': 'documents',
+    'client_side_document_review-approval.html': 'documents',
     'client_side_portal_messaging_view.html': 'messages',
   };
   return map[file] || 'dashboard';

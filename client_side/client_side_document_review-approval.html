@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Document Review & Approval</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="../assets/css/common.css" rel="stylesheet"/>
+<link href="../assets/css/client_shell.css" rel="stylesheet"/>
+<script src="../assets/js/client-shell.js"></script>
+<script id="tailwind-config">
+  tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#197fe6", "background-light": "#f6f7f8", "background-dark": "#111921" }, fontFamily: { display: ["Manrope", "sans-serif"] } } } };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row"
+  data-client-shell-active="documents"
+  data-client-shell-search="false"
+  data-client-shell-user="Erik Johansson"
+  data-client-shell-role="Nordic Construction">
+<div id="client-sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="client-sidebar-slot"></div>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+  <div id="client-header-slot"></div>
+  <div class="flex-1 overflow-y-auto client-shell-main">
+    <div class="client-content h-full space-y-4">
+      <nav class="flex items-center gap-2 text-sm font-medium">
+        <a href="client_side_documents_overview.html" class="text-slate-400 hover:text-primary">Documents</a>
+        <span class="material-icons text-slate-300 text-sm">chevron_right</span>
+        <span class="text-slate-900 dark:text-white font-bold">Kitchen Electrical Layout</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6 min-h-[70vh]">
+        <section class="bg-slate-200 dark:bg-slate-800 rounded-2xl border border-slate-300 dark:border-slate-700 overflow-hidden flex flex-col shadow-inner">
+          <div class="h-12 bg-white/90 dark:bg-slate-900/90 border-b border-slate-300 dark:border-slate-700 flex items-center justify-between px-4">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Viewing: Kitchen_Electrical_Layout_A1.pdf</span>
+            <div class="flex items-center gap-2">
+              <button class="p-1 hover:bg-slate-100 rounded text-slate-600"><span class="material-icons text-xl">zoom_out</span></button>
+              <span class="text-xs font-medium text-slate-600 px-2">100%</span>
+              <button class="p-1 hover:bg-slate-100 rounded text-slate-600"><span class="material-icons text-xl">zoom_in</span></button>
+              <div class="w-px h-4 bg-slate-300 mx-2"></div>
+              <button class="p-1 hover:bg-slate-100 rounded text-slate-600"><span class="material-icons text-xl">fullscreen</span></button>
+            </div>
+          </div>
+          <div class="flex-1 overflow-auto p-8 flex justify-center items-start">
+            <div class="bg-white shadow-2xl min-w-[700px] w-full max-w-4xl aspect-[1.414/1] relative p-8">
+              <img alt="Drawing Preview" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIbgJRdYtqUjAlvaaI2Wme-IvKQBc06bgXxPvrdsMF8WeKJl5qdRWWTI_Fd-ZyG9KVjebl3k51wfTbqiyEnI2uVMdr56ScIGY681lNaf2Iq445d3a61wknifyOaIct-_78M8r2m1jbjhp7O8rn5jpahArWgavaLrmQAxjtopEM4QvFBRqoYzDsDnu6NksnKW3U8zfg1hDcs0umZnabX425gBwidhF-QDLNRZJ_xYW8biwFz1QrB4YWKQOoEVBX87DNLrhevjfFntcy"/>
+            </div>
+          </div>
+        </section>
+
+        <aside class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm overflow-y-auto">
+          <h2 class="text-2xl font-extrabold mb-2">Review & Approve</h2>
+          <p class="text-sm text-slate-500 mb-8">Please review the specifications in the document. Once approved, the project will move to the next phase.</p>
+
+          <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Key Points to Review</h3>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-start gap-3"><span class="material-icons text-primary text-lg">bolt</span><p class="text-sm text-slate-700 dark:text-slate-300">Outlet placements match the finalized kitchen island dimensions.</p></li>
+            <li class="flex items-start gap-3"><span class="material-icons text-primary text-lg">lightbulb</span><p class="text-sm text-slate-700 dark:text-slate-300">Under-cabinet lighting positions are correctly specified for the north wall.</p></li>
+            <li class="flex items-start gap-3"><span class="material-icons text-primary text-lg">check_circle</span><p class="text-sm text-slate-700 dark:text-slate-300">Load capacity meets requirements for the high-performance range.</p></li>
+          </ul>
+
+          <label class="flex items-start gap-3 mb-8"><input class="mt-1 w-5 h-5" type="checkbox"/><span class="text-sm text-slate-600 dark:text-slate-400">I have reviewed and agree to the specifications outlined in this document.</span></label>
+
+          <div class="space-y-4">
+            <button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 inline-flex items-center justify-center gap-2">Approve & Sign <span class="material-icons">draw</span></button>
+            <a href="#" class="w-full text-center block text-sm font-bold text-slate-400 hover:text-red-500">Request Changes</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

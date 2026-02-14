@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Client Documents Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="../assets/css/common.css" rel="stylesheet"/>
+<link href="../assets/css/client_shell.css" rel="stylesheet"/>
+<script src="../assets/js/client-shell.js"></script>
+<script id="tailwind-config">
+  tailwind.config = { darkMode: "class", theme: { extend: { colors: { primary: "#197fe6", "background-light": "#f6f7f8", "background-dark": "#111921" }, fontFamily: { display: ["Manrope", "sans-serif"] } } } };
+</script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 h-screen overflow-hidden flex flex-col md:flex-row"
+  data-client-shell-active="documents"
+  data-client-shell-search="true"
+  data-client-shell-search-placeholder="Search files..."
+  data-client-shell-user="Erik Johansson"
+  data-client-shell-role="Nordic Construction">
+<div id="client-sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+<div id="client-sidebar-slot"></div>
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+  <div id="client-header-slot"></div>
+  <div class="flex-1 overflow-y-auto client-shell-main">
+    <div class="client-content space-y-8">
+      <header class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white">Shared Documents</h1>
+          <p class="text-slate-500 mt-1 font-medium">Access and download project files, blueprints, and contracts.</p>
+        </div>
+        <div class="flex items-center bg-white dark:bg-slate-900 p-1 border border-slate-200 dark:border-slate-800 rounded-xl">
+          <button class="p-2 rounded-lg bg-primary/10 text-primary" title="Grid View"><span class="material-icons">grid_view</span></button>
+          <button class="p-2 rounded-lg text-slate-400 hover:text-slate-600" title="List View"><span class="material-icons">view_list</span></button>
+        </div>
+      </header>
+
+      <section>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-5">Folders</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4"><span class="material-icons text-3xl">folder</span></div>
+            <h3 class="font-bold">Project Photos</h3><p class="text-xs text-slate-500">24 Items - 1.2 GB</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4"><span class="material-icons text-3xl">folder</span></div>
+            <h3 class="font-bold">Blueprints & Drawings</h3><p class="text-xs text-slate-500">8 Items - 450 MB</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4"><span class="material-icons text-3xl">folder</span></div>
+            <h3 class="font-bold">Contracts & Legal</h3><p class="text-xs text-slate-500">12 Items - 15 MB</p>
+          </div>
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-2xl shadow-sm">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4"><span class="material-icons text-3xl">folder</span></div>
+            <h3 class="font-bold">Permits</h3><p class="text-xs text-slate-500">5 Items - 4.2 MB</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-5">Recent Files</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <a href="client_side_document_review-approval.html" class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all">
+            <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+              <img alt="File Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPymSmsTm6tw9Z5yo4l9gr8lLiYnZdd4oWUVws8mPPEnlq0WfMMHGgzCXZeyN_kyOIt77wfg7FsBg32nKvNXitgDqZXlVsxuEwEBGu6TVWUUdpZA-VYFis-YxwTP3mPGW8CuWJs1Yxc4ut7oqyqACHxiECNnBVQYkOTOmEYXNS-kKXG2K1UJGC52dnyHeXZYyFOnIKG1wQLvwUMO-6CAvkkjHLU1ILqBerdRS8fBy9_TFMMFBYzZEEHp9o9tfm7VAHOCfKpY6JSPJ5"/>
+            </div>
+            <div class="p-4">
+              <div class="flex items-center justify-between mb-1"><h4 class="font-bold truncate">Kitchen_Electrical_Layout_A1.pdf</h4><span class="px-1.5 py-0.5 bg-blue-100 text-[10px] font-black uppercase rounded text-blue-600">PDF</span></div>
+              <div class="flex items-center justify-between"><p class="text-xs text-slate-400">Oct 15, 2024 - 8.5 MB</p><span class="material-icons text-primary">open_in_new</span></div>
+            </div>
+          </a>
+
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+            <div class="aspect-[4/3] bg-red-50 flex items-center justify-center"><span class="material-icons text-6xl text-red-500">picture_as_pdf</span></div>
+            <div class="p-4"><h4 class="font-bold truncate">Project_Agreement_v2.pdf</h4><p class="text-xs text-slate-400">Oct 20, 2024 - 1.8 MB</p></div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+            <div class="aspect-[4/3] bg-slate-100 overflow-hidden"><img alt="File Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJqHp5weYJS2IjVR2KAUJflhWHtkMJWINlR1igp2FNcED3Og9EQr5nDWZ4eTST5W4uUYbd6VrutwgmDBnyfXPuZO6yqInn69aokE7l4DudUieO9GMBYPn5WbT4v_EgreZKozEtgW0Yfs2_oAUu-YxlUehvcB0a5EuTlKwIkoVd_b4Mv9JMsvbKhE-uDmqSbnjP_hEgP3t4xGa_sOL_YmPKtFRnaqy-61TcqMho5QrzrcapgXkxrBNVj-balV80ohhqVwKdJ2VqESN"/></div>
+            <div class="p-4"><h4 class="font-bold truncate">site-visit-oct-24.jpg</h4><p class="text-xs text-slate-400">Oct 24, 2024 - 4.2 MB</p></div>
+          </div>
+
+          <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm">
+            <div class="aspect-[4/3] bg-blue-50 flex items-center justify-center"><span class="material-icons text-6xl text-blue-500">architecture</span></div>
+            <div class="p-4"><h4 class="font-bold truncate">Electrical_Layout_A1.pdf</h4><p class="text-xs text-slate-400">Oct 15, 2024 - 8.5 MB</p></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+</body>
+</html>
