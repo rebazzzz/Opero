@@ -47,7 +47,7 @@
                             <span class="material-symbols-outlined text-lg">file_download</span>
                             Export
                         </button>
-                        <button
+                        <button id="open-client-create-modal" type="button"
                             class="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium shadow-md shadow-primary/20 transition-all active:scale-95">
                             <span class="material-symbols-outlined text-xl">add</span>
                             Add Client
@@ -122,7 +122,7 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody
+                            <tbody id="clients-tbody"
                                 class="bg-surface-light dark:bg-surface-dark divide-y divide-slate-100 dark:divide-slate-700/50">
                                 <!-- Row 1 -->
                                 <tr class="group hover:bg-slate-50/80 dark:hover:bg-slate-800/30 transition-colors">
@@ -459,6 +459,63 @@
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id="client-create-modal" class="client-create-modal hidden" aria-hidden="true">
+                <div class="client-create-modal__backdrop" data-client-create-close></div>
+                <div class="client-create-modal__dialog" role="dialog" aria-modal="true"
+                    aria-labelledby="client-create-title">
+                    <form id="client-create-form" class="client-create-card">
+                        <button type="button" class="client-create-card__close" aria-label="Close"
+                            data-client-create-close>
+                            <span class="material-icons-outlined">close</span>
+                        </button>
+                        <div class="client-create-card__header">
+                            <h2 id="client-create-title" class="client-create-card__title">Create New Client</h2>
+                            <p class="client-create-card__subtitle">Add a client profile without leaving this page.</p>
+                        </div>
+                        <div class="client-create-card__body">
+                            <div class="client-create-field">
+                                <label for="client_company">Company Name <span class="is-required">*</span></label>
+                                <input id="client_company" name="client_company" type="text"
+                                    placeholder="e.g. Orbit Labs" required />
+                            </div>
+                            <div class="client-create-row">
+                                <div class="client-create-field">
+                                    <label for="client_contact">Contact Person <span class="is-required">*</span></label>
+                                    <input id="client_contact" name="client_contact" type="text"
+                                        placeholder="e.g. Alex Carter" required />
+                                </div>
+                                <div class="client-create-field">
+                                    <label for="client_status">Status</label>
+                                    <select id="client_status" name="client_status">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="client-create-row">
+                                <div class="client-create-field">
+                                    <label for="client_email">Email <span class="is-required">*</span></label>
+                                    <input id="client_email" name="client_email" type="email"
+                                        placeholder="name@company.com" required />
+                                </div>
+                                <div class="client-create-field">
+                                    <label for="client_phone">Phone</label>
+                                    <input id="client_phone" name="client_phone" type="tel"
+                                        placeholder="+1 (555) 000-0000" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="client-create-card__footer">
+                            <button type="button" class="client-create-btn client-create-btn--ghost"
+                                data-client-create-close>Cancel</button>
+                            <button type="submit" class="client-create-btn client-create-btn--primary">
+                                <span class="material-icons-outlined">person_add</span>
+                                Create Client
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
     </main>

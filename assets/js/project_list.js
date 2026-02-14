@@ -1,4 +1,4 @@
-﻿tailwind.config = {
+tailwind.config = {
   darkMode: "class",
   theme: {
     extend: {
@@ -22,35 +22,35 @@
   },
 };
 
-// Mobile menu toggle
-document
-  .getElementById("mobile-menu-btn")
-  ?.addEventListener("click", function () {
-    const sidebar = document.querySelector("aside");
-    const overlay = document.getElementById("sidebar-overlay");
-    sidebar.classList.toggle("hidden");
-    overlay.classList.toggle("hidden");
-  });
+function initShellToggles() {
+  // Mobile menu toggle
+  document
+    .getElementById("mobile-menu-btn")
+    ?.addEventListener("click", function () {
+      var sidebar = document.querySelector("aside");
+      var overlay = document.getElementById("sidebar-overlay");
+      sidebar?.classList.toggle("hidden");
+      overlay?.classList.toggle("hidden");
+    });
 
-// Close sidebar when overlay is clicked
-document
-  .getElementById("sidebar-overlay")
-  ?.addEventListener("click", function () {
-    const sidebar = document.querySelector("aside");
-    sidebar.classList.add("hidden");
-    this.classList.add("hidden");
-  });
+  // Close sidebar when overlay is clicked
+  document
+    .getElementById("sidebar-overlay")
+    ?.addEventListener("click", function () {
+      var sidebar = document.querySelector("aside");
+      sidebar?.classList.add("hidden");
+      this.classList.add("hidden");
+    });
+}
 
 // ============================================
 // Project List Search & Filter Functionality
 // ============================================
 
-// State
 var currentStatusFilter = "all";
 var currentDateFilter = "all";
 var currentSearchQuery = "";
 
-// Get all table rows
 function getTableRows() {
   var tableContainer = document.getElementById("projects-table-container");
   if (!tableContainer) return [];
@@ -59,7 +59,6 @@ function getTableRows() {
   return Array.prototype.slice.call(tbody.querySelectorAll("tr"));
 }
 
-// Parse date string to Date object
 function parseDate(dateString) {
   if (
     !dateString ||
@@ -69,13 +68,11 @@ function parseDate(dateString) {
     return null;
   }
 
-  // Try to parse the date
   var parsed = new Date(dateString);
   if (!isNaN(parsed.getTime())) {
     return parsed;
   }
 
-  // Try common formats
   var months = {
     jan: 0,
     feb: 1,
@@ -91,21 +88,18 @@ function parseDate(dateString) {
     dec: 11,
   };
 
-  // Format: "Oct 24, 2023"
   var match = dateString.match(/([a-zA-Z]+)\s+(\d+),?\s+(\d{4})/);
   if (match) {
     var month = months[match[1].toLowerCase().substring(0, 3)];
     if (month !== undefined) {
-      return new Date(parseInt(match[3]), month, parseInt(match[2]));
+      return new Date(parseInt(match[3], 10), month, parseInt(match[2], 10));
     }
   }
 
   return null;
 }
 
-// Check if a row matches the current filters
 function rowMatchesFilters(row) {
-  // Get text content from project name and client columns
   var projectNameCell = row.querySelector("td:nth-child(1)");
   var clientCell = row.querySelector("td:nth-child(2)");
 
@@ -114,7 +108,6 @@ function rowMatchesFilters(row) {
     : "";
   var clientName = clientCell ? clientCell.textContent.toLowerCase() : "";
 
-  // Search filter
   if (currentSearchQuery) {
     var searchMatch =
       projectName.indexOf(currentSearchQuery) !== -1 ||
@@ -122,14 +115,12 @@ function rowMatchesFilters(row) {
     if (!searchMatch) return false;
   }
 
-  // Status filter
   if (currentStatusFilter !== "all") {
     var statusCell = row.querySelector("td:nth-child(3)");
     var statusText = statusCell
       ? statusCell.textContent.toLowerCase().trim()
       : "";
 
-    // Map filter values to possible status text matches
     var statusMap = {
       active: ["active"],
       "pending review": ["pending review", "pending"],
@@ -142,6 +133,7 @@ function rowMatchesFilters(row) {
       currentStatusFilter,
     ];
     var statusMatch = false;
+
     for (var i = 0; i < possibleStatuses.length; i++) {
       if (statusText.indexOf(possibleStatuses[i]) !== -1) {
         statusMatch = true;
@@ -152,7 +144,6 @@ function rowMatchesFilters(row) {
     if (!statusMatch) return false;
   }
 
-  // Date filter
   if (currentDateFilter !== "all") {
     var deadlineCell = row.querySelector("td:nth-child(6)");
     var deadlineText = deadlineCell ? deadlineCell.textContent.trim() : "";
@@ -194,7 +185,6 @@ function rowMatchesFilters(row) {
   return true;
 }
 
-// Apply all filters to the table
 function applyFilters() {
   var rows = getTableRows();
   var visibleCount = 0;
@@ -202,51 +192,42 @@ function applyFilters() {
   for (var i = 0; i < rows.length; i++) {
     var row = rows[i];
     var matches = rowMatchesFilters(row);
-    if (matches) {
-      row.style.display = "";
-      visibleCount++;
-    } else {
-      row.style.display = "none";
-    }
+    row.style.display = matches ? "" : "none";
+    if (matches) visibleCount++;
   }
 
-  // Show/hide no results message
   var noResultsMessage = document.getElementById("no-results-message");
   var tableContainer = document.getElementById("projects-table-container");
 
-  if (noResultsMessage) {
-    if (visibleCount === 0) {
-      noResultsMessage.classList.remove("hidden");
-      if (tableContainer) tableContainer.classList.add("hidden");
-    } else {
-      noResultsMessage.classList.add("hidden");
-      if (tableContainer) tableContainer.classList.remove("hidden");
-    }
+  if (!noResultsMessage) return;
+
+  if (visibleCount === 0) {
+    noResultsMessage.classList.remove("hidden");
+    tableContainer?.classList.add("hidden");
+  } else {
+    noResultsMessage.classList.add("hidden");
+    tableContainer?.classList.remove("hidden");
   }
 }
 
-// Toggle dropdown
 function toggleDropdown(dropdown) {
   var statusDropdown = document.getElementById("status-dropdown");
   var dateDropdown = document.getElementById("date-dropdown");
 
   if (dropdown === statusDropdown) {
-    if (dateDropdown) dateDropdown.classList.add("hidden");
+    dateDropdown?.classList.add("hidden");
   } else if (dropdown === dateDropdown) {
-    if (statusDropdown) statusDropdown.classList.add("hidden");
+    statusDropdown?.classList.add("hidden");
   }
-  if (dropdown) dropdown.classList.toggle("hidden");
+
+  dropdown?.classList.toggle("hidden");
 }
 
-// Close all dropdowns
 function closeAllDropdowns() {
-  var statusDropdown = document.getElementById("status-dropdown");
-  var dateDropdown = document.getElementById("date-dropdown");
-  if (statusDropdown) statusDropdown.classList.add("hidden");
-  if (dateDropdown) dateDropdown.classList.add("hidden");
+  document.getElementById("status-dropdown")?.classList.add("hidden");
+  document.getElementById("date-dropdown")?.classList.add("hidden");
 }
 
-// Initialize the filter functionality
 function initProjectFilters() {
   var searchInput = document.getElementById("project-search-input");
   var statusFilterBtn = document.getElementById("status-filter-btn");
@@ -254,110 +235,341 @@ function initProjectFilters() {
   var statusFilterText = document.getElementById("status-filter-text");
   var dateFilterText = document.getElementById("date-filter-text");
 
-  // Search input
   if (searchInput) {
-    searchInput.oninput = function (e) {
+    var searchHandler = function (e) {
       currentSearchQuery = e.target.value.toLowerCase().trim();
       applyFilters();
     };
-    searchInput.onkeyup = function (e) {
-      currentSearchQuery = e.target.value.toLowerCase().trim();
-      applyFilters();
-    };
+    searchInput.addEventListener("input", searchHandler);
+    searchInput.addEventListener("keyup", searchHandler);
   }
 
-  // Status filter button
   if (statusFilterBtn) {
-    statusFilterBtn.onclick = function (e) {
+    statusFilterBtn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
       toggleDropdown(document.getElementById("status-dropdown"));
-    };
+    });
   }
 
-  // Status options
   var statusOptions = document.querySelectorAll(".status-option");
   for (var i = 0; i < statusOptions.length; i++) {
-    statusOptions[i].onclick = function (e) {
+    statusOptions[i].addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      var status = this.getAttribute("data-status");
-      currentStatusFilter = status;
-
-      if (statusFilterText) {
-        statusFilterText.textContent = this.textContent;
-      }
-
+      currentStatusFilter = this.getAttribute("data-status");
+      if (statusFilterText) statusFilterText.textContent = this.textContent;
       closeAllDropdowns();
       applyFilters();
-    };
+    });
   }
 
-  // Date filter button
   if (dateFilterBtn) {
-    dateFilterBtn.onclick = function (e) {
+    dateFilterBtn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
       toggleDropdown(document.getElementById("date-dropdown"));
-    };
+    });
   }
 
-  // Date options
   var dateOptions = document.querySelectorAll(".date-option");
-  for (var i = 0; i < dateOptions.length; i++) {
-    dateOptions[i].onclick = function (e) {
+  for (var j = 0; j < dateOptions.length; j++) {
+    dateOptions[j].addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      var dateRange = this.getAttribute("data-date");
-      currentDateFilter = dateRange;
-
-      if (dateFilterText) {
-        dateFilterText.textContent = this.textContent;
-      }
-
+      currentDateFilter = this.getAttribute("data-date");
+      if (dateFilterText) dateFilterText.textContent = this.textContent;
       closeAllDropdowns();
       applyFilters();
-    };
+    });
   }
 
-  // Close dropdowns when clicking outside
-  document.onclick = function (e) {
-    var statusFilterBtn = document.getElementById("status-filter-btn");
-    var statusDropdown = document.getElementById("status-dropdown");
-    var dateFilterBtn = document.getElementById("date-filter-btn");
-    var dateDropdown = document.getElementById("date-dropdown");
+  document.addEventListener("click", function (e) {
+    var statusDrop = document.getElementById("status-dropdown");
+    var dateDrop = document.getElementById("date-dropdown");
 
-    var isStatusBtn =
-      statusFilterBtn && statusFilterBtn.contains
-        ? statusFilterBtn.contains(e.target)
-        : false;
-    var isStatusDrop =
-      statusDropdown && statusDropdown.contains
-        ? statusDropdown.contains(e.target)
-        : false;
-    var isDateBtn =
-      dateFilterBtn && dateFilterBtn.contains
-        ? dateFilterBtn.contains(e.target)
-        : false;
-    var isDateDrop =
-      dateDropdown && dateDropdown.contains
-        ? dateDropdown.contains(e.target)
-        : false;
+    var inStatus =
+      document.getElementById("status-filter-btn")?.contains(e.target) ||
+      statusDrop?.contains(e.target);
+    var inDate =
+      document.getElementById("date-filter-btn")?.contains(e.target) ||
+      dateDrop?.contains(e.target);
 
-    if (!isStatusBtn && !isStatusDrop && !isDateBtn && !isDateDrop) {
+    if (!inStatus && !inDate) {
       closeAllDropdowns();
     }
+  });
+}
+
+// ============================================
+// Create Project Modal + Multi-step Form
+// ============================================
+
+function initProjectCreateModal() {
+  var modal = document.getElementById("project-create-modal");
+  var openBtn = document.getElementById("open-project-create-modal");
+  var closeBtns = document.querySelectorAll("[data-project-modal-close]");
+  var backBtn = document.getElementById("project-back-btn");
+  var nextBtn = document.getElementById("project-next-btn");
+  var submitBtn = document.getElementById("project-submit-btn");
+  var subtitle = document.getElementById("project-create-subtitle");
+  var helpText = document.getElementById("project-create-help");
+  var form = document.getElementById("project-create-form");
+  var stepPanels = document.querySelectorAll("[data-form-step]");
+  var stepItems = document.querySelectorAll("[data-step-index]");
+  var progress = document.getElementById("project-stepper-progress");
+  var addClientBtn = document.querySelector(".project-add-client-btn");
+  var createClientModal = document.getElementById("create-client-modal");
+  var createClientForm = document.getElementById("create-client-form");
+  var createClientCloseBtns = document.querySelectorAll("[data-client-modal-close]");
+  var clientInput = document.getElementById("project_client");
+  var clientOptions = document.getElementById("project-client-options");
+  var newClientFeedback = document.getElementById("new-client-feedback");
+  var newClientName = document.getElementById("new_client_name");
+  var newClientEmail = document.getElementById("new_client_email");
+  var createClientFields = createClientForm
+    ? createClientForm.querySelectorAll("input, textarea, select")
+    : [];
+
+  if (!modal || !openBtn || !form) return;
+
+  var currentStep = 1;
+  var stepMeta = {
+    1: {
+      subtitle: "Step 1 of 3: Let's start with the basics.",
+      help: 'Need help? Check our <a href="#">Project Creation Guide</a>.',
+    },
+    2: {
+      subtitle: "Step 2 of 3: Who is this project for?",
+      help: 'Need help? Check our <a href="#">Client Management Guide</a>.',
+    },
+    3: {
+      subtitle: "Step 3 of 3: Finalize the financial details.",
+      help: 'Need help? Check our <a href="#">Project Creation Guide</a>.',
+    },
   };
-}
 
-// Initialize when DOM is ready
-function init() {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initProjectFilters);
-  } else {
-    initProjectFilters();
+  function progressForStep(step) {
+    if (step === 1) return "33%";
+    if (step === 2) return "66%";
+    return "100%";
   }
+
+  function updateStepUI() {
+    for (var i = 0; i < stepPanels.length; i++) {
+      var step = parseInt(stepPanels[i].getAttribute("data-form-step"), 10);
+      stepPanels[i].classList.toggle("is-visible", step === currentStep);
+    }
+
+    for (var j = 0; j < stepItems.length; j++) {
+      var itemStep = parseInt(stepItems[j].getAttribute("data-step-index"), 10);
+      stepItems[j].classList.remove("is-active", "is-done");
+      if (itemStep < currentStep) {
+        stepItems[j].classList.add("is-done");
+      } else if (itemStep === currentStep) {
+        stepItems[j].classList.add("is-active");
+      }
+    }
+
+    if (subtitle) {
+      subtitle.textContent = stepMeta[currentStep].subtitle;
+    }
+
+    if (helpText) {
+      helpText.innerHTML =
+        '<span class="material-icons-outlined">info</span> ' +
+        stepMeta[currentStep].help;
+    }
+
+    if (progress) {
+      progress.style.width = progressForStep(currentStep);
+    }
+
+    backBtn?.classList.toggle("is-hidden", currentStep === 1);
+    nextBtn?.classList.toggle("is-hidden", currentStep === 3);
+    submitBtn?.classList.toggle("is-hidden", currentStep !== 3);
+  }
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("project-modal-open");
+    currentStep = 1;
+    updateStepUI();
+
+    var firstInput = modal.querySelector('[data-form-step="1"] input, [data-form-step="1"] textarea');
+    firstInput?.focus();
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("project-modal-open");
+    closeClientModal();
+  }
+
+  function validateCurrentStep() {
+    var activeStep = modal.querySelector(
+      '[data-form-step="' + currentStep + '"]'
+    );
+    if (!activeStep) return true;
+
+    var requiredFields = activeStep.querySelectorAll("[required]");
+    for (var i = 0; i < requiredFields.length; i++) {
+      if (
+        requiredFields[i].disabled ||
+        requiredFields[i].closest(".hidden") ||
+        (requiredFields[i].closest("#create-client-modal") &&
+          createClientModal?.classList.contains("hidden"))
+      ) {
+        continue;
+      }
+      if (!requiredFields[i].reportValidity()) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function setClientModalFieldsDisabled(disabled) {
+    for (var i = 0; i < createClientFields.length; i++) {
+      createClientFields[i].disabled = disabled;
+    }
+  }
+
+  openBtn.addEventListener("click", openModal);
+
+  for (var i = 0; i < closeBtns.length; i++) {
+    closeBtns[i].addEventListener("click", closeModal);
+  }
+
+  nextBtn?.addEventListener("click", function () {
+    if (!validateCurrentStep()) return;
+    if (currentStep < 3) {
+      currentStep += 1;
+      updateStepUI();
+    }
+  });
+
+  backBtn?.addEventListener("click", function () {
+    if (currentStep > 1) {
+      currentStep -= 1;
+      updateStepUI();
+    }
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!validateCurrentStep()) return;
+    closeModal();
+    form.reset();
+  });
+
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      if (createClientModal && !createClientModal.classList.contains("hidden")) {
+        closeClientModal();
+      } else {
+        closeModal();
+      }
+    }
+  });
+
+  function openClientModal() {
+    if (!createClientModal || !createClientForm) return;
+    createClientModal.classList.remove("hidden");
+    createClientModal.setAttribute("aria-hidden", "false");
+    setClientModalFieldsDisabled(false);
+    if (newClientFeedback) {
+      newClientFeedback.textContent = "";
+    }
+    setTimeout(function () {
+      newClientName?.focus();
+    }, 0);
+  }
+
+  function closeClientModal() {
+    if (!createClientModal || !createClientForm) return;
+    createClientModal.classList.add("hidden");
+    createClientModal.setAttribute("aria-hidden", "true");
+    createClientForm.reset();
+    setClientModalFieldsDisabled(true);
+    if (newClientFeedback) {
+      newClientFeedback.textContent = "";
+    }
+  }
+
+  function clientExists(name) {
+    if (!clientOptions || !name) return false;
+    var options = clientOptions.querySelectorAll("option");
+    var normalized = name.trim().toLowerCase();
+    for (var i = 0; i < options.length; i++) {
+      if ((options[i].value || "").trim().toLowerCase() === normalized) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function addClientToList(name) {
+    if (!clientOptions || !name) return;
+    var option = document.createElement("option");
+    option.value = name.trim();
+    clientOptions.appendChild(option);
+  }
+
+  addClientBtn?.addEventListener("click", openClientModal);
+
+  for (var j = 0; j < createClientCloseBtns.length; j++) {
+    createClientCloseBtns[j].addEventListener("click", closeClientModal);
+  }
+
+  createClientModal?.addEventListener("click", function (e) {
+    if (e.target === createClientModal) {
+      closeClientModal();
+    }
+  });
+
+  createClientForm?.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!newClientName?.reportValidity() || !newClientEmail?.reportValidity()) {
+      return;
+    }
+
+    var clientName = newClientName.value.trim();
+    if (clientExists(clientName)) {
+      if (newClientFeedback) {
+        newClientFeedback.textContent = "Client already exists. Select it from the list.";
+      }
+      return;
+    }
+
+    addClientToList(clientName);
+    if (clientInput) {
+      clientInput.value = clientName;
+    }
+    closeClientModal();
+  });
+
+  setClientModalFieldsDisabled(true);
+  updateStepUI();
 }
 
-// Start initialization
-init();
+function init() {
+  initShellToggles();
+  initProjectFilters();
+  initProjectCreateModal();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
