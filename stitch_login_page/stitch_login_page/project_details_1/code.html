@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Details - Team Tab - B2B SaaS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased min-h-screen">
+<nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 py-4">
+<div class="flex items-center justify-between max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">P</div>
+<span class="font-bold text-xl text-slate-900 dark:text-white">ProManage</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:text-primary transition-colors relative">
+<span class="material-icons">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden" data-alt="User profile avatar">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3uHThK3HxNvJZ_fH1MLqevqYPklXPZKqG20HM9919XB_-BLIU7y8EjvMrkZWBTDpBQ3EPb-UElk50Bw3s_xEunOjgHpHoQ5DmieWT-NpohXS1No-mqMoJl39vbvF9KIIb3sgakDuH7yaeQsMY__7BQVjY7ggea5Cq6AdWxjaKk9d1_lXXG0z0kdg4XRtKBDq8r9BK0IHyz2YmKnrsxQ5c_5q_z9G1uZHH-uVAI8F-gySA5RlCFX0wNKPZdfLQsAjXNYa8ZZCLjOoI"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-8">
+<nav class="flex mb-6 text-sm text-slate-500 dark:text-slate-400">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="mx-2">/</span>
+<a class="hover:text-primary transition-colors" href="#">Projects</a>
+<span class="mx-2">/</span>
+<span class="text-slate-900 dark:text-white font-medium">Website Redesign for Acme Corp</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
+<div>
+<div class="flex items-center gap-4 mb-2">
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Website Redesign for Acme Corp</h1>
+<span class="px-3 py-1 text-sm font-medium text-green-700 bg-green-100 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800">
+                        In Progress
+                    </span>
+</div>
+<div class="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-base">calendar_today</span>
+<span>Start: Oct 12, 2023</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-icons text-base">event</span>
+<span>Due: Nov 20, 2023</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm font-medium text-slate-700 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2">
+<span class="material-icons text-base">file_download</span>
+                    Export
+                </button>
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-blue-600 transition-colors shadow-sm shadow-blue-200 dark:shadow-none flex items-center gap-2">
+<span class="material-icons text-base">edit</span>
+                    Edit Project
+                </button>
+</div>
+</div>
+<div class="border-b border-slate-200 dark:border-slate-700 mb-8">
+<nav aria-label="Tabs" class="flex gap-8">
+<a class="border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 hover:border-slate-300 transition-colors py-4 px-1 inline-flex items-center gap-2 text-sm font-medium" href="#">
+<span class="material-icons text-lg">dashboard</span>
+                    Overview
+                </a>
+<a class="border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 hover:border-slate-300 transition-colors py-4 px-1 inline-flex items-center gap-2 text-sm font-medium" href="#">
+<span class="material-icons text-lg">history</span>
+                    Activity
+                </a>
+<a class="border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 hover:border-slate-300 transition-colors py-4 px-1 inline-flex items-center gap-2 text-sm font-medium" href="#">
+<span class="material-icons text-lg">attach_money</span>
+                    Finance
+                </a>
+<a class="border-b-2 border-primary text-primary font-medium py-4 px-1 inline-flex items-center gap-2 text-sm" href="#">
+<span class="material-icons text-lg">people</span>
+                    Team
+                </a>
+</nav>
+</div>
+<div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+<div class="relative max-w-sm w-full">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-slate-400">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg leading-5 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm" placeholder="Search team members..." type="text"/>
+</div>
+<button class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+<span class="material-icons mr-2">add</span>
+                Add Team Member
+            </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-24 h-24 mb-4">
+<img alt="Team Member" class="w-full h-full rounded-full object-cover border-4 border-slate-50 dark:border-slate-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBza1RCi3rTIxGY_Z1KLr9V4Y4EVJtmReBdOGqQCIWt8UxHAbcIqLRbVY0nHecD-TaJVYhhjJ4w3KsZVa4GrTmNE3OO3G0_30nbu90LSF-wMvxmfbgCVlk2BPd6ezYFii9MCNyC0hUfWShvNWsuBxE14IoxAMhfeu1xR3kqGpyvr2QTgDKus7Ie6-maJXNuowQjDyStrvFfWyAuOEpIvD-kiMEVylfVP11i_w_0DlCM3yXKiSNxMXutDbnR8DU3L1bPILFKy2izS6oR"/>
+<div class="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full" title="Online"></div>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Sarah Miller</h3>
+<p class="text-primary font-medium text-sm mb-4">Project Lead</p>
+<div class="w-full border-t border-slate-100 dark:border-slate-700 my-4"></div>
+<div class="flex gap-3 w-full justify-center">
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Send Email">
+<span class="material-icons text-xl">email</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Start Chat">
+<span class="material-icons text-xl">chat</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="View Profile">
+<span class="material-icons text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-24 h-24 mb-4">
+<img alt="Team Member" class="w-full h-full rounded-full object-cover border-4 border-slate-50 dark:border-slate-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfv2TihcR5-u9_l4Q6WQJQDiPc-vRpTnl6eXjglTZnUvzEbH2NjY9uSaERTJwqP206FPnL2nrC75Wn-Mf6MsFEEO1cQM2GDeYb0JxyIiddxa-T_JBm6TT2JgI4M3QxkKUgoGB6jCgdWRQbND-xc932kFKyLhGouamKCdH7njzPKRLEUmh2lPjUNtdJT_QPmkA48pJjgJHVyfbncVqGFZgq2DN-DslS5kLrhx6fC5kZZyy3N9tkqEdXjG3LaQuwpHFu1lIb7LCIGro0"/>
+<div class="absolute bottom-1 right-1 w-5 h-5 bg-slate-400 border-2 border-white dark:border-slate-800 rounded-full" title="Offline"></div>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">James Chen</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Senior UX Designer</p>
+<div class="w-full border-t border-slate-100 dark:border-slate-700 my-4"></div>
+<div class="flex gap-3 w-full justify-center">
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Send Email">
+<span class="material-icons text-xl">email</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Start Chat">
+<span class="material-icons text-xl">chat</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="View Profile">
+<span class="material-icons text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-24 h-24 mb-4">
+<div class="w-full h-full rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-2xl font-bold border-4 border-slate-50 dark:border-slate-700">
+                        MK
+                    </div>
+<div class="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full" title="Online"></div>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Michael Kim</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Frontend Developer</p>
+<div class="w-full border-t border-slate-100 dark:border-slate-700 my-4"></div>
+<div class="flex gap-3 w-full justify-center">
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Send Email">
+<span class="material-icons text-xl">email</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Start Chat">
+<span class="material-icons text-xl">chat</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="View Profile">
+<span class="material-icons text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-24 h-24 mb-4">
+<div class="w-full h-full rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-600 dark:text-pink-400 text-2xl font-bold border-4 border-slate-50 dark:border-slate-700">
+                        AL
+                    </div>
+<div class="absolute bottom-1 right-1 w-5 h-5 bg-yellow-500 border-2 border-white dark:border-slate-800 rounded-full" title="Away"></div>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">Anita Lopez</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Marketing Specialist</p>
+<div class="w-full border-t border-slate-100 dark:border-slate-700 my-4"></div>
+<div class="flex gap-3 w-full justify-center">
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Send Email">
+<span class="material-icons text-xl">email</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Start Chat">
+<span class="material-icons text-xl">chat</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="View Profile">
+<span class="material-icons text-xl">visibility</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+<div class="relative w-24 h-24 mb-4">
+<div class="w-full h-full rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-600 dark:text-teal-400 text-2xl font-bold border-4 border-slate-50 dark:border-slate-700">
+                        DR
+                    </div>
+<div class="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full" title="Online"></div>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">David Ross</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4">Backend Engineer</p>
+<div class="w-full border-t border-slate-100 dark:border-slate-700 my-4"></div>
+<div class="flex gap-3 w-full justify-center">
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Send Email">
+<span class="material-icons text-xl">email</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="Start Chat">
+<span class="material-icons text-xl">chat</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors" title="View Profile">
+<span class="material-icons text-xl">visibility</span>
+</button>
+</div>
+</div>
+<button class="bg-slate-50 dark:bg-slate-800/50 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center hover:border-primary hover:bg-slate-100 dark:hover:bg-slate-800 group transition-all h-full min-h-[300px]">
+<div class="w-16 h-16 rounded-full bg-white dark:bg-slate-700 flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl text-slate-400 group-hover:text-primary">person_add</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary">Add Team Member</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-2">Invite a new member to this project</p>
+</button>
+</div>
+</div>
+</main>
+
+</body></html>

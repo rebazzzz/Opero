@@ -14,13 +14,17 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script src="assets/js/activity_log.js"></script>
-    <link href="assets/css/activity_log.css" rel="stylesheet"/>
-<link href="assets/css/common.css" rel="stylesheet"/>
+    <link href="assets/css/activity_log.css" rel="stylesheet" />
+    <link href="assets/css/common.css" rel="stylesheet" />
     <script src="assets/js/app-shell.js"></script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 h-screen overflow-hidden flex flex-col md:flex-row" data-shell-active="activity" data-shell-search="Search projects, clients..." data-shell-user="Alex Morgan" data-shell-role="Owner" data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS">
-<!-- Shared App Shell -->
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 h-screen overflow-hidden flex flex-col md:flex-row"
+    data-shell-active="activity" data-shell-search="Search projects, clients..." data-shell-user="Alex Morgan"
+    data-shell-role="Owner"
+    data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuBlfeQOIB19XAH6vh3cLwzlUsLZD1o_7nPugJl844OrHDROE-tDJDfigjalJ9syJqVfQy3C1Cd70RTURr8ZNMFzKsxJ36FiNoZILn8SjY0xozg6p9fpglP85yfV7guvo36i1GKNQ3POOsAw5fN1myySTziJWxGEFxyVtxgp4Q9A-IfbX4z8FkVCpBEpZvGoP3tmaGsZKzpLPnCNTcWiBK19wCDBv9mdPYkt-skJ9HkbypzSgb52dEyJr_ILOkLt_d5Gl1dLZ0M3E2sS">
+    <!-- Shared App Shell -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
     <div id="app-sidebar-slot"></div>
     <!-- Main Content Area -->
@@ -41,7 +45,7 @@
                         <!-- Date Picker -->
                         <div class="relative group">
                             <span
-                                class="material-icons absolute left-2.5 top-2.5 text-slate-400 text-sm pointer-events-none">calendar_today</span>
+                                class="material-icons-outlined absolute left-2.5 top-2.5 text-slate-400 text-sm pointer-events-none">calendar_today</span>
                             <select
                                 class="pl-9 pr-8 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none appearance-none cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
                                 <option>Last 7 Days</option>
@@ -50,12 +54,12 @@
                                 <option>Last Month</option>
                             </select>
                             <span
-                                class="material-icons absolute right-2 top-2.5 text-slate-400 text-sm pointer-events-none">expand_more</span>
+                                class="material-icons-outlined absolute right-2 top-2.5 text-slate-400 text-sm pointer-events-none">expand_more</span>
                         </div>
                         <!-- User Selector -->
                         <div class="relative group">
                             <span
-                                class="material-icons absolute left-2.5 top-2.5 text-slate-400 text-sm pointer-events-none">person</span>
+                                class="material-icons-outlined absolute left-2.5 top-2.5 text-slate-400 text-sm pointer-events-none">person</span>
                             <select
                                 class="pl-9 pr-8 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-300 focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none appearance-none cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
                                 <option>All Users</option>
@@ -64,7 +68,7 @@
                                 <option>Mike Johnson</option>
                             </select>
                             <span
-                                class="material-icons absolute right-2 top-2.5 text-slate-400 text-sm pointer-events-none">expand_more</span>
+                                class="material-icons-outlined absolute right-2 top-2.5 text-slate-400 text-sm pointer-events-none">expand_more</span>
                         </div>
                         <div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
                         <button class="text-sm font-medium text-slate-500 hover:text-primary px-2 transition-colors">
@@ -81,92 +85,95 @@
                             <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Today</h3>
                             <div class="h-px bg-slate-100 dark:bg-slate-800 flex-1"></div>
                         </div>
-                        <div class="relative pl-4 sm:pl-10 space-y-8">
-                            <!-- Vertical Line -->
-                            <div
-                                class="absolute left-4 sm:left-10 top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-700 -ml-px">
-                            </div>
+                        <div class="space-y-6">
                             <!-- Item 1 -->
-                            <div class="relative flex gap-4 sm:gap-6 group">
-                                <!-- User Avatar (Left of timeline on desktop, hidden on tiny screens or adjusted) -->
-                                <div class="absolute -left-14 sm:-left-20 top-0 hidden sm:block text-right w-16">
-                                    <span class="text-xs font-medium text-slate-400 block pt-2">10 mins ago</span>
+                            <div class="relative flex gap-4">
+                                <!-- Timeline Line -->
+                                <div class="flex flex-col items-center">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-primary/10 border-2 border-white dark:border-slate-900 flex items-center justify-center text-primary shadow-sm flex-shrink-0">
+                                        <span class="material-icons-outlined text-[16px]">edit</span>
+                                    </div>
+                                    <div class="w-px bg-slate-200 dark:bg-slate-700 h-full mt-2"></div>
                                 </div>
-                                <!-- Node -->
-                                <div
-                                    class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 border-2 border-white dark:border-slate-900 flex items-center justify-center text-primary shadow-sm -ml-[1.1rem]">
-                                    <span class="material-icons text-[16px]">edit</span>
-                                </div>
-                                <!-- Content Card -->
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-start justify-between">
-                                        <div class="flex items-center gap-2 mb-1">
+                                <!-- Content -->
+                                <div class="flex-1 min-w-0 pb-6">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <img alt="John Doe avatar"
+                                                    class="w-6 h-6 rounded-full object-cover sm:hidden"
+                                                    data-alt="Portrait of a man with short hair"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGuztyRZBfOAq4k5lJr-jT8vVeFt71pqfvh1uNSfupFbpqIBSZn4bwikvmWGM0mx5vTpOfJwU8kdaodnkVuu3Ka_gy_xnDGQnZPcO--ByL656jJdaIDOZWAjqn_ncckhMf8TUe0z_ETASBCPC_gos3c6csISrmBYGnLLggviD5A2cWdf1bIT0xfDarEf4vZSGsyLoaI8UYj6GKZCWhp0r2vJrgjicq9f6DZ0x41my8n-9bplT1Ycj4wmZZsepfe1tYSzsWixIE2tEW" />
+                                                <span class="text-sm font-semibold text-slate-900 dark:text-white">John
+                                                    Doe</span>
+                                                <span class="text-xs text-slate-400 sm:hidden">• 10m ago</span>
+                                            </div>
+                                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                                Updated the status to <span
+                                                    class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400 px-1.5 py-0.5 rounded text-xs font-medium">In
+                                                    Progress</span> for project
+                                                <a class="text-primary hover:text-primary/80 font-medium hover:underline inline-flex items-center gap-0.5 ml-1"
+                                                    href="project_details.html">
+                                                    Website Redesign
+                                                    <span class="material-icons-outlined text-[14px]">open_in_new</span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                        <div class="hidden sm:flex flex-col items-end gap-2 flex-shrink-0">
+                                            <span class="text-xs font-medium text-slate-400">10 mins ago</span>
                                             <img alt="John Doe avatar"
-                                                class="w-6 h-6 rounded-full object-cover sm:hidden"
+                                                class="w-10 h-10 rounded-full object-cover shadow-sm border border-slate-100 dark:border-slate-700"
                                                 data-alt="Portrait of a man with short hair"
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGuztyRZBfOAq4k5lJr-jT8vVeFt71pqfvh1uNSfupFbpqIBSZn4bwikvmWGM0mx5vTpOfJwU8kdaodnkVuu3Ka_gy_xnDGQnZPcO--ByL656jJdaIDOZWAjqn_ncckhMf8TUe0z_ETASBCPC_gos3c6csISrmBYGnLLggviD5A2cWdf1bIT0xfDarEf4vZSGsyLoaI8UYj6GKZCWhp0r2vJrgjicq9f6DZ0x41my8n-9bplT1Ycj4wmZZsepfe1tYSzsWixIE2tEW" />
-                                            <span class="text-sm font-semibold text-slate-900 dark:text-white">John
-                                                Doe</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• 10m ago</span>
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBozxk0WwiMa6Dpjxh1lZ4RJ5fRpYfDXetaDtxZs_Bhb1LRUQA6Rl3Q1fOrr890vH35bDithXURfXO4Lah5QCzjCJIyr6d4SFcL2Mgfh5LT-yGnqaDu3swKnUakJuE3aGVCIw-o_ZvPdVJu6p2modOofrAFD8X-iSSyAHuKCgqsBJZwvqUYEcBr2DlwW1M11ibwS1TFsmYpdZYxIf39bZqlLVQjF73bZAgGrY0mDqLfKCtQwB5DBtdYVEROTLo9-QwY_OXLdXNoAbcp" />
                                         </div>
                                     </div>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                                        Updated the status to <span
-                                            class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400 px-1.5 py-0.5 rounded text-xs font-medium">In
-                                            Progress</span> for project
-                                        <a class="text-primary hover:text-primary/80 font-medium hover:underline inline-flex items-center gap-0.5 ml-1"
-                                            href="project_details.html">
-                                            Website Redesign
-                                            <span class="material-icons text-[14px]">arrow_outward</span>
-                                        </a>
-                                    </p>
-                                </div>
-                                <div class="hidden sm:block">
-                                    <img alt="John Doe avatar"
-                                        class="w-10 h-10 rounded-full object-cover shadow-sm border border-slate-100 dark:border-slate-700"
-                                        data-alt="Portrait of a man with short hair"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBozxk0WwiMa6Dpjxh1lZ4RJ5fRpYfDXetaDtxZs_Bhb1LRUQA6Rl3Q1fOrr890vH35bDithXURfXO4Lah5QCzjCJIyr6d4SFcL2Mgfh5LT-yGnqaDu3swKnUakJuE3aGVCIw-o_ZvPdVJu6p2modOofrAFD8X-iSSyAHuKCgqsBJZwvqUYEcBr2DlwW1M11ibwS1TFsmYpdZYxIf39bZqlLVQjF73bZAgGrY0mDqLfKCtQwB5DBtdYVEROTLo9-QwY_OXLdXNoAbcp" />
                                 </div>
                             </div>
                             <!-- Item 2 -->
-                            <div class="relative flex gap-4 sm:gap-6 group">
-                                <div class="absolute -left-14 sm:-left-20 top-0 hidden sm:block text-right w-16">
-                                    <span class="text-xs font-medium text-slate-400 block pt-2">2h ago</span>
+                            <div class="relative flex gap-4">
+                                <!-- Timeline Line -->
+                                <div class="flex flex-col items-center">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 border-2 border-white dark:border-slate-900 flex items-center justify-center text-green-600 dark:text-green-400 shadow-sm flex-shrink-0">
+                                        <span class="material-icons-outlined text-[16px]">note_add</span>
+                                    </div>
+                                    <div class="w-px bg-slate-200 dark:bg-slate-700 h-full mt-2"></div>
                                 </div>
-                                <div
-                                    class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 border-2 border-white dark:border-slate-900 flex items-center justify-center text-green-600 dark:text-green-400 shadow-sm -ml-[1.1rem]">
-                                    <span class="material-icons text-[16px]">note_add</span>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-start justify-between">
-                                        <div class="flex items-center gap-2 mb-1">
+                                <!-- Content -->
+                                <div class="flex-1 min-w-0 pb-6">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <img alt="Sarah Smith avatar"
+                                                    class="w-6 h-6 rounded-full object-cover sm:hidden"
+                                                    data-alt="Portrait of a smiling woman"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkCtpIseqxkQUkaooYswF5wXAuyN0EX048zta_gaSaAhBF3a8eTdXOoQyMRIKXmNFsbZHtkgdb9MSWmLAJArWuRaErjeXkNuK_0f4kzvXhRDkQy1uof-qOcRIZy2XMknY8yR9Fto4tjmNRYuIBBFTI36FX7UiVgUja6KACW5WN1winamrY6jglfDJhglHg9-NK7iVcuqrL4TVfDf6dPQfVSPbADokkanBO4jzOaGAsH-8yq-xRplSaBTssFTZC8O1iN2o6Xc3PzkMD" />
+                                                <span class="text-sm font-semibold text-slate-900 dark:text-white">Sarah
+                                                    Smith</span>
+                                                <span class="text-xs text-slate-400 sm:hidden">• 2h ago</span>
+                                            </div>
+                                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                                Added a new note regarding contract renewal for client
+                                                <a class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors ml-1 align-middle"
+                                                    href="client_management.html">
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                                    Acme Corp
+                                                </a>
+                                            </p>
+                                            <div
+                                                class="mt-2 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 text-xs text-slate-500 italic">
+                                                "Client requested a follow-up meeting next Tuesday to discuss terms."
+                                            </div>
+                                        </div>
+                                        <div class="hidden sm:flex flex-col items-end gap-2 flex-shrink-0">
+                                            <span class="text-xs font-medium text-slate-400">2h ago</span>
                                             <img alt="Sarah Smith avatar"
-                                                class="w-6 h-6 rounded-full object-cover sm:hidden"
+                                                class="w-10 h-10 rounded-full object-cover shadow-sm border border-slate-100 dark:border-slate-700"
                                                 data-alt="Portrait of a smiling woman"
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkCtpIseqxkQUkaooYswF5wXAuyN0EX048zta_gaSaAhBF3a8eTdXOoQyMRIKXmNFsbZHtkgdb9MSWmLAJArWuRaErjeXkNuK_0f4kzvXhRDkQy1uof-qOcRIZy2XMknY8yR9Fto4tjmNRYuIBBFTI36FX7UiVgUja6KACW5WN1winamrY6jglfDJhglHg9-NK7iVcuqrL4TVfDf6dPQfVSPbADokkanBO4jzOaGAsH-8yq-xRplSaBTssFTZC8O1iN2o6Xc3PzkMD" />
-                                            <span class="text-sm font-semibold text-slate-900 dark:text-white">Sarah
-                                                Smith</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• 2h ago</span>
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWUDp_F_EScZbSRH3mbhn8hdBPsABizEaSxKr7piIouLS4tlx6K2p42mJsCUee1tpv0g3wUYj_JpVcplm5e-k4jcZa2o8JSN_9eh0rnS55eWoUO4q8_2BLsAE3dKUOswZvLgbeGP0jn730sPxztQBYgi_efM4AS_0HOKU2kFkVo-El2JHBjtwGy6rCHwXnSeqsFjg56awLxVkPA9IBba_m0fOORJFSPaOCAIoMVD_kGDW7uMI7Ajl_D7ofyrHlIi7vQZ0ewzN7wO-b" />
                                         </div>
                                     </div>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                                        Added a new note regarding contract renewal for client
-                                        <a class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors ml-1 align-middle"
-                                            href="client_management.html">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                                            Acme Corp
-                                        </a>
-                                    </p>
-                                    <div
-                                        class="mt-2 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800 text-xs text-slate-500 italic">
-                                        "Client requested a follow-up meeting next Tuesday to discuss terms."
-                                    </div>
-                                </div>
-                                <div class="hidden sm:block">
-                                    <img alt="Sarah Smith avatar"
-                                        class="w-10 h-10 rounded-full object-cover shadow-sm border border-slate-100 dark:border-slate-700"
-                                        data-alt="Portrait of a smiling woman"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWUDp_F_EScZbSRH3mbhn8hdBPsABizEaSxKr7piIouLS4tlx6K2p42mJsCUee1tpv0g3wUYj_JpVcplm5e-k4jcZa2o8JSN_9eh0rnS55eWoUO4q8_2BLsAE3dKUOswZvLgbeGP0jn730sPxztQBYgi_efM4AS_0HOKU2kFkVo-El2JHBjtwGy6rCHwXnSeqsFjg56awLxVkPA9IBba_m0fOORJFSPaOCAIoMVD_kGDW7uMI7Ajl_D7ofyrHlIi7vQZ0ewzN7wO-b" />
                                 </div>
                             </div>
                         </div>
@@ -177,83 +184,92 @@
                             <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider">Yesterday</h3>
                             <div class="h-px bg-slate-100 dark:bg-slate-800 flex-1"></div>
                         </div>
-                        <div class="relative pl-4 sm:pl-10 space-y-8">
-                            <!-- Vertical Line Continuation -->
-                            <div
-                                class="absolute left-4 sm:left-10 top-2 bottom-2 w-px bg-slate-200 dark:bg-slate-700 -ml-px">
-                            </div>
+                        <div class="space-y-6">
                             <!-- Item 3 -->
-                            <div class="relative flex gap-4 sm:gap-6 group">
-                                <div class="absolute -left-14 sm:-left-20 top-0 hidden sm:block text-right w-16">
-                                    <span class="text-xs font-medium text-slate-400 block pt-2">09:00 AM</span>
-                                </div>
-                                <div
-                                    class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-white dark:border-slate-900 flex items-center justify-center text-slate-500 shadow-sm -ml-[1.1rem]">
-                                    <span class="material-icons text-[16px]">smart_toy</span>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex items-start justify-between">
-                                        <div class="flex items-center gap-2 mb-1">
-                                            <div
-                                                class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center sm:hidden">
-                                                <span class="material-icons text-[14px] text-slate-500">smart_toy</span>
-                                            </div>
-                                            <span
-                                                class="text-sm font-semibold text-slate-900 dark:text-white">System</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• Yesterday</span>
-                                        </div>
-                                    </div>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                                        Automatically generated monthly performance report for
-                                        <span class="font-medium text-slate-800 dark:text-slate-200">March 2024</span>.
-                                    </p>
-                                    <div class="mt-2 flex gap-2">
-                                        <button
-                                            class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md text-xs font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-primary transition-all shadow-sm">
-                                            <span class="material-icons text-[14px]">description</span>
-                                            Download PDF
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="hidden sm:block">
+                            <div class="relative flex gap-4">
+                                <!-- Timeline Line -->
+                                <div class="flex flex-col items-center">
                                     <div
-                                        class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-100 dark:border-slate-700">
-                                        <span class="material-icons text-slate-400 text-xl">smart_toy</span>
+                                        class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-white dark:border-slate-900 flex items-center justify-center text-slate-500 shadow-sm flex-shrink-0">
+                                        <span class="material-icons-outlined text-[16px]">smart_toy</span>
+                                    </div>
+                                    <div class="w-px bg-slate-200 dark:bg-slate-700 h-full mt-2"></div>
+                                </div>
+                                <!-- Content -->
+                                <div class="flex-1 min-w-0 pb-6">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <div
+                                                    class="w-6 h-6 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center sm:hidden">
+                                                    <span
+                                                        class="material-icons-outlined text-[14px] text-slate-500">smart_toy</span>
+                                                </div>
+                                                <span
+                                                    class="text-sm font-semibold text-slate-900 dark:text-white">System</span>
+                                                <span class="text-xs text-slate-400 sm:hidden">• Yesterday</span>
+                                            </div>
+                                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                                Automatically generated monthly performance report for
+                                                <span class="font-medium text-slate-800 dark:text-slate-200">March
+                                                    2024</span>.
+                                            </p>
+                                            <div class="mt-2 flex gap-2">
+                                                <button
+                                                    class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md text-xs font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-primary transition-all shadow-sm">
+                                                    <span class="material-icons-outlined text-[14px]">description</span>
+                                                    Download PDF
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="hidden sm:flex flex-col items-end gap-2 flex-shrink-0">
+                                            <span class="text-xs font-medium text-slate-400">09:00 AM</span>
+                                            <div
+                                                class="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center border border-slate-100 dark:border-slate-700">
+                                                <span
+                                                    class="material-icons-outlined text-slate-400 text-xl">smart_toy</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Item 4 -->
-                            <div class="relative flex gap-4 sm:gap-6 group">
-                                <div class="absolute -left-14 sm:-left-20 top-0 hidden sm:block text-right w-16">
-                                    <span class="text-xs font-medium text-slate-400 block pt-2">04:30 PM</span>
+                            <div class="relative flex gap-4">
+                                <!-- Timeline Line -->
+                                <div class="flex flex-col items-center">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 border-2 border-white dark:border-slate-900 flex items-center justify-center text-red-500 dark:text-red-400 shadow-sm flex-shrink-0">
+                                        <span class="material-icons-outlined text-[16px]">delete</span>
+                                    </div>
                                 </div>
-                                <div
-                                    class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/30 border-2 border-white dark:border-slate-900 flex items-center justify-center text-red-500 dark:text-red-400 shadow-sm -ml-[1.1rem]">
-                                    <span class="material-icons text-[16px]">delete</span>
-                                </div>
+                                <!-- Content -->
                                 <div class="flex-1 min-w-0">
-                                    <div class="flex items-start justify-between">
-                                        <div class="flex items-center gap-2 mb-1">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div class="flex-1">
+                                            <div class="flex items-center gap-2 mb-1">
+                                                <img alt="Mike Johnson avatar"
+                                                    class="w-6 h-6 rounded-full object-cover sm:hidden"
+                                                    data-alt="Portrait of a man with a beard"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEngsC-MzQ9n1OyhYYfOY9wBWaNF5ymcxOxWTby1YCTfDwaheTez5BCW5j-43NzL4b2B5_xwuGNFWnxm8RcIBqEWYSyfxLXQDDr5WHtCrpyo2LEnTdOcyIbRJ5d4CUBqYclkKo1C3pR85b70O_qaj_GYXHp0pVEaFIeruMbCxV9J1ZZYyuZE6cBJSEDUZ87t2YOysNug3B-swBm2ffYcqU2aZwZLXzX7bQg1-Q_1SIFBWjuqYrIMx23BLkcvTZ2ztxhqMgSQhANtPZ" />
+                                                <span class="text-sm font-semibold text-slate-900 dark:text-white">Mike
+                                                    Johnson</span>
+                                                <span class="text-xs text-slate-400 sm:hidden">• Yesterday</span>
+                                            </div>
+                                            <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                                Deleted the archived project <span
+                                                    class="line-through decoration-slate-400 text-slate-500">Q1
+                                                    Marketing
+                                                    Campaign</span>.
+                                            </p>
+                                        </div>
+                                        <div class="hidden sm:flex flex-col items-end gap-2 flex-shrink-0">
+                                            <span class="text-xs font-medium text-slate-400">04:30 PM</span>
                                             <img alt="Mike Johnson avatar"
-                                                class="w-6 h-6 rounded-full object-cover sm:hidden"
+                                                class="w-10 h-10 rounded-full object-cover shadow-sm border border-slate-100 dark:border-slate-700"
                                                 data-alt="Portrait of a man with a beard"
-                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEngsC-MzQ9n1OyhYYfOY9wBWaNF5ymcxOxWTby1YCTfDwaheTez5BCW5j-43NzL4b2B5_xwuGNFWnxm8RcIBqEWYSyfxLXQDDr5WHtCrpyo2LEnTdOcyIbRJ5d4CUBqYclkKo1C3pR85b70O_qaj_GYXHp0pVEaFIeruMbCxV9J1ZZYyuZE6cBJSEDUZ87t2YOysNug3B-swBm2ffYcqU2aZwZLXzX7bQg1-Q_1SIFBWjuqYrIMx23BLkcvTZ2ztxhqMgSQhANtPZ" />
-                                            <span class="text-sm font-semibold text-slate-900 dark:text-white">Mike
-                                                Johnson</span>
-                                            <span class="text-xs text-slate-400 sm:hidden">• Yesterday</span>
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvPy0jl0gAtAmPd0QfMuhSxTWj67U2lD0xgDT83lBXrlxubDW4aWsh_cP5yAFUfHf5uQsX-9yLaVwQBwy1VYZaQC5zbJvhFIXqIjlc1V7qflTvg1mnkgsxcOIasofvo2yfYuZDrsQWnHEA6i-ueWH14xyW9wuJlr5htVhkRVGXgxQXkiGCP0cQDEmbsC6xqEQmSLxJxvysDRQg7SUl-nw3BJpL1OtNHhyMR2B24ubjLCiDVdTXPdoatGX0CqwS3uVwj5mWPPCCqf4S" />
                                         </div>
                                     </div>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                                        Deleted the archived project <span
-                                            class="line-through decoration-slate-400 text-slate-500">Q1 Marketing
-                                            Campaign</span>.
-                                    </p>
-                                </div>
-                                <div class="hidden sm:block">
-                                    <img alt="Mike Johnson avatar"
-                                        class="w-10 h-10 rounded-full object-cover shadow-sm border border-slate-100 dark:border-slate-700"
-                                        data-alt="Portrait of a man with a beard"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvPy0jl0gAtAmPd0QfMuhSxTWj67U2lD0xgDT83lBXrlxubDW4aWsh_cP5yAFUfHf5uQsX-9yLaVwQBwy1VYZaQC5zbJvhFIXqIjlc1V7qflTvg1mnkgsxcOIasofvo2yfYuZDrsQWnHEA6i-ueWH14xyW9wuJlr5htVhkRVGXgxQXkiGCP0cQDEmbsC6xqEQmSLxJxvysDRQg7SUl-nw3BJpL1OtNHhyMR2B24ubjLCiDVdTXPdoatGX0CqwS3uVwj5mWPPCCqf4S" />
                                 </div>
                             </div>
                         </div>
@@ -274,8 +290,3 @@
 </body>
 
 </html>
-
-
-
-
-

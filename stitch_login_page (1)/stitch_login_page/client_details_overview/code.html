@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Details Overview</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#197fe6",
+                "background-light": "#f6f7f8",
+                "background-dark": "#111921",
+                },
+                fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<!-- Google Fonts: Manrope -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Navbar placeholder for context -->
+<nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-16 flex items-center px-6 md:px-10 justify-between sticky top-0 z-30">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold">B</div>
+<span class="font-bold text-lg tracking-tight">BizDash</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="User profile avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX6f-i5WfGmvRHozlmLTf_OYYEFLty1J5KprpHmwCDW8lD1PwoXsa26nIy8MidHI1wrN6p1mXNJGnZ-nre9gV8DKjHVePN3lOvwq2Mxtp3CPoM-HY45ZKPZhOaRrR1M49mcwzgFhoD0Nbuh-B-12pSZkiI4nsVolNCxveav02KFOg0kgLfUKWGpQliredtgDt4i3KVNhB8m8_Gdv7oDqkXydgngs-sLzUjbRSZgEelhcPvdk801pyQzvsa6RZ3vP1g4QJqYnpY77KA"/>
+</div>
+</div>
+</nav>
+<main class="flex-grow p-6 md:p-10 max-w-7xl mx-auto w-full">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-6">
+<a class="hover:text-primary transition-colors" href="#">Clients</a>
+<span class="material-icons-round text-base">chevron_right</span>
+<span class="font-medium text-slate-800 dark:text-slate-200">Nordic Construction AB</span>
+</div>
+<!-- Header Section -->
+<header class="mb-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-700 shadow-sm">
+<img alt="Company Logo" class="w-10 h-10 object-contain" data-alt="Company logo icon" onerror="this.src='https://ui-avatars.com/api/?name=NC&amp;background=197fe6&amp;color=fff&amp;size=64'" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmvX-Mbd6Y44PpWal6FFCZn74X9EDfUbG9x7YTQVSetZoEHd7z9RqCIaOLrKidW-1nld-p_zzSfKx3ACttmpfHJnzNudhVH22Qrq-_4VB8BuBW75PkrtIgVlqFxdOprxmtLmkQTQgODSYbRVKMwfTT37ESbxHRThmt3O3176zW51aMO3_NyAZN-mUFaiARjak6tIaQfSzGcAdFyTTpRB0wtJ4okjgTOAJXU66cfX9CN0w5tO82AmJI-xxt2JUnS-ro8LZNyEuonny5"/>
+</div>
+<div>
+<h1 class="text-3xl font-bold text-slate-900 dark:text-white">Nordic Construction AB</h1>
+<p class="text-slate-500 text-sm mt-1 flex items-center gap-1">
+<span class="material-icons-round text-base text-primary">verified</span> Customer since Jan 2023
+                        </p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 font-medium transition-colors shadow-sm dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-700">
+<span class="material-icons-round text-sm">more_horiz</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary font-medium transition-colors">
+<span class="material-icons-round text-sm">edit</span>
+                        Edit Details
+                    </button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white font-medium shadow-md shadow-primary/20 transition-all">
+<span class="material-icons-round text-sm">add</span>
+                        New Project
+                    </button>
+</div>
+</div>
+<!-- Tab Navigation -->
+<div class="border-b border-slate-200 dark:border-slate-700">
+<nav aria-label="Tabs" class="flex gap-8">
+<a aria-current="page" class="border-b-2 border-primary py-4 px-1 text-sm font-semibold text-primary" href="#">
+                        Overview
+                    </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
+                        Invoices
+                    </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
+                        Projects History
+                    </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
+                        Documents
+                    </a>
+<a class="border-b-2 border-transparent py-4 px-1 text-sm font-medium text-slate-500 hover:border-slate-300 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors" href="#">
+                        Notes
+                    </a>
+</nav>
+</div>
+</header>
+<!-- Stats Overview -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Total Revenue -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-primary/30 transition-colors">
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Total Revenue</p>
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$450,200</h3>
+<div class="flex items-center mt-2 text-xs font-medium text-green-600 bg-green-50 dark:bg-green-900/20 dark:text-green-400 px-2 py-1 rounded w-fit">
+<span class="material-icons-round text-sm mr-1">trending_up</span> +12.5% vs last year
+                    </div>
+</div>
+<div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-icons-round">attach_money</span>
+</div>
+</div>
+<!-- Active Projects Stats -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-primary/30 transition-colors">
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Total Projects</p>
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">12</h3>
+<p class="text-xs text-slate-400 mt-2">
+<span class="text-primary font-bold">3</span> active right now
+                    </p>
+</div>
+<div class="p-3 bg-primary/10 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-icons-round">folder_open</span>
+</div>
+</div>
+<!-- Outstanding Balance -->
+<div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-primary/30 transition-colors relative overflow-hidden">
+<!-- Subtle alert bar on left -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-amber-500"></div>
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">Outstanding Balance</p>
+<h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$12,500</h3>
+<p class="text-xs text-amber-600 font-medium mt-2 flex items-center">
+<span class="material-icons-round text-sm mr-1">warning</span> Due in 5 days
+                    </p>
+</div>
+<div class="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg text-amber-600 dark:text-amber-400">
+<span class="material-icons-round">receipt_long</span>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Contact Info & Map -->
+<div class="lg:col-span-1 flex flex-col gap-6">
+<!-- Contact Card -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden">
+<div class="p-5 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">Contact Info</h3>
+<button class="text-xs font-semibold text-primary hover:text-primary/80 transition-colors uppercase tracking-wide">Edit</button>
+</div>
+<div class="p-5 flex flex-col gap-6">
+<!-- Email -->
+<div class="flex gap-4 items-start">
+<div class="mt-1 w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center flex-shrink-0 text-slate-400">
+<span class="material-icons-round text-sm">email</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Email Address</p>
+<a class="text-slate-700 dark:text-slate-200 font-medium hover:text-primary transition-colors truncate block" href="mailto:billing@nordic-const.ab">billing@nordic-const.ab</a>
+<span class="text-xs text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded inline-block mt-1">Verified</span>
+</div>
+</div>
+<!-- Phone -->
+<div class="flex gap-4 items-start">
+<div class="mt-1 w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center flex-shrink-0 text-slate-400">
+<span class="material-icons-round text-sm">phone</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Phone Number</p>
+<a class="text-slate-700 dark:text-slate-200 font-medium hover:text-primary transition-colors" href="tel:+46701234567">+46 70 123 45 67</a>
+<p class="text-xs text-slate-400 mt-1">Main Office</p>
+</div>
+</div>
+<!-- Address -->
+<div class="flex gap-4 items-start">
+<div class="mt-1 w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-700 flex items-center justify-center flex-shrink-0 text-slate-400">
+<span class="material-icons-round text-sm">place</span>
+</div>
+<div>
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Billing Address</p>
+<p class="text-slate-700 dark:text-slate-200 font-medium leading-relaxed">
+                                    Storgatan 12<br/>
+                                    114 51 Stockholm<br/>
+                                    Sweden
+                                </p>
+</div>
+</div>
+</div>
+<!-- Small Map Visual -->
+<div class="h-32 w-full relative bg-slate-100 dark:bg-slate-700">
+<img alt="Map of Stockholm" class="w-full h-full object-cover opacity-80" data-alt="Stockholm city map location preview" data-location="Stockholm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIRWbGsMmXLGk0CM2zyG2AYCQECRt3GP16utPKaALala2cODxN9lrDOB4yjojffrqSoWBWqlcuRj01WmgE2q_INrAQdE_vvKlxIFqfxfzH5JFHnuLyuztzUhqssyOmDQwibb63vIN0a6fKTL9oDYJckfOkeJoprF94zfGhI8Lg-coN6GG8fjt1Z_yGBMCptAcT-te9yEwomlWMMkC0eA3AdYgAzabrxcs_kVp1ZMTlfbte8g5qZmRl6q9kpUIvCLiRW_1MI0Vc_ER0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4">
+<a class="text-white text-xs font-medium hover:underline flex items-center gap-1" href="#">
+                                View on Maps <span class="material-icons-round text-sm">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Account Manager (Optional Context) -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm p-5">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">Account Manager</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
+                            JS
+                        </div>
+<div>
+<p class="text-sm font-bold text-slate-900 dark:text-white">John Smith</p>
+<p class="text-xs text-slate-500">Sales Representative</p>
+</div>
+<button class="ml-auto p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round">chat</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Active Projects List -->
+<div class="lg:col-span-2">
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm h-full flex flex-col">
+<div class="p-6 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<h3 class="font-bold text-lg text-slate-900 dark:text-white">Active Projects</h3>
+<span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-bold px-2 py-1 rounded-full">3</span>
+</div>
+<div class="flex gap-2">
+<div class="relative">
+<span class="material-icons-round absolute left-2 top-1.5 text-slate-400 text-lg">search</span>
+<input class="pl-8 pr-3 py-1.5 text-sm border border-slate-200 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 w-40 md:w-56 transition-all" placeholder="Search projects..." type="text"/>
+</div>
+<button class="p-1.5 text-slate-400 hover:text-primary border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons-round text-lg">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto flex-grow">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-700/30 border-b border-slate-100 dark:border-slate-700 text-xs uppercase tracking-wider text-slate-500 font-semibold">
+<th class="p-4 pl-6">Project Name</th>
+<th class="p-4">Timeline</th>
+<th class="p-4">Budget</th>
+<th class="p-4">Status</th>
+<th class="p-4 pr-6 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-700 text-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/20 transition-colors group cursor-pointer">
+<td class="p-4 pl-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons-round text-base">apartment</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">HQ Office Renovation</p>
+<p class="text-xs text-slate-500">ID: #PROJ-2023-001</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<p class="text-slate-700 dark:text-slate-300 font-medium">Oct 12 - Dec 20</p>
+<p class="text-xs text-slate-400">14 days remaining</p>
+</td>
+<td class="p-4">
+<p class="text-slate-900 dark:text-white font-bold font-mono">$120,000</p>
+<div class="w-16 h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full mt-1 overflow-hidden">
+<div class="bg-green-500 h-full rounded-full" style="width: 75%"></div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400 border border-green-100 dark:border-green-800">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> On Track
+                                        </span>
+</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons-round">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/20 transition-colors group cursor-pointer">
+<td class="p-4 pl-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-orange-100 dark:bg-orange-900/20 flex items-center justify-center text-orange-600">
+<span class="material-icons-round text-base">architecture</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Norrköping Warehouse</p>
+<p class="text-xs text-slate-500">ID: #PROJ-2023-004</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<p class="text-slate-700 dark:text-slate-300 font-medium">Nov 01 - Jan 15</p>
+<p class="text-xs text-amber-500 font-medium">Delayed by 3 days</p>
+</td>
+<td class="p-4">
+<p class="text-slate-900 dark:text-white font-bold font-mono">$85,500</p>
+<div class="w-16 h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full mt-1 overflow-hidden">
+<div class="bg-amber-500 h-full rounded-full" style="width: 40%"></div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border border-amber-100 dark:border-amber-800">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Attention
+                                        </span>
+</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons-round">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-700/20 transition-colors group cursor-pointer">
+<td class="p-4 pl-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center text-indigo-600">
+<span class="material-icons-round text-base">design_services</span>
+</div>
+<div>
+<p class="font-semibold text-slate-900 dark:text-white">Q1 Marketing Audit</p>
+<p class="text-xs text-slate-500">ID: #PROJ-2023-008</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<p class="text-slate-700 dark:text-slate-300 font-medium">Dec 01 - Dec 15</p>
+<p class="text-xs text-slate-400">Just started</p>
+</td>
+<td class="p-4">
+<p class="text-slate-900 dark:text-white font-bold font-mono">$15,000</p>
+<div class="w-16 h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full mt-1 overflow-hidden">
+<div class="bg-indigo-500 h-full rounded-full" style="width: 10%"></div>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-600">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Pending
+                                        </span>
+</td>
+<td class="p-4 pr-6 text-right">
+<button class="text-slate-400 hover:text-primary p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons-round">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 rounded-b-xl flex justify-center">
+<button class="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-1">
+                            View All Projects <span class="material-icons-round text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Details - Notes Tab</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#197fe6",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111921",
+                        // Neutrals derived from primary hue (approx 210 degrees)
+                        "neutral-50": "#f0f7ff",
+                        "neutral-100": "#e0effe",
+                        "neutral-200": "#bae6fd", // lighter blue tint
+                        "neutral-300": "#7dd3fc", 
+                        "neutral-400": "#38bdf8",
+                        "neutral-500": "#0ea5e9",
+                        "neutral-600": "#0284c7",
+                        "neutral-700": "#0369a1", 
+                        "neutral-800": "#075985",
+                        "neutral-900": "#0c4a6e",
+                        // Slate grays with a hint of blue for harmony
+                        "slate-50": "#f8fafc",
+                        "slate-100": "#f1f5f9",
+                        "slate-200": "#e2e8f0",
+                        "slate-300": "#cbd5e1",
+                        "slate-400": "#94a3b8",
+                        "slate-500": "#64748b",
+                        "slate-600": "#475569",
+                        "slate-700": "#334155",
+                        "slate-800": "#1e293b",
+                        "slate-900": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        /* Hide scrollbar for clean look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-800 dark:text-slate-100 font-display transition-colors duration-200">
+<!-- Main Layout Container -->
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation (Collapsed for visual focus on main content) -->
+<nav class="w-20 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col items-center py-6 z-20 flex-shrink-0 hidden md:flex">
+<div class="mb-8">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
+                    S
+                </div>
+</div>
+<div class="flex flex-col gap-6 w-full px-2">
+<a class="flex justify-center p-3 rounded-xl text-slate-400 hover:text-primary hover:bg-primary/10 transition-all" href="#">
+<span class="material-icons">dashboard</span>
+</a>
+<a class="flex justify-center p-3 rounded-xl bg-primary/10 text-primary transition-all" href="#">
+<span class="material-icons">people</span>
+</a>
+<a class="flex justify-center p-3 rounded-xl text-slate-400 hover:text-primary hover:bg-primary/10 transition-all" href="#">
+<span class="material-icons">work</span>
+</a>
+<a class="flex justify-center p-3 rounded-xl text-slate-400 hover:text-primary hover:bg-primary/10 transition-all" href="#">
+<span class="material-icons">receipt</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-6 w-full px-2">
+<a class="flex justify-center p-3 rounded-xl text-slate-400 hover:text-primary hover:bg-primary/10 transition-all" href="#">
+<span class="material-icons">settings</span>
+</a>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-slate-200 dark:border-slate-700 object-cover" data-alt="Profile picture of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCodsa_MWDKphI0bgPDOCZsw7RFekBlEqLMDD09WtWFwNf4N1J4idQu88I9cUM2mQECtiaUx-pha5TtEzfU2T9C0EYFjtN-gpqqz9pbWhf0IlxOGs7P4pOSmiazMqbCpb9y61IIbkeDMvYVD-oyCIupcIdWBTzIeD50JA1al0ez_SeS3rAg0WYmY7_PSlhY1JhTMhfeY8DCnxE8pTE-5aSnhL5V97N0tbwJ73oWNDlRuuRiS5eRMXxFO5tJZ3DBbwz8712yULBynp8-"/>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full relative overflow-hidden">
+<!-- Top Header: Breadcrumbs & Client Title -->
+<header class="h-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 flex-shrink-0 z-10">
+<div>
+<div class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-1">
+<span>Clients</span>
+<span class="material-icons text-[14px]">chevron_right</span>
+<span>Active Clients</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Acme Corp.</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-green-100 text-green-700 text-xs font-semibold border border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-800">Active</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons text-lg">edit</span>
+                        Edit Details
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary/90 shadow-md shadow-primary/20 transition-colors">
+<span class="material-icons text-lg">add</span>
+                        New Project
+                    </button>
+</div>
+</header>
+<!-- Inner Layout with Tabs and Scrollable Content -->
+<div class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark custom-scrollbar">
+<div class="max-w-5xl mx-auto w-full px-6 py-8">
+<!-- Tabs Navigation -->
+<div class="mb-8 border-b border-slate-200 dark:border-slate-700">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8">
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors" href="#">
+                                Overview
+                            </a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors" href="#">
+                                Projects
+                                <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 py-0.5 px-2 rounded-full text-xs ml-2">3</span>
+</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors" href="#">
+                                Invoices
+                            </a>
+<a aria-current="page" class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-bold text-sm flex items-center gap-2" href="#">
+                                Notes
+                                <span class="bg-primary/10 text-primary py-0.5 px-2 rounded-full text-xs">8</span>
+</a>
+<a class="border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors" href="#">
+                                Files
+                            </a>
+</nav>
+</div>
+<!-- Notes Container -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Add Note & Feed -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Add Note Component -->
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-1">
+<div class="p-4">
+<label class="sr-only" for="comment">Add your note</label>
+<textarea class="block w-full border-0 bg-transparent py-0 text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-0 sm:text-sm resize-none" id="comment" name="comment" placeholder="Add a new note about this client..." rows="3"></textarea>
+</div>
+<div class="flex items-center justify-between px-3 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-b-lg border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center space-x-2">
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" type="button">
+<span class="material-icons text-xl">format_bold</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" type="button">
+<span class="material-icons text-xl">format_italic</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" type="button">
+<span class="material-icons text-xl">format_list_bulleted</span>
+</button>
+<div class="h-4 w-px bg-slate-300 dark:bg-slate-700 mx-2"></div>
+<button class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" type="button">
+<span class="material-icons text-xl">attach_file</span>
+</button>
+</div>
+<button class="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all" type="submit">
+                                        Save Note
+                                    </button>
+</div>
+</div>
+<!-- Pinned Note (Important) -->
+<div class="relative pl-8 before:absolute before:left-3 before:top-8 before:bottom-0 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-700">
+<div class="absolute left-0 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-amber-100 ring-4 ring-background-light dark:ring-background-dark dark:bg-amber-900/30">
+<span class="material-icons text-amber-600 dark:text-amber-400 text-xs" style="font-size: 14px;">push_pin</span>
+</div>
+<div class="bg-amber-50 dark:bg-amber-900/10 rounded-xl border border-amber-100 dark:border-amber-800/30 p-5 shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<img alt="Sarah Miller" class="h-6 w-6 rounded-full bg-slate-50 object-cover" data-alt="Portrait of Sarah Miller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdPx1RQ-hXsLisL7AQKh7QX6QlJqT__Y3-ThWHYQ6GiT0rLQX_Q0AJ80Qb7lVvZS6T8mzMoykRflwRQxGvpz5PanFCs_C83LVMoxhlqmcPTIJKd0EM-KWGI0lSPTVgGykL9PCk0w6tnBzc0n-WwR5a5Ks4f2B_6rmwaMLMbDNrHoeO0svQPpQ6CU9B4fBGJzy3m7oPZcAiOJtMc8A3YgaGV196WxhmqmAssJvNkhdG2BTdgh7leooGEXapOlgkDMxQkDvVEWHWpK_"/>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">Sarah Miller</span>
+<span class="text-xs text-amber-600 dark:text-amber-400 font-medium bg-amber-100 dark:bg-amber-900/40 px-2 py-0.5 rounded-full">Important</span>
+</div>
+<div class="relative group">
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-icons text-lg">more_horiz</span>
+</button>
+</div>
+</div>
+<p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                                        Client has requested all invoices be sent to <span class="text-primary font-medium">accounting@acmecorp.com</span> instead of the main contact email. Please ensure this is updated in the billing system before the next cycle on Nov 1st.
+                                    </p>
+<div class="mt-3 flex items-center gap-4">
+<span class="text-xs text-slate-500">Pinned on Oct 15, 2023</span>
+</div>
+</div>
+</div>
+<!-- Timeline Divider: Today -->
+<div class="relative py-2">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-background-light dark:bg-background-dark px-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">Today</span>
+</div>
+</div>
+<!-- Standard Note 1 -->
+<div class="relative pl-8 before:absolute before:left-3 before:top-8 before:bottom-0 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-700">
+<div class="absolute left-0 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 ring-4 ring-background-light dark:ring-background-dark dark:bg-slate-800">
+<div class="h-2 w-2 rounded-full bg-primary"></div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center text-white text-[10px] font-bold">JD</div>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">John Doe</span>
+<span class="text-xs text-slate-400">• 2 hours ago</span>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-icons text-lg">more_horiz</span>
+</button>
+</div>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                        Had a quick call with Mark regarding the Q4 expansion. They are interested in upgrading to the Premium tier but want to see a demo of the new reporting features first. Scheduled a demo for next Tuesday at 10 AM.
+                                    </p>
+</div>
+</div>
+<!-- Standard Note 2 -->
+<div class="relative pl-8 before:absolute before:left-3 before:top-8 before:bottom-0 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-700">
+<div class="absolute left-0 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 ring-4 ring-background-light dark:ring-background-dark dark:bg-slate-800">
+<div class="h-2 w-2 rounded-full bg-slate-400"></div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<img alt="Michael Foster" class="h-6 w-6 rounded-full bg-slate-50 object-cover" data-alt="Portrait of Michael Foster" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFs3S6e3YaK7bhQRse1CpE5wjJPvhNlHNvNIpGER2oMgYWvbGL3nO7vS5JwdxTsHfsKmMxXTgqWRefIjYjYLztnDfaKW8nZGAinyK4BbPIuCwZNedRhzJONEyql7PgnkxJIIUcDgfnErDLQYeJCwkRAcqiQziomBOOKtUbdXyzyTuSIrLDvLtbGbTUwW61uq-clOSK68TEUgatjWoSjeVkW0LBlIyj8JyLvBBky1OYimFAkCNAnnhXrwPGwJwFv5zMXToF6FXAySeR"/>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">Michael Foster</span>
+<span class="text-xs text-slate-400">• 5 hours ago</span>
+</div>
+</div>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                                        Updated the contact information for their billing department. The old phone number was disconnected.
+                                    </p>
+</div>
+</div>
+<!-- Timeline Divider: Last Week -->
+<div class="relative py-2">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-background-light dark:bg-background-dark px-3 text-xs font-semibold text-slate-500 uppercase tracking-wide">Last Week</span>
+</div>
+</div>
+<!-- Standard Note 3 (Older) -->
+<div class="relative pl-8"> <!-- No vertical line extending down for last item -->
+<div class="absolute left-0 top-0 flex h-6 w-6 items-center justify-center rounded-full bg-slate-100 ring-4 ring-background-light dark:ring-background-dark dark:bg-slate-800">
+<div class="h-2 w-2 rounded-full bg-slate-400"></div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<img alt="Sarah Miller" class="h-6 w-6 rounded-full bg-slate-50 object-cover" data-alt="Portrait of Sarah Miller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-zgNeEgyHARF8RmNAgYpnCA_UKRYuIiT5XYNoCYr8PiHdbpRAU7LDRzI_A7uorqESmwFAVkEZKTLQKQNfUkqso2Cjv9q684OTPPkNn_HmUjVNEV5yaYPIKZgKRNsTShfCNSx0z52ht7-iZX9i3HpdoCqaGAhd2YWAuvSeR2TLFVvS9gJaMRhsOlJbQBpE6OVZbg4ETMSZ9gMjJjQBbHikvEiacaZRrugeIKWF1LLgS4iGhntOu5XaTy9YQbkPNl_Qdwckd3YvkJg3"/>
+<span class="text-sm font-semibold text-slate-900 dark:text-white">Sarah Miller</span>
+<span class="text-xs text-slate-400">• Oct 12, 2023</span>
+</div>
+</div>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-3">
+                                        Attached the signed NDA for the upcoming project scope. 
+                                    </p>
+<!-- Attachment Preview -->
+<div class="flex items-center p-3 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700 w-full sm:w-auto sm:inline-flex group cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700/80 transition-colors">
+<div class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+<span class="material-icons text-xl">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0 mr-4">
+<p class="text-sm font-medium text-slate-900 dark:text-white truncate">Acme_NDA_Signed.pdf</p>
+<p class="text-xs text-slate-500">1.2 MB</p>
+</div>
+<span class="material-icons text-slate-400 group-hover:text-primary">download</span>
+</div>
+</div>
+</div>
+<div class="flex justify-center pt-4">
+<button class="text-sm text-slate-500 hover:text-primary font-medium transition-colors">Load older notes</button>
+</div>
+</div>
+<!-- Right Column: Context/Helpers -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Search Notes -->
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-slate-400 text-lg">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg leading-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm shadow-sm transition-shadow" placeholder="Search in notes..." type="text"/>
+</div>
+<!-- Team Members Widget -->
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-5">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Collaborators</h3>
+<div class="flex -space-x-2 overflow-hidden mb-4">
+<img alt="Sarah Miller" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" data-alt="Small portrait of Sarah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm2O1ogH7g9wceSrD08Tzh7VAl9BCCMwjN33QEmEPqhWtX0U5FsqAq8jj6uOC8heIESz6hiDTAu5JqtYKDsVt89aNZETixG8-yPdNU1710QUqbFuiZwpo5wdtx2Pi-620acJ2CzfN6pGkceC_td8YRppxed4yoNYFT-gQx4AiFtWFX5rK55mp8meXP6MYRoyVsL4zmDRx_Z02n_DFeSUCzyJadaqK_4xe42CZhW76KhhekqW_p1kXXsdiSNacTY_Ddqwy6UZv68XfR"/>
+<img alt="Michael Foster" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" data-alt="Small portrait of Michael" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMbKR-r8hAwZ8TYMZJvKfqMhnHR9-1d7Gicv3n6EbaZyr8HZAyyg7sSDx5WmsLm7xoXzwCpx1_a_3Imr7WuYN7wm4KiwhImwvrbH93Q75C9PsnxKwKbtFE0cyXdWVZNK6bCsFp8evvPnqu2OcFd7_eF5ybAOzXMIQPHARe1jdH3FzkIadWskhnS8x5eN4m24WRiyr-wvYHHH4bNaK10kfao9waPALIABciUlMSuteo2IXoWPH7TfBG_BEpLvcq0RY7bNfurz9KziJb"/>
+<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 bg-primary flex items-center justify-center text-white text-xs font-bold">JD</div>
+<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 text-xs font-bold">+2</div>
+</div>
+<p class="text-xs text-slate-500 mb-0">Only team members assigned to this client can view these notes.</p>
+</div>
+<!-- Quick Tips -->
+<div class="bg-primary/5 dark:bg-primary/10 rounded-xl border border-primary/10 dark:border-primary/20 p-5">
+<div class="flex items-start gap-3">
+<span class="material-icons text-primary text-xl mt-0.5">lightbulb</span>
+<div>
+<h4 class="text-sm font-bold text-primary mb-1">Pro Tip</h4>
+<p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                            Use <span class="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded text-primary">@mention</span> to notify a team member directly within a note. They'll receive an email alert.
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
