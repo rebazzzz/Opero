@@ -73,7 +73,7 @@
                             <span class="material-icons text-base">file_download</span>
                             Export
                         </button>
-                        <button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-blue-600 transition-colors shadow-sm shadow-blue-200 dark:shadow-none flex items-center gap-2">
+                        <button type="button" data-project-modal-open="edit-project" class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-blue-600 transition-colors shadow-sm shadow-blue-200 dark:shadow-none flex items-center gap-2">
                             <span class="material-icons text-base">edit</span>
                             Edit Project
                         </button>
@@ -257,7 +257,7 @@
 <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-white/10 rounded-full"></div>
 <h3 class="text-lg font-bold mb-2 relative z-10">Create New Invoice</h3>
 <p class="text-blue-100 text-sm mb-6 relative z-10">Generate a new invoice for this project. It will be automatically sent to the client.</p>
-<button class="w-full py-3 px-4 bg-white text-primary rounded-lg font-bold text-sm hover:bg-blue-50 transition-colors shadow-sm flex items-center justify-center gap-2 relative z-10">
+<button type="button" data-project-modal-open="create-invoice" class="w-full py-3 px-4 bg-white text-primary rounded-lg font-bold text-sm hover:bg-blue-50 transition-colors shadow-sm flex items-center justify-center gap-2 relative z-10">
 <span class="material-icons">add_circle</span>
                         Create Invoice
                     </button>
