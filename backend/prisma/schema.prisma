@@ -43,6 +43,11 @@ enum NotificationType {
   ERROR
 }
 
+enum ClientStatus {
+  ACTIVE
+  ARCHIVED
+}
+
 enum FeatureModuleName {
   PROJECTS
   CRM
@@ -89,6 +94,7 @@ model Client {
   name           String
   email          String
   phone          String?
+  status         ClientStatus @default(ACTIVE)
   organizationId String
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
@@ -97,7 +103,7 @@ model Client {
   invoices       Invoice[]
 
   @@unique([organizationId, email])
-  @@index([organizationId, name])
+  @@index([organizationId, status, name])
 }
 
 model Project {
