@@ -570,6 +570,9 @@ function initProjectCreateModal() {
 function init() {
   initShellToggles();
   initProjectFilters();
+  if (typeof window.initSharedProjectCreateModal === "function") {
+    window.initSharedProjectCreateModal();
+  }
   initProjectCreateModal();
 }
 

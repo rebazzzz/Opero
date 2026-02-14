@@ -42,9 +42,10 @@
   inset: 0;
   z-index: 60;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
+  overflow-y: auto;
 }
 
 .project-create-modal.hidden {
@@ -61,8 +62,7 @@
 .project-create-modal__dialog {
   position: relative;
   width: min(100%, 920px);
-  max-height: calc(100vh - 3rem);
-  overflow-y: auto;
+  margin: 0 auto;
   z-index: 1;
 }
 
@@ -159,6 +159,10 @@
   border-radius: 1rem;
   background: #fff;
   box-shadow: 0 30px 70px rgba(15, 23, 42, 0.2);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 9rem);
+  overflow: hidden;
 }
 
 .project-create-card__close {
@@ -192,6 +196,8 @@
 
 .project-create-card__body {
   padding: 2rem;
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .project-create-step {
@@ -577,7 +583,11 @@ body.project-modal-open {
   }
 
   .project-create-modal__dialog {
-    max-height: calc(100vh - 1.5rem);
+    width: 100%;
+  }
+
+  .project-create-card {
+    max-height: calc(100dvh - 6.5rem);
   }
 
   .project-step__label {

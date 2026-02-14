@@ -1,108 +1,140 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Login Page</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="assets/js/login.js"></script>
-<link href="assets/css/common.css" rel="stylesheet"/>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="assets/js/login.js"></script>
+    <link href="assets/css/common.css" rel="stylesheet" />
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
-<!-- Login Container -->
-<div class="w-full max-w-md bg-white dark:bg-[#1a2632] rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none overflow-hidden border border-slate-100 dark:border-slate-800">
-<div class="p-8 sm:p-10">
-<!-- Header Section -->
-<div class="text-center mb-8">
-<!-- Logo Placeholder -->
-<div class="mx-auto h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-<span class="material-icons text-primary text-3xl">grid_view</span>
-</div>
-<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Welcome back</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm">Please enter your details to sign in.</p>
-</div>
-<!-- Login Form -->
-<form action="#" class="space-y-6" method="POST">
-<!-- Email Field -->
-<div>
-<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" for="email">Email address</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-icons text-slate-400 text-xl">mail_outline</span>
-</div>
-<input class="block w-full pl-10 pr-3 py-3 border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-background-dark sm:text-sm transition-colors duration-200" id="email" name="email" placeholder="name@company.com" type="email"/>
-</div>
-</div>
-<!-- Password Field -->
-<div>
-<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" for="password">Password</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-icons text-slate-400 text-xl">lock_outline</span>
-</div>
-<input class="block w-full pl-10 pr-10 py-3 border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-background-dark sm:text-sm transition-colors duration-200" id="password" name="password" placeholder="Enter your password" type="password"/>
-<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-<button class="text-slate-400 hover:text-slate-500 focus:outline-none" type="button">
-<span class="material-icons text-xl">visibility_off</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Remember Me & Forgot Password -->
-<div class="flex items-center justify-between">
-<div class="flex items-center">
-<input class="h-4 w-4 text-primary focus:ring-primary border-slate-300 rounded cursor-pointer" id="remember-me" name="remember-me" type="checkbox"/>
-<label class="ml-2 block text-sm text-slate-600 dark:text-slate-400 cursor-pointer select-none" for="remember-me">
+
+<body
+    class="font-display bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center p-4">
+    <!-- Login Container -->
+    <div
+        class="w-full max-w-md bg-white dark:bg-[#1a2632] rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none overflow-hidden border border-slate-100 dark:border-slate-800">
+        <div class="p-8 sm:p-10">
+            <!-- Header Section -->
+            <div class="text-center mb-8">
+                <!-- Logo Placeholder -->
+                <div class="mx-auto h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                    <span class="material-icons text-primary text-3xl">grid_view</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Welcome back</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Please enter your details to sign in.</p>
+            </div>
+            <!-- Login Form -->
+            <form action="#" class="space-y-6" method="POST">
+                <!-- Email Field -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2" for="email">Email
+                        address</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span class="material-icons text-slate-400 text-xl">mail_outline</span>
+                        </div>
+                        <input
+                            class="block w-full pl-10 pr-3 py-3 border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-background-dark sm:text-sm transition-colors duration-200"
+                            id="email" name="email" placeholder="name@company.com" type="email" />
+                    </div>
+                </div>
+                <!-- Password Field -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                        for="password">Password</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span class="material-icons text-slate-400 text-xl">lock_outline</span>
+                        </div>
+                        <input
+                            class="block w-full pl-10 pr-10 py-3 border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary dark:bg-background-dark sm:text-sm transition-colors duration-200"
+                            id="password" name="password" placeholder="Enter your password" type="password" />
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <button class="text-slate-400 hover:text-slate-500 focus:outline-none" type="button">
+                                <span class="material-icons text-xl">visibility_off</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input class="h-4 w-4 text-primary focus:ring-primary border-slate-300 rounded cursor-pointer"
+                            id="remember-me" name="remember-me" type="checkbox" />
+                        <label class="ml-2 block text-sm text-slate-600 dark:text-slate-400 cursor-pointer select-none"
+                            for="remember-me">
                             Remember for 30 days
                         </label>
-</div>
-<div class="text-sm">
-<a class="font-medium text-primary hover:text-primary-dark transition-colors duration-200" href="register_page.html">`r`n                            Forgot password?`r`n                        </a>
-</div>
-</div>
-<!-- Submit Button -->
-<div>
-<button class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200 transform active:scale-[0.98]" type="submit">
+                    </div>
+                    <div class="text-sm">
+                        <a class="font-medium text-primary hover:text-primary-dark transition-colors duration-200"
+                            href="register_page.html">`r`n Forgot password?`r`n </a>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <div>
+                    <button
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-all duration-200 transform active:scale-[0.98]"
+                        type="submit">
                         Sign in
                     </button>
-</div>
-</form>
-<!-- Divider -->
-<div class="relative my-8">
-<div class="absolute inset-0 flex items-center">
-<div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
-</div>
-<div class="relative flex justify-center text-sm">
-<span class="px-2 bg-white dark:bg-[#1a2632] text-slate-500 dark:text-slate-400">Or continue with</span>
-</div>
-</div>
-<!-- Social Login -->
-<button class="w-full inline-flex justify-center items-center py-2.5 px-4 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-200 transition-colors duration-200" type="button">
-<svg aria-hidden="true" class="h-5 w-5 mr-2" viewbox="0 0 24 24">
-<path d="M12.0003 20.45c4.6667 0 8.0833-3.2083 8.0833-7.95 0-.7083-.0833-1.375-.2083-2H12.0003v3.75h4.6667c-.2084 1.25-1.3334 3.5833-4.6667 3.5833-2.8333 0-5.1667-2.3333-5.1667-5.1666s2.3334-5.1667 5.1667-5.1667c1.3333 0 2.5.5 3.375 1.3333l2.5417-2.5416c-1.625-1.5417-3.75-2.5417-5.9167-2.5417-5.25 0-9.5 4.25-9.5 9.5s4.25 9.5 9.5 9.5z" fill="#4285F4"></path>
-<path d="M3.5836 14.125l2.875-2.2083c.25.7916.6667 1.5 1.1667 2.125L4.8753 16.3333c-1.3334-2.0416-1.75-4.5-1.2917-2.2083z" fill="#FBBC05"></path>
-<path d="M7.6253 9.9583c-.5.625-.9167 1.3334-1.1667 2.125L3.5836 9.875c1.1667-2.3333 3.0834-4.25 5.4584-5.25l2.625 2.5c-1.4584-.5-2.9584-.1667-4.0417.8333z" fill="#EA4335"></path>
-<path d="M12.0003 4.75c2.1667 0 4.2917 1 5.9167 2.5417l2.5417-2.5417c-.875-.8333-2.0417-1.3333-3.375-1.3333-2.8333 0-5.1667 2.3333-5.1667 5.1667s2.3334 5.1667 5.1667 5.1667c3.3333 0 4.4583-2.3334 4.6667-3.5834H12.0003V4.75z" fill="#34A853"></path>
-</svg>
+                </div>
+            </form>
+            <!-- Divider -->
+            <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white dark:bg-[#1a2632] text-slate-500 dark:text-slate-400">Or continue
+                        with</span>
+                </div>
+            </div>
+            <!-- Social Login -->
+            <button
+                class="w-full inline-flex justify-center items-center py-2.5 px-4 border border-slate-200 dark:border-slate-700 rounded-lg shadow-sm bg-white dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-200 transition-colors duration-200"
+                type="button">
+                <svg aria-hidden="true" class="h-5 w-5 mr-2" viewbox="0 0 24 24">
+                    <path
+                        d="M12.0003 20.45c4.6667 0 8.0833-3.2083 8.0833-7.95 0-.7083-.0833-1.375-.2083-2H12.0003v3.75h4.6667c-.2084 1.25-1.3334 3.5833-4.6667 3.5833-2.8333 0-5.1667-2.3333-5.1667-5.1666s2.3334-5.1667 5.1667-5.1667c1.3333 0 2.5.5 3.375 1.3333l2.5417-2.5416c-1.625-1.5417-3.75-2.5417-5.9167-2.5417-5.25 0-9.5 4.25-9.5 9.5s4.25 9.5 9.5 9.5z"
+                        fill="#4285F4"></path>
+                    <path
+                        d="M3.5836 14.125l2.875-2.2083c.25.7916.6667 1.5 1.1667 2.125L4.8753 16.3333c-1.3334-2.0416-1.75-4.5-1.2917-2.2083z"
+                        fill="#FBBC05"></path>
+                    <path
+                        d="M7.6253 9.9583c-.5.625-.9167 1.3334-1.1667 2.125L3.5836 9.875c1.1667-2.3333 3.0834-4.25 5.4584-5.25l2.625 2.5c-1.4584-.5-2.9584-.1667-4.0417.8333z"
+                        fill="#EA4335"></path>
+                    <path
+                        d="M12.0003 4.75c2.1667 0 4.2917 1 5.9167 2.5417l2.5417-2.5417c-.875-.8333-2.0417-1.3333-3.375-1.3333-2.8333 0-5.1667 2.3333-5.1667 5.1667s2.3334 5.1667 5.1667 5.1667c3.3333 0 4.4583-2.3334 4.6667-3.5834H12.0003V4.75z"
+                        fill="#34A853"></path>
+                </svg>
                 Sign in with Google
             </button>
-</div>
-<!-- Footer Area -->
-<div class="bg-slate-50 dark:bg-[#151f28] px-8 py-4 border-t border-slate-100 dark:border-slate-800 text-center">
-<p class="text-sm text-slate-500 dark:text-slate-400">
-                Don't have an account? 
-                <a class="font-medium text-primary hover:text-primary-dark ml-1" href="register_page.html">Sign up for free</a>
-</p>
-</div>
-</div>
-<!-- Decorative Image (Abstract, Subtle) - Optional Background Element -->
-<div aria-hidden="true" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-<div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-60"></div>
-<div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-blue-400/5 rounded-full blur-3xl opacity-60"></div>
-</div>
-</body></html>
+        </div>
+        <!-- Footer Area -->
+        <div
+            class="bg-slate-50 dark:bg-[#151f28] px-8 py-4 border-t border-slate-100 dark:border-slate-800 text-center">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+                Don't have an account?
+                <a class="font-medium text-primary hover:text-primary-dark ml-1" href="register_page.html">Sign up for
+                    free</a>
+            </p>
+        </div>
+    </div>
+    <!-- Decorative Image (Abstract, Subtle) - Optional Background Element -->
+    <div aria-hidden="true" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-blue-400/5 rounded-full blur-3xl opacity-60"></div>
+    </div>
+</body>
 
-
+</html>

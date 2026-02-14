@@ -1,129 +1,169 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Register - Service Business Dashboard</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="assets/js/register_page.js"></script>
-<link href="assets/css/register_page.css" rel="stylesheet"/>
-<link href="assets/css/common.css" rel="stylesheet"/>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Register - Service Business Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="assets/js/register_page.js"></script>
+    <link href="assets/css/register_page.css" rel="stylesheet" />
+    <link href="assets/css/common.css" rel="stylesheet" />
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased min-h-screen flex flex-col">
-<!-- Navbar / Header Area -->
-<nav class="w-full px-6 py-4 flex justify-between items-center absolute top-0 left-0 z-10">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased min-h-screen flex flex-col">
+    <!-- Navbar / Header Area -->
+    <nav class="w-full px-6 py-4 flex justify-between items-center absolute top-0 left-0 z-10">
+        <div class="flex items-center gap-2">
+            <div
+                class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
                 S
             </div>
-<span class="font-bold text-xl tracking-tight text-slate-800 dark:text-white">ServiceFlow</span>
-</div>
-<div class="hidden md:block text-sm font-medium text-text-muted">
-            Need help? <a class="text-primary hover:text-primary-hover underline decoration-2 underline-offset-2" href="login.html">Contact Support</a>
-</div>
-</nav>
-<!-- Main Content Area -->
-<main class="flex-grow flex items-center justify-center p-4 relative overflow-hidden">
-<!-- Decorative Background Elements -->
-<div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-<div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
-<div class="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-400/5 rounded-full blur-[100px]"></div>
-<div class="absolute bottom-[10%] left-[20%] w-[25%] h-[25%] bg-primary/10 rounded-full blur-[80px]"></div>
-</div>
-<div class="w-full max-w-lg bg-white dark:bg-slate-800 rounded-xl shadow-soft border border-neutral-border dark:border-slate-700 p-8 md:p-10 fade-in-up relative z-20">
-<!-- Card Header -->
-<div class="text-center mb-8">
-<h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Start your free trial</h1>
-<p class="text-text-muted dark:text-slate-400 text-lg">Manage your service business with ease. <br class="hidden sm:block"/>No credit card required.</p>
-</div>
-<!-- Registration Form -->
-<form action="#" class="space-y-5" method="POST">
-<!-- Company Name Field -->
-<div>
-<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="company_name">Company Name</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-<span class="material-icons text-[20px]">business</span>
-</div>
-<input class="block w-full pl-10 pr-3 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white" id="company_name" name="company_name" placeholder="e.g. Acme Plumbing &amp; Heating" required="" type="text"/>
-</div>
-</div>
-<!-- Email Address Field -->
-<div>
-<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="email">Work Email</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-<span class="material-icons text-[20px]">email</span>
-</div>
-<input class="block w-full pl-10 pr-3 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white" id="email" name="email" placeholder="you@company.com" required="" type="email"/>
-</div>
-</div>
-<!-- Password Field -->
-<div>
-<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="password">Password</label>
-<div class="relative group">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
-<span class="material-icons text-[20px]">lock</span>
-</div>
-<input class="block w-full pl-10 pr-10 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white" id="password" name="password" placeholder="Min. 8 characters" required="" type="password"/>
-<div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
-<span class="material-icons text-[20px]">visibility_off</span>
-</div>
-</div>
-</div>
-<!-- Confirm Password Field -->
-<div>
-<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5" for="confirm_password">Confirm Password</label>
-<div class="relative group">
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
-<span class="material-icons text-[20px]">lock_reset</span>
-</div>
-<input class="block w-full pl-10 pr-10 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white" id="confirm_password" name="confirm_password" placeholder="Re-enter password" required="" type="password"/>
-</div>
-</div>
-<!-- Terms Checkbox -->
-<div class="flex items-start mt-2">
-<div class="flex items-center h-5">
-<input class="h-4 w-4 text-primary focus:ring-primary border-slate-300 rounded cursor-pointer" id="terms" name="terms" type="checkbox"/>
-</div>
-<div class="ml-3 text-sm">
-<label class="font-medium text-slate-600 dark:text-slate-400" for="terms">
-                            I agree to the <a class="text-primary hover:text-blue-700 underline" href="login.html">Terms of Service</a> and <a class="text-primary hover:text-blue-700 underline" href="login.html">Privacy Policy</a>.
+            <span class="font-bold text-xl tracking-tight text-slate-800 dark:text-white">ServiceFlow</span>
+        </div>
+        <div class="hidden md:block text-sm font-medium text-text-muted">
+            Need help? <a class="text-primary hover:text-primary-hover underline decoration-2 underline-offset-2"
+                href="login.html">Contact Support</a>
+        </div>
+    </nav>
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center justify-center p-4 relative overflow-hidden">
+        <!-- Decorative Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
+            <div class="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-400/5 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-[10%] left-[20%] w-[25%] h-[25%] bg-primary/10 rounded-full blur-[80px]"></div>
+        </div>
+        <div
+            class="w-full max-w-lg bg-white dark:bg-slate-800 rounded-xl shadow-soft border border-neutral-border dark:border-slate-700 p-8 md:p-10 fade-in-up relative z-20">
+            <!-- Card Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Start your free trial</h1>
+                <p class="text-text-muted dark:text-slate-400 text-lg">Manage your service business with ease. <br
+                        class="hidden sm:block" />No credit card required.</p>
+            </div>
+            <!-- Registration Form -->
+            <form action="#" class="space-y-5" method="POST">
+                <!-- Company Name Field -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
+                        for="company_name">Company Name</label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <span class="material-icons text-[20px]">business</span>
+                        </div>
+                        <input
+                            class="block w-full pl-10 pr-3 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white"
+                            id="company_name" name="company_name" placeholder="e.g. Acme Plumbing &amp; Heating"
+                            required="" type="text" />
+                    </div>
+                </div>
+                <!-- Email Address Field -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
+                        for="email">Work Email</label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <span class="material-icons text-[20px]">email</span>
+                        </div>
+                        <input
+                            class="block w-full pl-10 pr-3 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white"
+                            id="email" name="email" placeholder="you@company.com" required="" type="email" />
+                    </div>
+                </div>
+                <!-- Password Field -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
+                        for="password">Password</label>
+                    <div class="relative group">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+                            <span class="material-icons text-[20px]">lock</span>
+                        </div>
+                        <input
+                            class="block w-full pl-10 pr-10 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white"
+                            id="password" name="password" placeholder="Min. 8 characters" required="" type="password" />
+                        <div
+                            class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                            <span class="material-icons text-[20px]">visibility_off</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Confirm Password Field -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5"
+                        for="confirm_password">Confirm Password</label>
+                    <div class="relative group">
+                        <div
+                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 group-focus-within:text-primary transition-colors">
+                            <span class="material-icons text-[20px]">lock_reset</span>
+                        </div>
+                        <input
+                            class="block w-full pl-10 pr-10 py-3 border border-neutral-border rounded-lg leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm transition duration-150 ease-in-out dark:bg-slate-900 dark:border-slate-600 dark:text-white"
+                            id="confirm_password" name="confirm_password" placeholder="Re-enter password" required=""
+                            type="password" />
+                    </div>
+                </div>
+                <!-- Terms Checkbox -->
+                <div class="flex items-start mt-2">
+                    <div class="flex items-center h-5">
+                        <input class="h-4 w-4 text-primary focus:ring-primary border-slate-300 rounded cursor-pointer"
+                            id="terms" name="terms" type="checkbox" />
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label class="font-medium text-slate-600 dark:text-slate-400" for="terms">
+                            I agree to the <a class="text-primary hover:text-blue-700 underline" href="login.html">Terms
+                                of Service</a> and <a class="text-primary hover:text-blue-700 underline"
+                                href="login.html">Privacy Policy</a>.
                         </label>
-</div>
-</div>
-<!-- Submit Button -->
-<div class="pt-2">
-<button class="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:bg-[#166bc9] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-lg shadow-primary/30 transition-all duration-200 transform hover:-translate-y-0.5" type="submit">
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <div class="pt-2">
+                    <button
+                        class="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-primary hover:bg-[#166bc9] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-lg shadow-primary/30 transition-all duration-200 transform hover:-translate-y-0.5"
+                        type="submit">
                         Create Account
                     </button>
-</div>
-</form>
-<!-- Social Proof / Divider -->
-<div class="relative my-6">
-<div class="absolute inset-0 flex items-center">
-<div class="w-full border-t border-neutral-border dark:border-slate-700"></div>
-</div>
-<div class="relative flex justify-center text-sm">
-<span class="px-2 bg-white dark:bg-slate-800 text-slate-500">Trusted by 2,000+ businesses</span>
-</div>
-</div>
-<!-- Footer Links -->
-<div class="text-center mt-6">
-<p class="text-sm text-slate-600 dark:text-slate-400">
-                    Already have an account? 
-                    <a class="font-bold text-primary hover:text-[#166bc9] transition-colors" href="login.html">`r`n                        Sign in`r`n                    </a>
-</p>
-</div>
-</div>
-<!-- Right side image placeholder (Only on very large screens, adds flavor) -->
-<div class="hidden 2xl:block absolute right-0 top-0 h-full w-1/3 z-0">
-<img alt="Modern bright office space with desks and chairs" class="h-full w-full object-cover opacity-50 mask-image-linear-gradient" data-alt="Modern bright office space with desks and chairs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoTNOyQ9KOe3fjabQe4vssUfHPs2NOaXm8Rf3ibC52ovuioc4wbnFAcjYTheDgeUx7L4dzODIYtpuJrIDkLc99t356_mnLDwgiD0Rnk-wPyyVR-8WJGOYlXWDWmbiPAchsYR_hDeotacvj6_2SICayCbEPEPeglh8YBG6xWuXo3lV0bUqFc65wS5_kmpnP3suYYek5R3bB3aZkd5I5o4UlCTKEBhSUcpEJYMoaTYirV22SCJlFtUMNLZ6aTYXeginzTfFSXMOyhZpj" style="-webkit-mask-image: linear-gradient(to right, transparent, black);"/>
-</div>
-</main>
-</body></html>
+                </div>
+            </form>
+            <!-- Social Proof / Divider -->
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-neutral-border dark:border-slate-700"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white dark:bg-slate-800 text-slate-500">Trusted by 2,000+ businesses</span>
+                </div>
+            </div>
+            <!-- Footer Links -->
+            <div class="text-center mt-6">
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                    Already have an account?
+                    <a class="font-bold text-primary hover:text-[#166bc9] transition-colors" href="login.html">`r`n Sign
+                        in`r`n </a>
+                </p>
+            </div>
+        </div>
+        <!-- Right side image placeholder (Only on very large screens, adds flavor) -->
+        <div class="hidden 2xl:block absolute right-0 top-0 h-full w-1/3 z-0">
+            <img alt="Modern bright office space with desks and chairs"
+                class="h-full w-full object-cover opacity-50 mask-image-linear-gradient"
+                data-alt="Modern bright office space with desks and chairs"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoTNOyQ9KOe3fjabQe4vssUfHPs2NOaXm8Rf3ibC52ovuioc4wbnFAcjYTheDgeUx7L4dzODIYtpuJrIDkLc99t356_mnLDwgiD0Rnk-wPyyVR-8WJGOYlXWDWmbiPAchsYR_hDeotacvj6_2SICayCbEPEPeglh8YBG6xWuXo3lV0bUqFc65wS5_kmpnP3suYYek5R3bB3aZkd5I5o4UlCTKEBhSUcpEJYMoaTYirV22SCJlFtUMNLZ6aTYXeginzTfFSXMOyhZpj"
+                style="-webkit-mask-image: linear-gradient(to right, transparent, black);" />
+        </div>
+    </main>
+</body>
 
-
+</html>

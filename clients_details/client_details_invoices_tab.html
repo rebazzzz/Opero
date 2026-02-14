@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Client Details - Invoices</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="../assets/css/client_details.css" rel="stylesheet"/>
-<link href="../assets/css/common.css" rel="stylesheet"/>
-<script src="../assets/js/app-shell.js"></script>
-<script src="../assets/js/client-details-topbar.js"></script>
-<script>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Client Details - Invoices</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="../assets/css/client_details.css" rel="stylesheet" />
+    <link href="../assets/css/project_list.css" rel="stylesheet" />
+    <link href="../assets/css/common.css" rel="stylesheet" />
+    <script src="../assets/js/app-shell.js"></script>
+    <script src="../assets/js/client-details-topbar.js"></script>
+    <script src="../assets/js/shared-project-create-modal.js"></script>
+    <script src="../assets/js/project_list.js"></script>
+    <script src="../assets/js/project_details.js"></script>
+    <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -38,296 +48,352 @@
         }
     </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row" data-shell-active="clients" data-client-tab="invoices" data-shell-search="Search clients, projects..." data-shell-user="Alex Morgan" data-shell-role="Owner" data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uA--2p2ZLgGqn1CJ8YuC9DLhALyGXBvxRQknm9saIp1yj7jczFfVdJ3MfshAcagL_WWDcKKbu08HGsd53ZtZ08qi-hyKeFurs_7cNCq-2lFlt15g15skESGoXagUWO-LVT0WN6ZLd9xy-mkdQYkIjPEm8zL8eq6wNrzMBwk4KpAP5rk6MW_X2zgCYVUELCF6OBLBxiwW7QRIOGBFqjHZsMAbR6pEmf2u9lpzk8VLrJfua8CDBOCIQVDnaTVcpDR5a5Xh9H7XTkLA">
-<div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
-<div id="app-sidebar-slot"></div>
-<main class="flex-1 flex flex-col h-full overflow-hidden relative">
-<div id="app-header-slot"></div>
-<div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
-<div class="max-w-7xl mx-auto">
-<div id="client-details-topbar"></div>
-<!-- Financial Summary Cards -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-<!-- Total Invoiced -->
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden group">
-<div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-primary/5 to-transparent"></div>
-<div class="relative z-10">
-<p class="text-sm font-medium text-slate-500 mb-1">Total Invoiced</p>
-<h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$42,590.00</h3>
-<div class="mt-4 flex items-center gap-2 text-sm text-slate-500">
-<span class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold flex items-center gap-1">
-<span class="material-icons text-[14px]">trending_up</span> +12%
-                           </span>
-<span>vs last year</span>
-</div>
-</div>
-</div>
-<!-- Outstanding -->
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-<div class="flex justify-between items-start">
-<div>
-<p class="text-sm font-medium text-slate-500 mb-1">Outstanding Balance</p>
-<h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$3,200.00</h3>
-</div>
-<div class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
-<span class="material-icons text-orange-500">pending_actions</span>
-</div>
-</div>
-<div class="mt-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
-<div class="bg-orange-400 cd-progress-fill cd-w-15"></div>
-</div>
-<p class="text-xs text-slate-400 mt-2">1 invoice pending payment</p>
-</div>
-<!-- Last Payment -->
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-<div class="flex justify-between items-start">
-<div>
-<p class="text-sm font-medium text-slate-500 mb-1">Last Payment Received</p>
-<h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$8,450.00</h3>
-</div>
-<div class="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg">
-<span class="material-icons text-green-500">check_circle</span>
-</div>
-</div>
-<div class="mt-4 text-sm text-slate-500">
-                        Received on <span class="font-semibold text-slate-700 dark:text-slate-300">Oct 12, 2023</span> via <span class="font-semibold text-slate-700 dark:text-slate-300">Bank Transfer</span>
-</div>
-</div>
-</div>
-<!-- Invoices Table Section -->
-<div class="bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm overflow-hidden">
-<!-- Toolbar -->
-<div class="p-5 border-b border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-<h2 class="text-lg font-bold text-slate-900 dark:text-white">Invoice History</h2>
-<div class="flex flex-col sm:flex-row gap-3">
-<div class="relative">
-<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-<span class="material-icons text-slate-400 text-lg">search</span>
-</span>
-<input class="pl-10 pr-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent w-full sm:w-64" placeholder="Search invoices..." type="text"/>
-</div>
-<div class="flex gap-2">
-<button class="px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 bg-white dark:bg-slate-800 transition-colors flex items-center gap-2">
-<span class="material-icons text-lg">filter_list</span> Filter
-                            </button>
-<button class="px-4 py-2 bg-primary hover:bg-blue-600 text-white rounded-lg text-sm font-medium shadow-sm shadow-blue-200 dark:shadow-none transition-colors flex items-center gap-2">
-<span class="material-icons text-sm">add</span> Create Invoice
-                            </button>
-</div>
-</div>
-</div>
-<!-- Table -->
-<div class="overflow-x-auto">
-<table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
-<thead class="bg-slate-50 dark:bg-slate-800/50">
-<tr>
-<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider" scope="col">Invoice ID</th>
-<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider" scope="col">Issue Date</th>
-<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider" scope="col">Due Date</th>
-<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider" scope="col">Amount</th>
-<th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider" scope="col">Status</th>
-<th class="px-6 py-4 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider" scope="col">Actions</th>
-</tr>
-</thead>
-<tbody class="bg-surface-light dark:bg-surface-dark divide-y divide-slate-200 dark:divide-slate-700">
-<!-- Row 1: Overdue -->
-<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<div class="flex items-center">
-<div class="p-2 rounded bg-primary/10 text-primary mr-3">
-<span class="material-icons text-sm">receipt</span>
-</div>
-<div>
-<a class="text-sm font-medium text-primary hover:underline" href="#">#INV-2023-012</a>
-<p class="text-xs text-slate-500">Website Redesign - Phase 1</p>
-</div>
-</div>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Oct 15, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-<span class="text-red-500 font-medium">Oct 30, 2023</span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
-                                    $3,200.00
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
-                                        Overdue
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-<button class="text-slate-400 hover:text-primary transition-colors">
-<span class="material-icons text-lg">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 2: Paid -->
-<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<div class="flex items-center">
-<div class="p-2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 mr-3">
-<span class="material-icons text-sm">receipt</span>
-</div>
-<div>
-<a class="text-sm font-medium text-primary hover:underline" href="#">#INV-2023-011</a>
-<p class="text-xs text-slate-500">Consultation Retainer</p>
-</div>
-</div>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Sep 01, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Sep 15, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
-                                    $8,450.00
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
-                                        Paid
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-<button class="text-slate-400 hover:text-primary transition-colors">
-<span class="material-icons text-lg">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 3: Paid -->
-<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<div class="flex items-center">
-<div class="p-2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 mr-3">
-<span class="material-icons text-sm">receipt</span>
-</div>
-<div>
-<a class="text-sm font-medium text-primary hover:underline" href="#">#INV-2023-010</a>
-<p class="text-xs text-slate-500">Q3 Hosting Services</p>
-</div>
-</div>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Aug 01, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Aug 15, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
-                                    $450.00
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
-                                        Paid
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-<button class="text-slate-400 hover:text-primary transition-colors">
-<span class="material-icons text-lg">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 4: Paid -->
-<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<div class="flex items-center">
-<div class="p-2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 mr-3">
-<span class="material-icons text-sm">receipt</span>
-</div>
-<div>
-<a class="text-sm font-medium text-primary hover:underline" href="#">#INV-2023-009</a>
-<p class="text-xs text-slate-500">SEO Optimization Pack</p>
-</div>
-</div>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Jul 12, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Jul 26, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
-                                    $2,500.00
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
-                                        Paid
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-<button class="text-slate-400 hover:text-primary transition-colors">
-<span class="material-icons text-lg">more_vert</span>
-</button>
-</td>
-</tr>
-<!-- Row 5: Pending -->
-<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
-<td class="px-6 py-4 whitespace-nowrap">
-<div class="flex items-center">
-<div class="p-2 rounded bg-orange-100 dark:bg-orange-900/20 text-orange-600 mr-3">
-<span class="material-icons text-sm">receipt_long</span>
-</div>
-<div>
-<a class="text-sm font-medium text-primary hover:underline" href="#">#INV-2023-008</a>
-<p class="text-xs text-slate-500">Initial Deposit</p>
-</div>
-</div>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Nov 01, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
-                                    Nov 15, 2023
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
-                                    $1,500.00
-                                </td>
-<td class="px-6 py-4 whitespace-nowrap">
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
-                                        Pending
-                                    </span>
-</td>
-<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-<button class="text-slate-400 hover:text-primary transition-colors">
-<span class="material-icons text-lg">more_vert</span>
-</button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Pagination -->
-<div class="bg-surface-light dark:bg-surface-dark px-6 py-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
-<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-<div>
-<p class="text-sm text-slate-700 dark:text-slate-400">
-                                Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">24</span> results
-                            </p>
-</div>
-<div>
-<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
-<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-medium text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700" href="#">
-<span class="sr-only">Previous</span>
-<span class="material-icons text-sm">chevron_left</span>
-</a>
-<a aria-current="page" class="z-10 bg-primary/10 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 1 </a>
-<a class="bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 2 </a>
-<a class="bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 3 </a>
-<span class="relative inline-flex items-center px-4 py-2 border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-400"> ... </span>
-<a class="bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 8 </a>
-<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-medium text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700" href="#">
-<span class="sr-only">Next</span>
-<span class="material-icons text-sm">chevron_right</span>
-</a>
-</nav>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-</body></html>
 
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row"
+    data-shell-active="clients" data-client-tab="invoices" data-shell-search="Search clients, projects..."
+    data-shell-user="Alex Morgan" data-shell-role="Owner"
+    data-shell-avatar="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uA--2p2ZLgGqn1CJ8YuC9DLhALyGXBvxRQknm9saIp1yj7jczFfVdJ3MfshAcagL_WWDcKKbu08HGsd53ZtZ08qi-hyKeFurs_7cNCq-2lFlt15g15skESGoXagUWO-LVT0WN6ZLd9xy-mkdQYkIjPEm8zL8eq6wNrzMBwk4KpAP5rk6MW_X2zgCYVUELCF6OBLBxiwW7QRIOGBFqjHZsMAbR6pEmf2u9lpzk8VLrJfua8CDBOCIQVDnaTVcpDR5a5Xh9H7XTkLA">
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+    <div id="app-sidebar-slot"></div>
+    <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+        <div id="app-header-slot"></div>
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <div class="max-w-7xl mx-auto">
+                <div id="client-details-topbar"></div>
+                <!-- Financial Summary Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <!-- Total Invoiced -->
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden group">
+                        <div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-primary/5 to-transparent">
+                        </div>
+                        <div class="relative z-10">
+                            <p class="text-sm font-medium text-slate-500 mb-1">Total Invoiced</p>
+                            <h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$42,590.00</h3>
+                            <div class="mt-4 flex items-center gap-2 text-sm text-slate-500">
+                                <span
+                                    class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold flex items-center gap-1">
+                                    <span class="material-icons text-[14px]">trending_up</span> +12%
+                                </span>
+                                <span>vs last year</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Outstanding -->
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-sm font-medium text-slate-500 mb-1">Outstanding Balance</p>
+                                <h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$3,200.00
+                                </h3>
+                            </div>
+                            <div class="p-2 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                                <span class="material-icons text-orange-500">pending_actions</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2">
+                            <div class="bg-orange-400 cd-progress-fill cd-w-15"></div>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-2">1 invoice pending payment</p>
+                    </div>
+                    <!-- Last Payment -->
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-sm font-medium text-slate-500 mb-1">Last Payment Received</p>
+                                <h3 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">$8,450.00
+                                </h3>
+                            </div>
+                            <div class="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                <span class="material-icons text-green-500">check_circle</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-sm text-slate-500">
+                            Received on <span class="font-semibold text-slate-700 dark:text-slate-300">Oct 12,
+                                2023</span> via <span class="font-semibold text-slate-700 dark:text-slate-300">Bank
+                                Transfer</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Invoices Table Section -->
+                <div
+                    class="bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm overflow-hidden">
+                    <!-- Toolbar -->
+                    <div
+                        class="p-5 border-b border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <h2 class="text-lg font-bold text-slate-900 dark:text-white">Invoice History</h2>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <span class="material-icons text-slate-400 text-lg">search</span>
+                                </span>
+                                <input
+                                    class="pl-10 pr-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent w-full sm:w-64"
+                                    placeholder="Search invoices..." type="text" />
+                            </div>
+                            <div class="flex gap-2">
+                                <button
+                                    class="px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 bg-white dark:bg-slate-800 transition-colors flex items-center gap-2">
+                                    <span class="material-icons text-lg">filter_list</span> Filter
+                                </button>
+                                <button type="button" data-project-modal-open="create-invoice"
+                                    class="px-4 py-2 bg-primary hover:bg-blue-600 text-white rounded-lg text-sm font-medium shadow-sm shadow-blue-200 dark:shadow-none transition-colors flex items-center gap-2">
+                                    <span class="material-icons text-sm">add</span> Create Invoice
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
+                            <thead class="bg-slate-50 dark:bg-slate-800/50">
+                                <tr>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">Invoice ID</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">Issue Date</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">Due Date</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">Amount</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">Status</th>
+                                    <th class="px-6 py-4 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider"
+                                        scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                class="bg-surface-light dark:bg-surface-dark divide-y divide-slate-200 dark:divide-slate-700">
+                                <!-- Row 1: Overdue -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="p-2 rounded bg-primary/10 text-primary mr-3">
+                                                <span class="material-icons text-sm">receipt</span>
+                                            </div>
+                                            <div>
+                                                <a class="text-sm font-medium text-primary hover:underline"
+                                                    href="#">#INV-2023-012</a>
+                                                <p class="text-xs text-slate-500">Website Redesign - Phase 1</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Oct 15, 2023
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        <span class="text-red-500 font-medium">Oct 30, 2023</span>
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
+                                        $3,200.00
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                                            Overdue
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-slate-400 hover:text-primary transition-colors">
+                                            <span class="material-icons text-lg">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 2: Paid -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="p-2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 mr-3">
+                                                <span class="material-icons text-sm">receipt</span>
+                                            </div>
+                                            <div>
+                                                <a class="text-sm font-medium text-primary hover:underline"
+                                                    href="#">#INV-2023-011</a>
+                                                <p class="text-xs text-slate-500">Consultation Retainer</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Sep 01, 2023
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Sep 15, 2023
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
+                                        $8,450.00
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-slate-400 hover:text-primary transition-colors">
+                                            <span class="material-icons text-lg">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 3: Paid -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="p-2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 mr-3">
+                                                <span class="material-icons text-sm">receipt</span>
+                                            </div>
+                                            <div>
+                                                <a class="text-sm font-medium text-primary hover:underline"
+                                                    href="#">#INV-2023-010</a>
+                                                <p class="text-xs text-slate-500">Q3 Hosting Services</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Aug 01, 2023
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Aug 15, 2023
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
+                                        $450.00
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-slate-400 hover:text-primary transition-colors">
+                                            <span class="material-icons text-lg">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 4: Paid -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div class="p-2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500 mr-3">
+                                                <span class="material-icons text-sm">receipt</span>
+                                            </div>
+                                            <div>
+                                                <a class="text-sm font-medium text-primary hover:underline"
+                                                    href="#">#INV-2023-009</a>
+                                                <p class="text-xs text-slate-500">SEO Optimization Pack</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Jul 12, 2023
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Jul 26, 2023
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
+                                        $2,500.00
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">
+                                            Paid
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-slate-400 hover:text-primary transition-colors">
+                                            <span class="material-icons text-lg">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Row 5: Pending -->
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex items-center">
+                                            <div
+                                                class="p-2 rounded bg-orange-100 dark:bg-orange-900/20 text-orange-600 mr-3">
+                                                <span class="material-icons text-sm">receipt_long</span>
+                                            </div>
+                                            <div>
+                                                <a class="text-sm font-medium text-primary hover:underline"
+                                                    href="#">#INV-2023-008</a>
+                                                <p class="text-xs text-slate-500">Initial Deposit</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Nov 01, 2023
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 dark:text-slate-300">
+                                        Nov 15, 2023
+                                    </td>
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900 dark:text-white">
+                                        $1,500.00
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300">
+                                            Pending
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <button class="text-slate-400 hover:text-primary transition-colors">
+                                            <span class="material-icons text-lg">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Pagination -->
+                    <div
+                        class="bg-surface-light dark:bg-surface-dark px-6 py-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                        <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                            <div>
+                                <p class="text-sm text-slate-700 dark:text-slate-400">
+                                    Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of
+                                    <span class="font-medium">24</span> results
+                                </p>
+                            </div>
+                            <div>
+                                <nav aria-label="Pagination"
+                                    class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+                                    <a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-medium text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700"
+                                        href="#">
+                                        <span class="sr-only">Previous</span>
+                                        <span class="material-icons text-sm">chevron_left</span>
+                                    </a>
+                                    <a aria-current="page"
+                                        class="z-10 bg-primary/10 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                        href="#"> 1 </a>
+                                    <a class="bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                        href="#"> 2 </a>
+                                    <a class="bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                        href="#"> 3 </a>
+                                    <span
+                                        class="relative inline-flex items-center px-4 py-2 border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-medium text-slate-700 dark:text-slate-400">
+                                        ... </span>
+                                    <a class="bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+                                        href="#"> 8 </a>
+                                    <a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-medium text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700"
+                                        href="#">
+                                        <span class="sr-only">Next</span>
+                                        <span class="material-icons text-sm">chevron_right</span>
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -20,6 +20,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Theme Configuration -->
+    <script src="assets/js/shared-project-create-modal.js"></script>
     <script src="assets/js/project_list.js"></script>
     <link href="assets/css/project_list.css" rel="stylesheet" />
     <link href="assets/css/common.css" rel="stylesheet" />
@@ -377,7 +378,9 @@
                                                 <span class="font-medium">100%</span>
                                             </div>
                                             <div class="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2">
-                                                <div class="project-progress-fill project-progress-100 project-progress-complete"></div>
+                                                <div
+                                                    class="project-progress-fill project-progress-100 project-progress-complete">
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
@@ -579,11 +582,13 @@
                             </section>
                             <section class="project-create-step" data-form-step="2">
                                 <div class="project-field">
-                                    <label for="project_client">Existing Client <span class="is-required">*</span></label>
+                                    <label for="project_client">Existing Client <span
+                                            class="is-required">*</span></label>
                                     <div class="project-input-icon">
                                         <span class="material-icons-outlined">search</span>
                                         <input id="project_client" name="project_client" type="text"
-                                            list="project-client-options" placeholder="Search for a client..." required />
+                                            list="project-client-options" placeholder="Search for a client..."
+                                            required />
                                     </div>
                                     <datalist id="project-client-options">
                                         <option value="Acme Corp"></option>
