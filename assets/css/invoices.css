@@ -1,0 +1,27 @@
+.invoice-status-paid {
+  background: #e6f4ea;
+  color: #1e7e34;
+}
+
+.invoice-status-pending {
+  background: #fff4e5;
+  color: #b76e00;
+}
+
+.invoice-status-overdue {
+  background: #fce8e8;
+  color: #d93025;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-area {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}

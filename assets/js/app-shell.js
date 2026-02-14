@@ -2,7 +2,7 @@ const APP_SHELL_NAV = [
     { key: 'dashboard', href: 'main_dashboard.html', icon: 'dashboard', label: 'Dashboard' },
     { key: 'projects', href: 'project_list.html', icon: 'folder_open', label: 'Projects' },
     { key: 'clients', href: 'client_management.html', icon: 'people_outline', label: 'Clients' },
-    { key: 'invoices', href: '#', icon: 'receipt_long', label: 'Invoices' },
+    { key: 'invoices', href: 'global_invoices_list_overview.html', icon: 'receipt_long', label: 'Invoices' },
     { key: 'reports', href: 'business_analytics.html', icon: 'analytics', label: 'Reports' },
     { key: 'activity', href: 'activity_log.html', icon: 'history', label: 'Activity Log' },
 ];
@@ -49,6 +49,8 @@ function inferActiveKey(pathname) {
         'project_list.html': 'projects',
         'project_details.html': 'projects',
         'client_management.html': 'clients',
+        'global_invoices_list_overview.html': 'invoices',
+        'invoice_detailed_view.html': 'invoices',
         'business_analytics.html': 'reports',
         'activity_log.html': 'activity',
         'settings-modules.html': 'settings',

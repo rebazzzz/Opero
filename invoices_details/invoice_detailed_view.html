@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invoice Detailed View</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="../assets/css/common.css" rel="stylesheet" />
+  <link href="../assets/css/invoices.css" rel="stylesheet" />
+  <script src="../assets/js/app-shell.js"></script>
+  <script src="../assets/js/invoices-topbar.js"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#197fe6",
+            "background-light": "#f6f7f8",
+            "background-dark": "#111921",
+          },
+          fontFamily: {
+            display: ["Manrope", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display h-screen overflow-hidden flex flex-col md:flex-row" data-shell-active="invoices" data-invoice-view="detail" data-invoice-number="INV-2023-0042" data-invoice-status="PAID" data-shell-search="Search invoices, clients..." data-shell-user="Alex Rivers" data-shell-role="Business Owner">
+  <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+  <div id="app-sidebar-slot"></div>
+
+  <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+    <div id="app-header-slot" class="no-print"></div>
+    <div class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+      <div class="max-w-5xl mx-auto">
+        <div id="invoice-topbar-slot"></div>
+
+        <div class="print-area bg-white dark:bg-slate-900/50 shadow-xl shadow-slate-200/50 dark:shadow-none rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800">
+          <div class="p-8 sm:p-12">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-12 gap-8">
+              <div>
+                <div class="bg-primary w-12 h-12 rounded-xl flex items-center justify-center mb-4"><span class="material-icons text-white text-2xl">account_balance</span></div>
+                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Skyline Consulting</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-1 max-w-xs">123 Business Avenue, Suite 400<br/>San Francisco, CA 94107<br/>contact@skyline.io</p>
+              </div>
+              <div class="text-right md:text-right">
+                <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-1">Status</p>
+                <p class="text-xl font-bold text-emerald-600 mb-6">FULLY PAID</p>
+                <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+                  <div class="text-slate-400">Invoice Date</div><div class="font-semibold">Oct 12, 2023</div>
+                  <div class="text-slate-400">Due Date</div><div class="font-semibold">Oct 26, 2023</div>
+                  <div class="text-slate-400">P.O. Number</div><div class="font-semibold">PO-8821</div>
+                </div>
+              </div>
+            </div>
+            <div class="h-px bg-slate-100 dark:bg-slate-800 mb-10"></div>
+
+            <div class="mb-12">
+              <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-4">Bill To</p>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Global Tech Solutions Inc.</h3>
+              <p class="text-slate-500 dark:text-slate-400 mt-1">Attn: Sarah Jenkins<br/>889 Innovation Way<br/>Austin, TX 78701<br/>billing@globaltech.com</p>
+            </div>
+
+            <div class="overflow-x-auto mb-10">
+              <table class="w-full text-left">
+                <thead>
+                  <tr class="border-b border-slate-200 dark:border-slate-800">
+                    <th class="pb-4 font-bold text-sm text-slate-400 uppercase tracking-wider">Description</th>
+                    <th class="pb-4 font-bold text-sm text-slate-400 uppercase tracking-wider text-center w-24">Qty</th>
+                    <th class="pb-4 font-bold text-sm text-slate-400 uppercase tracking-wider text-right w-32">Rate</th>
+                    <th class="pb-4 font-bold text-sm text-slate-400 uppercase tracking-wider text-right w-32">Amount</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 dark:divide-slate-800/50">
+                  <tr><td class="py-6"><p class="font-bold text-slate-900 dark:text-white">Cloud Infrastructure Migration</p><p class="text-sm text-slate-500 mt-1">Full migration of legacy servers to AWS environment including security hardening.</p></td><td class="py-6 text-center text-slate-600 dark:text-slate-300">40</td><td class="py-6 text-right text-slate-600 dark:text-slate-300">$150.00</td><td class="py-6 text-right font-semibold text-slate-900 dark:text-white">$6,000.00</td></tr>
+                  <tr><td class="py-6"><p class="font-bold text-slate-900 dark:text-white">Security Audit & Compliance</p><p class="text-sm text-slate-500 mt-1">Standard SOC2 readiness assessment and vulnerability scanning.</p></td><td class="py-6 text-center text-slate-600 dark:text-slate-300">1</td><td class="py-6 text-right text-slate-600 dark:text-slate-300">$2,450.00</td><td class="py-6 text-right font-semibold text-slate-900 dark:text-white">$2,450.00</td></tr>
+                  <tr><td class="py-6"><p class="font-bold text-slate-900 dark:text-white">Monthly Maintenance Retainer</p><p class="text-sm text-slate-500 mt-1">October 2023 support services.</p></td><td class="py-6 text-center text-slate-600 dark:text-slate-300">1</td><td class="py-6 text-right text-slate-600 dark:text-slate-300">$1,200.00</td><td class="py-6 text-right font-semibold text-slate-900 dark:text-white">$1,200.00</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="flex justify-end">
+              <div class="w-full sm:w-72 space-y-3">
+                <div class="flex justify-between text-sm"><span class="text-slate-500 dark:text-slate-400">Subtotal</span><span class="font-medium text-slate-900 dark:text-white">$9,650.00</span></div>
+                <div class="flex justify-between text-sm"><span class="text-slate-500 dark:text-slate-400">Sales Tax (8.5%)</span><span class="font-medium text-slate-900 dark:text-white">$820.25</span></div>
+                <div class="h-px bg-slate-200 dark:bg-slate-700 my-2"></div>
+                <div class="flex justify-between items-center pt-2"><span class="text-lg font-bold text-slate-900 dark:text-white">Total</span><span class="text-2xl font-extrabold text-primary">$10,470.25</span></div>
+              </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-slate-100 dark:border-slate-800">
+              <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-2">Payment Terms</p>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Please pay within 14 days of receiving this invoice. Payments can be made via Bank Transfer or Credit Card. Late payments may be subject to a 1.5% monthly interest fee.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 no-print">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center"><span class="material-icons mr-2 text-primary">history</span>Payment History</h3>
+          <div class="bg-white dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-sm">
+            <div class="divide-y divide-slate-100 dark:divide-slate-800">
+              <div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400"><span class="material-icons">check_circle</span></div>
+                  <div class="ml-4"><p class="font-bold text-slate-900 dark:text-white">Payment Received</p><p class="text-sm text-slate-500 dark:text-slate-400">Via ACH Transfer • Ref: #TXN-99201</p></div>
+                </div>
+                <div class="flex items-center justify-between sm:justify-end sm:space-x-8">
+                  <div class="text-left sm:text-right"><p class="font-semibold text-slate-900 dark:text-white">$10,470.25</p><p class="text-xs text-slate-400">Oct 24, 2023 • 02:14 PM</p></div>
+                  <button class="text-slate-400 hover:text-primary transition-colors"><span class="material-icons">receipt_long</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+
+
