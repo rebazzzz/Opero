@@ -25,7 +25,7 @@ export const requireFeatureModule = (moduleName: FeatureModuleName) => {
     });
 
     if (!moduleConfig?.enabled) {
-      next(new AppError(403, `${moduleName} feature is disabled for this organization`, "FEATURE_LOCKED"));
+      next(new AppError(403, "This feature requires plan upgrade", "FEATURE_LOCKED"));
       return;
     }
 
