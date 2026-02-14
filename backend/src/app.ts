@@ -5,6 +5,7 @@ import { requestLogger } from "./middlewares/request-logger.js";
 import { authRoutes } from "./routes/auth.routes.js";
 import { clientRoutes } from "./routes/client.routes.js";
 import { healthRoutes } from "./routes/health.routes.js";
+import { invoiceRoutes } from "./routes/invoice.routes.js";
 import { projectRoutes } from "./routes/project.routes.js";
 
 export const app = express();
@@ -18,6 +19,7 @@ app.use("/health", healthRoutes);
 app.use("/auth", authRoutes);
 app.use("/clients", clientRoutes);
 app.use("/projects", projectRoutes);
+app.use("/invoices", invoiceRoutes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
